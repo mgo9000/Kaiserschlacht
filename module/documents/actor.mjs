@@ -106,7 +106,7 @@ export class KaiserschlachtActor extends Actor {
 
     // Add skillPoints for easier access, or fall back to 0.
     if (data.attributes.skillPoints) {
-      data.lvl = data.attributes.skillPoints.value ?? 0;
+      data.skillPoints = data.attributes.skillPoints.value ?? 0;
     }
   }
 
