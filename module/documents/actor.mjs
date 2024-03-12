@@ -49,14 +49,24 @@ export class KaiserschlachtActor extends Actor {
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(systemData.abilities)) {
-      // Calculate the modifier using d20 rules.
-      let dicepool = ["1d4","1d4","1d6","1d8","1d8+1d4","1d8+1d6","2d8"];
-      ability.mod = dicepool[ability.value];
+      // Calculate the modifier using dice pool rules.
+      let dicepool = ["1d4", "1d4", "1d6", "1d8", "1d8+1d4", "1d8+1d6", "2d8"];
+      if (ability.value > 6) {
+        ability.mod = dicepool[6];
+      }
+      else {
+        ability.mod = dicepool[ability.value];
+      }
+
     }
     for (let [key, skill] of Object.entries(systemData.skills)) {
-      // Calculate the modifier using d20 rules.
-      let dicepool = ["1d4","1d4","1d6","1d8","1d8+1d4","1d8+1d6","2d8"];
-      skill.mod = dicepool[skill.value];
+      let dicepool = ["1d4", "1d4", "1d6", "1d8", "1d8+1d4", "1d8+1d6", "2d8"];
+      if (skill.value > 6) {
+        skill.mod = dicepool[6];
+      }
+      else {
+        skill.mod = dicepool[skill.value];
+      }
     }
   }
 
