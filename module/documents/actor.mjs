@@ -56,7 +56,7 @@ export class KaiserschlachtActor extends Actor {
     for (let [key, skill] of Object.entries(systemData.skills)) {
       // Calculate the modifier using d20 rules.
       let dicepool = ["1d4","1d4","1d6","1d8","1d8+1d4","1d8+1d6","2d8"];
-      skill.mod = dicepool[skills.value];
+      skill.mod = dicepool[skill.value];
     }
   }
 
