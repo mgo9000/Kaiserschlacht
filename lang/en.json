@@ -4,7 +4,21 @@
       "Physique": { "long": "Physique", "abbr": "physique" },
       "Finesse": { "long": "Finesse", "abbr": "finesse" },
       "Wits": { "long": "Wits", "abbr": "wits" },
-      "Presence": { "long": "Presence", "abbr": "presence" }
+      "Presence": { "long": "Presence", "abbr": "presence" },
+      "ClassStat": { "long": "ClassStat", "abbr": "classStat" }
+    },
+    "Skill": {
+      "brawl": { "long": "Brawl", "abbr": "brawl" },
+      "athletics": { "long": "Athletics", "abbr": "athletics" },
+      "smash": { "long": "Smash", "abbr": "smash" },
+      "shooting": { "long": "Shooting", "abbr": "shooting" },
+      "acrobatics": { "long": "Acrobatics", "abbr": "acrobatics" },
+      "knowledgeMen": { "long": "Knowledge of Men", "abbr": "knowledgeMen" },
+      "knowledgeMachines": { "long": "Knowledge of Machines", "abbr": "knowledgeMachines" },
+      "knowledgeMagic": { "long": "Knowledge of Magic", "abbr": "knowledgeMagic" },
+      "empathy": { "long": "Empathy", "abbr": "empathy" },
+      "manipulation": { "long": "Manipulation", "abbr": "manipulation" },
+      "intimidation": { "long": "Intimidation", "abbr": "intimidation" }
     },
     "SheetLabels": {
       "Actor": "Kaiserschlacht Actor Sheet",
