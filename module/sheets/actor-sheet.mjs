@@ -176,9 +176,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
 
     // Rollable abilities.
     html.on('click', '.rollable', this._onRoll.bind(this));
-    // Rollable abilities with difficulty.
-    html.on('click', '.diffrollable', this._onDiffRoll.bind(this));
-
+   
     // Drag events for macros.
     if (this.actor.isOwner) {
       let handler = (ev) => this._onDragStart(ev);
@@ -226,38 +224,6 @@ export class KaiserschlachtActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-
-    // Handle item rolls.
-    if (dataset.rollType) {
-      if (dataset.rollType == 'item') {
-        const itemId = element.closest('.item').dataset.itemId;
-        const item = this.actor.items.get(itemId);
-        if (item) return item.roll();
-      }
-    }
-
-    // Handle rolls that supply the formula directly.
-    if (dataset.roll) {
-      let label = dataset.label ? `${dataset.label}` : '';
-      let roll = new Roll(dataset.roll, this.actor.getRollData());
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
-      });
-      return roll;
-    }
-  }
-   /**
-   * Handle difficulty-dependent rolls (integrate the two in the future lol).
-   * @param {Event} event   The originating click event
-   * @private
-   */
-  _onDiffRoll(event) {
-    event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
-    let label = dataset.label ? `${dataset.label}` : '';
     function diffRoll(difficulty) {
       let adjustedRoll = dataset.roll.concat(difficulty);
       roll = new Roll(adjustedRoll, this.actor.getRollData());
@@ -268,44 +234,61 @@ export class KaiserschlachtActorSheet extends ActorSheet {
       });
       return roll;
     }
-    if (dataset.roll) {
-      let d = new Dialog({
-        title: "Test Dialog",
-        content: "<p>Select difficulty die:</p>",
-        buttons: {
-          one: {
-            icon: '<i class="roll die d4"></i>',
-            label: "d4",
-            callback: () => diffRoll("- 1d4")
+    // Handle item rolls.
+    if (dataset.rollType) {
+      if (dataset.rollType == 'item') {
+        const itemId = element.closest('.item').dataset.itemId;
+        const item = this.actor.items.get(itemId);
+        if (item) return item.roll();
+      }
+      else if (dataset.rollType == 'diff'){
+        let d = new Dialog({
+          title: "Test Dialog",
+          content: "<p>Select difficulty die:</p>",
+          buttons: {
+            one: {
+              icon: '<i class="roll die d4"></i>',
+              label: "d4",
+              callback: () => diffRoll("- 1d4")
+            },
+            two: {
+              icon: '<i class="roll die d6"></i>',
+              label: "d6",
+              callback: () => diffRoll("- 1d6")
+            },
+            three: {
+              icon: '<i class="roll die d8"></i>',
+              label: "d8",
+              callback: () => diffRoll("- 1d8")
+            },
+            four: {
+              icon: '<i class="roll die d10"></i>',
+              label: "d10",
+              callback: () => ddiffRoll("- 1d10")
+            },
+            five: {
+              icon: '<i class="roll die d12"></i>',
+              label: "d12",
+              callback: () => diffRoll("- 1d12")
+            }
           },
-          two: {
-            icon: '<i class="roll die d6"></i>',
-            label: "d6",
-            callback: () => diffRoll("- 1d6")
-          },
-          three: {
-            icon: '<i class="roll die d8"></i>',
-            label: "d8",
-            callback: () => diffRoll("- 1d8")
-          },
-          four: {
-            icon: '<i class="roll die d10"></i>',
-            label: "d10",
-            callback: () => ddiffRoll("- 1d10")
-          },
-          five: {
-            icon: '<i class="roll die d12"></i>',
-            label: "d12",
-            callback: () => diffRoll("- 1d12")
-          }
-        },
-        default: "one",
-        render: html => console.log("Register interactivity in the rendered dialog"),
-        close: html => console.log("This always is logged no matter which option is chosen")
+          default: "one",
+          render: html => console.log("Register interactivity in the rendered dialog"),
+          close: html => console.log("This always is logged no matter which option is chosen")
+        });
+        d.render();
+      }
+    }
+    else if (dataset.roll) {
+      let label = dataset.label ? `${dataset.label}` : '';
+      let roll = new Roll(dataset.roll, this.actor.getRollData());
+      roll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: label,
+        rollMode: game.settings.get('core', 'rollMode'),
       });
-      d.render();
-
-
+      return roll;
     }
   }
+  
 }
