@@ -2,6 +2,9 @@ import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
+import {
+  diffRoll,
+} from '../helpers/dice-dialogue.js';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -224,16 +227,8 @@ export class KaiserschlachtActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    function diffRoll(difficulty) {
-      let adjustedRoll = dataset.roll.concat(difficulty);
-      roll = new Roll(adjustedRoll, this.actor.getRollData());
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
-      });
-      return roll;
-    }
+    let label = dataset.label ? `${dataset.label}` : '';
+    let roll = new Roll(dataset.roll, this.actor.getRollData());
     // Handle item rolls.
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
@@ -242,46 +237,11 @@ export class KaiserschlachtActorSheet extends ActorSheet {
         if (item) return item.roll();
       }
       else if (dataset.rollType == 'diff'){
-        let d = new Dialog({
-          title: "Test Dialog",
-          content: "<p>Select difficulty die:</p>",
-          buttons: {
-            one: {
-              icon: '<i class="roll die d4"></i>',
-              label: "d4",
-              callback: diffRoll("- 1d4").bind(this)
-            },
-            two: {
-              icon: '<i class="roll die d6"></i>',
-              label: "d6",
-              callback: diffRoll("- 1d6").bind(this)
-            },
-            three: {
-              icon: '<i class="roll die d8"></i>',
-              label: "d8",
-              callback: diffRoll("- 1d8").bind(this)
-            },
-            four: {
-              icon: '<i class="roll die d10"></i>',
-              label: "d10",
-              callback: diffRoll("- 1d10").bind(this)
-            },
-            five: {
-              icon: '<i class="roll die d12"></i>',
-              label: "d12",
-              callback: diffRoll("- 1d12").bind(this)
-            }
-          },
-          default: "one",
-          render: html => console.log("Register interactivity in the rendered dialog"),
-          close: html => console.log("This always is logged no matter which option is chosen")
-        });
-        d.render(true).bind(this);
+        diffRoll(event).bind(this);
       }
     }
     else if (dataset.roll) {
-      let label = dataset.label ? `${dataset.label}` : '';
-      let roll = new Roll(dataset.roll, this.actor.getRollData());
+      
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
