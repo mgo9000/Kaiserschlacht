@@ -63,8 +63,8 @@ Hooks.once('init', function () {
 /* -------------------------------------------- */
 
 // If you need to add Handlebars helpers, here is a useful example:
-Handlebars.registerHelper('toLowerCase', function (physique) {
-  return physique.toLowerCase();
+Handlebars.registerHelper('toLowerCase', function (str) {
+  return str.toLowerCase();
 });
 
 /* -------------------------------------------- */
