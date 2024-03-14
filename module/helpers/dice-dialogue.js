@@ -32,7 +32,7 @@ const diffMod = await Dialog.wait({
       
     },
   });
-    let amendedFormula = (formula + diffmod);
+    let amendedFormula = (formula + diffMod);
     let label = labelfromSheet;
       let roll = new Roll(amendedFormula, actorObject.getRollData());
       roll.toMessage({
