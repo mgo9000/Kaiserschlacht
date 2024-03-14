@@ -276,7 +276,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
           render: html => console.log("Register interactivity in the rendered dialog"),
           close: html => console.log("This always is logged no matter which option is chosen")
         });
-        d.render(true);
+        d.render(true).bind(this);
       }
     }
     else if (dataset.roll) {
