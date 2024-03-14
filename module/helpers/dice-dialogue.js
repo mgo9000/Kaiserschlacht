@@ -7,8 +7,8 @@ export async function diffRoll(event){
 const element = event.currentTarget;
 const dataset = element.dataset;
 const diffMod = await Dialog.wait({
-    title: "A custom dialog title",
-    content: form,
+    title: "Difficulty Dialog",
+    content: "Select the difficulty die.",
     buttons: {
         one: { icon: '<i class="roll die d4"></i>',
         label: "d4", callback: () => {
