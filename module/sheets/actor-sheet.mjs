@@ -224,54 +224,44 @@ export class KaiserschlachtActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    let d = new Dialog({
-      title: "Test Dialog",
-      content: "<p>Select difficulty die:</p>",
-      buttons: {
-       one: {
-        icon: '<i class="fas fa-check"></i>',
-        label: "d4",
-        callback: () => dataset.roll.concat(" -1d4")
-       },
-       two: {
-        icon: '<i class="fas fa-times"></i>',
-        label: "d6",
-        callback: () => dataset.roll.concat(" -1d6")
-       },
-       three: {
-        icon: '<i class="fas fa-check"></i>',
-        label: "d8",
-        callback: () => dataset.roll.concat(" -1d8")
-       },
-       four: {
-        icon: '<i class="fas fa-times"></i>',
-        label: "d10",
-        callback: () => dataset.roll.concat(" -1d10")
-       },
-       five: {
-        icon: '<i class="fas fa-check"></i>',
-        label: "d12",
-        callback: () => dataset.roll.concat(" -1d12")
-       }
-      },
-      default: "one",
-      render: html => console.log("Register interactivity in the rendered dialog"),
-      close: html => console.log("This always is logged no matter which option is chosen")
-     });
-     d.render(true);
-     
-    // Handle item rolls.
-    if (dataset.rollType) {
-      if (dataset.rollType == 'item') {
-        const itemId = element.closest('.item').dataset.itemId;
-        const item = this.actor.items.get(itemId);
-        if (item) return item.roll();
-      }
-    }
-
+    
     // Handle rolls from the character sheet,
     if (dataset.roll) {
-
+      let d = new Dialog({
+        title: "Test Dialog",
+        content: "<p>Select difficulty die:</p>",
+        buttons: {
+         one: {
+          icon: '<i class="fas fa-check"></i>',
+          label: "d4",
+          callback: () => dataset.roll.concat(" -1d4")
+         },
+         two: {
+          icon: '<i class="fas fa-times"></i>',
+          label: "d6",
+          callback: () => dataset.roll.concat(" -1d6")
+         },
+         three: {
+          icon: '<i class="fas fa-check"></i>',
+          label: "d8",
+          callback: () => dataset.roll.concat(" -1d8")
+         },
+         four: {
+          icon: '<i class="fas fa-times"></i>',
+          label: "d10",
+          callback: () => dataset.roll.concat(" -1d10")
+         },
+         five: {
+          icon: '<i class="fas fa-check"></i>',
+          label: "d12",
+          callback: () => dataset.roll.concat(" -1d12")
+         }
+        },
+        default: "one",
+        render: html => console.log("Register interactivity in the rendered dialog"),
+        close: html => console.log("This always is logged no matter which option is chosen")
+       });
+       d.render(true);
       let label = dataset.label ? `${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
