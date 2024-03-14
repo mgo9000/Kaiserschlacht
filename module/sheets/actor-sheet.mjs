@@ -249,27 +249,27 @@ export class KaiserschlachtActorSheet extends ActorSheet {
             one: {
               icon: '<i class="roll die d4"></i>',
               label: "d4",
-              callback: () => diffRoll("- 1d4")
+              callback: diffRoll("- 1d4")
             },
             two: {
               icon: '<i class="roll die d6"></i>',
               label: "d6",
-              callback: () => diffRoll("- 1d6")
+              callback: diffRoll("- 1d6")
             },
             three: {
               icon: '<i class="roll die d8"></i>',
               label: "d8",
-              callback: () => diffRoll("- 1d8")
+              callback: diffRoll("- 1d8")
             },
             four: {
               icon: '<i class="roll die d10"></i>',
               label: "d10",
-              callback: () => ddiffRoll("- 1d10")
+              callback: diffRoll("- 1d10")
             },
             five: {
               icon: '<i class="roll die d12"></i>',
               label: "d12",
-              callback: () => diffRoll("- 1d12")
+              callback: diffRoll("- 1d12")
             }
           },
           default: "one",
