@@ -1,11 +1,5 @@
-  /**
-   * Handle clickable rolls.
-   * @param {Event} event   The originating click event
-   * @private
-   */
-export async function diffRoll(event){
-const element = event.currentTarget;
-const dataset = element.dataset;
+
+export async function diffRoll(formula, actorObject){
 const diffMod = await Dialog.wait({
     title: "Difficulty Dialog",
     content: "Select the difficulty die.",
@@ -38,10 +32,10 @@ const diffMod = await Dialog.wait({
       
     },
   });
-  let label = dataset.label ? `${dataset.label}` : '';
-      let roll = new Roll(dataset.roll.concat(diffMod), this.actor.getRollData());
+  
+      let roll = new Roll(formula.concat(diffMod), actorObject.getRollData());
       roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        speaker: ChatMessage.getSpeaker({ actor: actorObject }),
         flavor: label,
         rollMode: game.settings.get('core', 'rollMode'),
       });

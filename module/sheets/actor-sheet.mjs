@@ -237,7 +237,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
         if (item) return item.roll();
       }
       else if (dataset.rollType == 'diff'){
-        diffRoll(event);
+        diffRoll(dataset.roll, this.actor);
       }
     }
     else if (dataset.roll) {
