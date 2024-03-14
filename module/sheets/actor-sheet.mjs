@@ -248,6 +248,11 @@ export class KaiserschlachtActorSheet extends ActorSheet {
       return roll;
     }
   }
+   /**
+   * Handle difficulty-dependent rolls (integrate the two in the future lol).
+   * @param {Event} event   The originating click event
+   * @private
+   */
   _onDiffRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
