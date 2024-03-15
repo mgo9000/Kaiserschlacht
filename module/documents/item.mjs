@@ -44,12 +44,28 @@ export class KaiserschlachtItem extends Item {
 
     // If there's no roll data, send a chat message.
     if (!this.system.formula) {
-      ChatMessage.create({
-        speaker: speaker,
-        rollMode: rollMode,
-        flavor: label,
-        content: item.system.description ?? '',
-      });
+      if (this.system.reload) {
+        // Retrieve roll data.
+        const rollData = this.getRollData();
+
+        // Invoke the roll and submit it to chat.
+        const roll = new Roll(rollData.reload, rollData);
+        // If you need to store the value first, uncomment the next line.
+        // const result = await roll.evaluate();
+        roll.toMessage({
+          speaker: speaker,
+          rollMode: rollMode,
+          flavor: label,
+        });
+        return roll;
+      }
+      else
+        ChatMessage.create({
+          speaker: speaker,
+          rollMode: rollMode,
+          flavor: label,
+          content: item.system.description ?? '',
+        });
     }
     // Otherwise, create a roll and send a chat message from it.
     else {
