@@ -39,7 +39,7 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "https://github.com/mgo9000/Kaiserschlacht/blob/main/system.json",
+  "manifest": "https://raw.githubusercontent.com/mgo9000/kaiserschlacht/master/system.json",
   "download": "https://github.com/mgo9000/Kaiserschlacht/archive/refs/heads/main.zip",
   "background": "systems/kaiserschlacht/assets/anvil-impact.png",
   "gridDistance": 5,
