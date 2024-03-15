@@ -129,7 +129,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["item", "feature", "spell", "weapon"],
     "templates": {
       "base": {
         "description": ""
@@ -139,7 +139,7 @@
       "templates": ["base"],
       "quantity": 1,
       "weight": 0,
-      "formula": "d20 + @physique.mod + ceil(@lvl / 2)"
+      "formula": "1d6"
     },
     "feature": {
       "templates": ["base"]
@@ -147,6 +147,14 @@
     "spell": {
       "templates": ["base"],
       "spellLevel": 1
+    },
+    "weapon": {
+      "templates": ["base"],
+      "damage": "",
+      "range":"",
+      "traits":[],
+      "reload": "1d6"
+
     }
   }
 }

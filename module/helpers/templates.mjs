@@ -10,6 +10,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/kaiserschlacht/templates/actor/parts/actor-items.hbs',
     'systems/kaiserschlacht/templates/actor/parts/actor-spells.hbs',
     'systems/kaiserschlacht/templates/actor/parts/actor-effects.hbs',
+    'systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs',
     // Item partials
     'systems/kaiserschlacht/templates/item/parts/item-effects.hbs',
   ]);

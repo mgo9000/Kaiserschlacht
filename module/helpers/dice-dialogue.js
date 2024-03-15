@@ -4,29 +4,29 @@ const diffMod = await Dialog.wait({
     title: "Difficulty Dialog",
     content: "Select the difficulty die.",
     buttons: {
-        one: { icon: '<i class="roll die d4"></i>',
+        one: { icon: '<class="roll die d4">',
         label: "d4", callback: () => {
-            const diffMod = " - 1d4"
+            const diffMod = " - 1d4[difficulty]"
             return diffMod;
       }},
-      two: { icon: '<i class="roll die d6"></i>',
+      two: { icon: '<class="roll die d6">',
         label: "d6", callback: () => {
-            const diffMod = " - 1d6"
+            const diffMod = " - 1d6[difficulty]"
             return diffMod;
       }},
-      three: { icon: '<i class="roll die d8"></i>',
+      three: { icon: '<class="roll die d8">',
         label: "d8", callback: () => {
-            const diffMod = " - 1d8"
+            const diffMod = " - 1d8[difficulty]"
             return diffMod;
       }},
-      four: { icon: '<i class="roll die d6"></i>',
+      four: { icon: '<class="roll die d10">',
         label: "d10", callback: () => {
-            const diffMod = " - 1d10"
+            const diffMod = " - 1d10[difficulty]"
             return diffMod;
       }},
-      five: { icon: '<i class="roll die d6"></i>',
+      five: { icon: '<class="roll die d12">',
         label: "d12", callback: () => {
-            const diffMod = " - 1d12"
+            const diffMod = " - 1d12[difficulty]"
             return diffMod;
       }},
       

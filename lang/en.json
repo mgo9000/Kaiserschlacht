@@ -29,6 +29,13 @@
       "Spell": {
         "SpellLVL": "Level {level} Spells",
         "AddLVL": "Add LVL {level}"
+      },
+      "Weapon":{
+        "damage": "Damage",
+        "range": "Range",
+        "traits": "Traits",
+        "reload": "Reload" 
+
       }
     },
     "Effect": {
@@ -48,7 +55,8 @@
     "Item": {
       "item": "Item",
       "feature": "Feature",
-      "spell": "Spell"
+      "spell": "Spell",
+      "weapon": "Weapon"
     }
   }
 }
