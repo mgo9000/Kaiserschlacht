@@ -49,7 +49,7 @@ export class KaiserschlachtItem extends Item {
         const rollData = this.getRollData();
 
         // Invoke the roll and submit it to chat.
-        const roll = new Roll(rollData.reload, rollData);
+        const roll = new Roll("1d6", rollData);
         // If you need to store the value first, uncomment the next line.
         // const result = await roll.evaluate();
         roll.toMessage({
