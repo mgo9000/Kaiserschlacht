@@ -40,7 +40,7 @@ export class KaiserschlachtItem extends Item {
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
-    const label = `[${item.type}] ${item.name}`;
+    const label = `${item.name}`;
 
     // If there's no roll data, send a chat message.
     if (!this.system.formula) {
@@ -55,7 +55,7 @@ export class KaiserschlachtItem extends Item {
         roll.toMessage({
           speaker: speaker,
           rollMode: rollMode,
-          flavor: label,
+          flavor: "Reload: " + rollData.reload,
         });
         return roll;
       }
