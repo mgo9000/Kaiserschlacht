@@ -244,7 +244,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
         if (item) return item.roll();
       }
       else if (dataset.rollType == 'reload') {
-        const itemId = element.closest('.weapon').dataset.itemId;
+        const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
       }
