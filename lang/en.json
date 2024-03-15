@@ -34,7 +34,8 @@
         "damage": "Damage",
         "range": "Range",
         "traits": "Traits",
-        "reload": "Reload" 
+        "reload": "Reload",
+        "equipped": "Equipped"
 
       }
     },
