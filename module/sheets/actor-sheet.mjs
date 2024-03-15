@@ -21,7 +21,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
         {
           navSelector: '.sheet-tabs',
           contentSelector: '.sheet-body',
-          initial: 'features',
+          initial: 'actions',
         },
       ],
     });
