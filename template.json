@@ -154,7 +154,8 @@
       "range":"",
       "traits":"",
       "reload": "1+",
-      "type":""
+      "type":"",
+      "equipped": false
 
     }
   }

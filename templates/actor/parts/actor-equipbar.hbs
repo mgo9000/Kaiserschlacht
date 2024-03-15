@@ -16,6 +16,8 @@
       </a>
     </div>
   </li>
+
+  {{#if equipped}}
   {{#each weapons as |item id|}}
     <li class='item flexrow' data-item-id='{{item._id}}'>
       <div class='item-name'>
@@ -36,7 +38,6 @@
       <div class='item-range item-prop'>{{item.system.range}}</div>
       <div class='item-traits item-prop'>{{item.system.traits}}</div>
       <div class='item-controls'>
-        <input type="checkbox" name="system.equipped" value="{{item.system.equipped}}" data-dtype="Boolean"/></input>
         <a
           class='item-control item-edit'
           title='{{localize "DOCUMENT.Update" type='weapon'}}'
@@ -52,4 +53,5 @@
       </div>
     </li>
   {{/each}}
+  {{/if}}
 </ol>
