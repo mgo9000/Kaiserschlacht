@@ -1,10 +1,10 @@
 <ol class='items-list'>
   <li class='item flexrow items-header'>
     <div class='item-name'>{{localize 'Name'}}</div>
-    <div class='item-name'>{{localize 'Damage'}}</div>
-    <div class='item-name'>{{localize 'Traits'}}</div>
-    <div class='item-name'>{{localize 'Range'}}</div>
-    <div class='item-name'>{{localize 'Reload'}}</div>
+    <div class='item-formula'>{{localize 'Damage'}}</div>
+    <div class='item-formula'>{{localize 'Reload'}}</div>
+    <div class='item-formula'>{{localize 'Range'}}</div>
+    <div class='item-formula'>{{localize 'Traits'}}</div>
     <div class='item-controls'>
       <a
         class='item-control item-create'
@@ -31,8 +31,8 @@
         </div>
         <h4>{{item.name}}</h4>
       </div>
-      <div class='item-formula item-prop'>{{item.system.reload}}</div>
       <div class='item-damage item-prop'>{{item.system.damage}}</div>
+      <div class='item-formula item-prop'>{{item.system.reload}}</div>
       <div class='item-range item-prop'>{{item.system.range}}</div>
       <div class='item-traits item-prop'>{{item.system.traits}}</div>
       <div class='item-controls'>
