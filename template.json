@@ -152,7 +152,7 @@
       "templates": ["base"],
       "damage": "",
       "range":"",
-      "traits":[],
+      "traits":"",
       "reload": "1d6"
 
     }
