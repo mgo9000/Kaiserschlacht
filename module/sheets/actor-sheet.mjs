@@ -158,7 +158,16 @@ export class KaiserschlachtActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data('itemId'));
       item.sheet.render(true);
     });
-
+    // toggle item equip
+    html.on('click', '.equip-toggle', (ev) => {
+      const li = $(ev.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
+      if (item.equipped)
+      {item.update({ equipped: true });
+    }
+    else{item.update({ equipped: false });}
+      
+    });
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
