@@ -49,7 +49,7 @@
     <a class="item" data-tab="features">Features</a>
     <a class="item" data-tab="description">Description</a>
     <a class="item" data-tab="items">Items</a>
-    <a class="item" data-tab="spells">Spells</a>
+    {{!a class="item" data-tab="spells">Spells</a>}}
     <a class="item" data-tab="effects">Effects</a>
   </nav>
 
@@ -112,10 +112,9 @@
     </div>
 
     {{!-- Owned Spells Tab --}}
-    <div class="tab spells" data-group="primary" data-tab="spells">
+    {{!<div class="tab spells" data-group="primary" data-tab="spells">
       {{> "systems/kaiserschlacht/templates/actor/parts/actor-spells.hbs"}}
-    </div>
-
+    {{!</div>}}
     {{!-- Active Effects Tab --}}
     <div class="tab effects flexcol" data-group="primary" data-tab="effects">
       {{> "systems/kaiserschlacht/templates/actor/parts/actor-effects.hbs"}}
