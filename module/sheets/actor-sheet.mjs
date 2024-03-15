@@ -101,6 +101,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
+    const weapons = [];
     const spells = {
       0: [],
       1: [],
@@ -131,12 +132,18 @@ export class KaiserschlachtActorSheet extends ActorSheet {
           spells[i.system.spellLevel].push(i);
         }
       }
+      else if (i.type === 'weapon') {
+        {
+          weapons.push(i);
+        }
+      }
     }
 
     // Assign and return
     context.gear = gear;
     context.features = features;
     context.spells = spells;
+    context.weapons = weapons;
   }
 
   /* -------------------------------------------- */
