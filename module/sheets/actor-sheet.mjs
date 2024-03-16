@@ -160,12 +160,12 @@ export class KaiserschlachtActorSheet extends ActorSheet {
     });
     // toggle item equip
     html.on('click', '.equip-toggle', (ev) => {
+      console.log(item.equipped.toString());
       const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
       if (item.equipped)
-      {item.update({ equipped: true });
-    }
-    else{item.update({ equipped: false });}
+      {item.update({ equipped: true }); console.log(item.equipped.toString());}
+    else {item.update({ equipped: false }); console.log(item.equipped.toString());}
       
     });
     // -------------------------------------------------------------
