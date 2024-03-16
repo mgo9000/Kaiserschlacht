@@ -36,10 +36,12 @@ export class KaiserschlachtItem extends Item {
    */
   async roll() {
     const item = this;
-    console.log(this);
+    await this.system;
+    console.log(this.system);
 
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+    console.log(this.actor);
     const rollMode = game.settings.get('core', 'rollMode');
     const label = `${item.name}`;
 
@@ -47,7 +49,7 @@ export class KaiserschlachtItem extends Item {
     if (!this.system.formula) {
       if (this.system.reload) {
         // Retrieve roll data.
-        const rollData = this.getRollData();
+        const rollData = await this.getRollData();
 
         // Invoke the roll and submit it to chat.
         const roll = new Roll("1d6", rollData);
