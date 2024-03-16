@@ -41,7 +41,7 @@ export class KaiserschlachtItemSheet extends ItemSheet {
   getData() {
     // Retrieve base data structure.
     const context = super.getData();
-
+    console.log(context);
     // Use a safe clone of the item data for further operations.
     const itemData = context.data;
 
