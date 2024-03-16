@@ -16,7 +16,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['kaiserschlacht', 'sheet', 'actor'],
       width: 600,
-      height: 600,
+      height: 650,
       tabs: [
         {
           navSelector: '.sheet-tabs',
@@ -160,14 +160,16 @@ export class KaiserschlachtActorSheet extends ActorSheet {
     });
     // toggle item equip
     html.on('click', '.equip-toggle', (ev) => {
-      console.log("clicked item checkbox")
+      console.log("clicked item button")
       const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
-      console.log(item.equipped.toString());
-      if (item.equipped)
-      {item.update({ equipped: true });}
-    else {item.update({ equipped: false });}
-    console.log(item.equipped.toString())
+      console.log(item.system.equipped);
+      console.log(item.equipped);
+      if (item.system.equipped)
+      {item.update({ system: {equipped: true }});}
+    else {item.update({ system: {equipped: true }});}
+    console.log(item.equipped);
+    console.log(item.system.equipped);
     });
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
