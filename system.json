@@ -10,10 +10,10 @@
       "boilerplateDiscord": "asacolips"
     }
   ],
-  "url": "Replace this with a link to your public repository",
+  "url": "https://github.com/mgo9000/Kaiserschlacht",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "Replace this with a link to file issues or tickets",
+  "bugs": "https://github.com/mgo9000/Kaiserschlacht/issues",
   "changelog": "CHANGELOG.md",
   "media": [
     {
@@ -22,7 +22,7 @@
       "thumbnail": "systems/kaiserschlacht/assets/anvil-impact.png"
     }
   ],
-  "version": "0.0.34",
+  "version": "0.0.35",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
