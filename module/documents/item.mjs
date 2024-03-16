@@ -36,6 +36,7 @@ export class KaiserschlachtItem extends Item {
    */
   async roll() {
     const item = this;
+    console.log(this);
 
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
@@ -70,7 +71,7 @@ export class KaiserschlachtItem extends Item {
     // Otherwise, create a roll and send a chat message from it.
     else {
       // Retrieve roll data.
-      const rollData = this.getRollData();
+      const rollData = await this.getRollData();
 
       // Invoke the roll and submit it to chat.
       const roll = new Roll(rollData.formula, rollData);
