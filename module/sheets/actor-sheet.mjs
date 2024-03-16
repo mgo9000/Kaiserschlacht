@@ -170,11 +170,9 @@ export class KaiserschlachtActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
       console.log(item.system.equipped ?? "item.system.equipped is null");
-      console.log(item.equipped ?? "item.equipped is null");
       if (item.system.equipped)
-      {item.update({ system: {equipped: true }});}
+      {item.update({ system: {equipped: false }});}
     else {item.update({ system: {equipped: true }});}
-    console.log(item.equipped);
     console.log(item.system.equipped);
     });
 
