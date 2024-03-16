@@ -51,6 +51,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
 
     // Prepare character data and items.
     if (actorData.type == 'character') {
+      console.log(context);
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
@@ -158,22 +159,24 @@ export class KaiserschlachtActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data('itemId'));
       item.sheet.render(true);
     });
+    
+    // -------------------------------------------------------------
+    // Everything below here is only needed if the sheet is editable
+    if (!this.isEditable) return;
+
     // toggle item equip
     html.on('click', '.equip-toggle', (ev) => {
       console.log("clicked item button")
       const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
-      console.log(item.system.equipped);
-      console.log(item.equipped);
+      console.log(item.system.equipped ?? "item.system.equipped is null");
+      console.log(item.equipped ?? "item.equipped is null");
       if (item.system.equipped)
       {item.update({ system: {equipped: true }});}
     else {item.update({ system: {equipped: true }});}
     console.log(item.equipped);
     console.log(item.system.equipped);
     });
-    // -------------------------------------------------------------
-    // Everything below here is only needed if the sheet is editable
-    if (!this.isEditable) return;
 
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));

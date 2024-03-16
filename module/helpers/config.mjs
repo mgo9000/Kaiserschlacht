@@ -47,5 +47,5 @@ KAISERSCHLACHT.skillAbbreviations = {
   intimidation: 'KAISERSCHLACHT.Skill.Intimidation.abbr',
 
 };
-CONFIG.debug.hooks = false;
-CONFIG.debug.documents = true;
+CONFIG.debug.hooks = true;
+CONFIG.debug.documents = false;
