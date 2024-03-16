@@ -66,7 +66,17 @@ export class KaiserschlachtItemSheet extends ItemSheet {
 
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
-
+    // toggle item equip
+    html.on('click', '.equip-toggle', (ev) => {
+      console.log("clicked item button")
+      //const li = $(ev.currentTarget).parents('.item');
+      const item = this.item;
+      console.log(item.system.equipped ?? "item.system.equipped is null");
+      if (item.system.equipped)
+      {item.update({ system: {equipped: false }});}
+    else {item.update({ system: {equipped: true }});}
+    console.log(item.system.equipped);
+    });
     // Roll handlers, click handlers, etc. would go here.
 
     // Active Effect management
