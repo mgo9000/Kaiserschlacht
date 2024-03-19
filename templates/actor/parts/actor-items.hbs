@@ -1,8 +1,10 @@
 <ol class='items-list'>
   <li class='item flexrow items-header'>
     <div class='item-name'>{{localize 'Item'}}</div>
-    <div class='item-prop'>{{localize 'Quantity'}}</div>
     <div class='item-prop'>{{localize 'Roll Formula'}}</div>
+    <div class='item-prop'>{{localize 'Quantity'}}</div>
+    <div class='item-prop'>{{localize 'Traits'}}</div>
+    <div class='item-prop'>{{localize 'Weight'}}</div>
     <div class='item-controls'>
       <a
         class='item-control item-create'
@@ -30,8 +32,10 @@
         </div>
         <h4>{{item.name}}</h4>
       </div>
-      <div class='item-quantity item-prop'>{{item.system.quantity}}</div>
       <div class='rollable item-prop' data-roll-type='item'>{{item.system.formula}}</div>
+      <div class='item-quantity item-prop'>{{item.system.quantity}}</div>
+      <div class='item-quantity item-prop'>{{item.system.traits}}</div>
+      <div class='item-quantity item-prop'>{{item.system.weight}}</div>
       <div class='item-controls'>
         <a
           class='item-control item-edit'

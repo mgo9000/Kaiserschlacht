@@ -3,8 +3,9 @@
     <div class='item-name'>{{localize 'Weapon'}}</div>
     <div class='item-prop'>{{localize 'Damage'}}</div>
     <div class='item-prop'>{{localize 'Reload'}}</div>
-    <div class='item-prop'>{{localize 'Range'}}</div>
     <div class='item-prop'>{{localize 'Traits'}}</div>
+    <div class='item-prop'>{{localize 'Range'}}</div>
+    
     <div class='item-controls'>
       <a
         class='item-control item-create'
@@ -34,8 +35,8 @@
       </div>
       <div class='item-damage item-prop'>{{item.system.damage}}</div>
       <div class='item-reload rollable item-prop'data-roll-type='reload'>{{item.system.reload}}</div>
-      <div class='item-range item-prop'>{{item.system.range}}</div>
       <div class='item-traits item-prop'>{{item.system.traits}}</div>
+      <div class='item-range item-prop'>{{item.system.range}}</div>
       <div class='item-controls'>  {{!--below should render different hands depending on status --}}
       <a class='equip-toggle'name="system.equipped"><i {{#with item.system.equipped}}class="fa-solid fa-hand-fist"{{else}}class="fa-regular fa-hand"{{/with}}></i></a>
         
