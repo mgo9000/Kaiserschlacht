@@ -132,7 +132,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell", "weapon"],
+    "types": ["item", "feature", "spell", "weapon", "armor"],
     "templates": {
       "base": {
         "description": ""
@@ -158,16 +158,18 @@
       "traits":"",
       "reload": "1+",
       "type":"",
-      "equipped": false
-
+      "equipped": false,
+      "weight": 1,
+      "quantity": 1
     },
     "armor": {
       "templates": ["base"],
       "armorBonus": 0,
       "traits":"",
       "type":"",
-      "equipped": false
-
+      "equipped": false,
+      "weight": 1,
+      "quantity": 1
     }
   }
 }
