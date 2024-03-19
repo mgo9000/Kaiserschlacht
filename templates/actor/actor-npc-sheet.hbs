@@ -23,7 +23,7 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.meleeDie.value" class="resource-label">Melee/Ranged DC</label>
+          <label for="system.meleeDie.value" class="resource-label rollable" data-roll="{{system.meleeDie.value}}" data-roll-type="item" data-label="{{system.meleeDie.value}}">{{ability.label}}>Melee/Ranged DC</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.meleeDie.value" value="{{system.meleeDie.value}}" data-dtype="String" />
             <span> / </span>
@@ -32,12 +32,11 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.damage" class="resource-label">Damage [Tags]</label>
+          <label for="system.damage" class="resource-label">Damage/Tags</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="String" />
-            <span>[</span>
+            <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
+            <span> / </span>
             <input type="text" name="system.damageTags" value="{{system.damageTags}}" data-dtype="String" />
-            <span>]</span>
           </div>
 
         </div>
