@@ -54,6 +54,9 @@ export class KaiserschlachtActor extends Actor {
       if (ability.value > 6) {
         ability.mod = dicepool[6];
       }
+      else if (ability.value < 0) {
+        ability.mod = dicepool[0];
+      }
       else {
         ability.mod = dicepool[ability.value];
       }
@@ -64,8 +67,11 @@ export class KaiserschlachtActor extends Actor {
       if (skill.value > 6) {
         skill.mod = dicepool[6];
       }
+      else if (ability.value < 0) {
+        ability.mod = dicepool[0];
+      }
       else {
-        skill.mod = dicepool[skill.value];
+        ability.mod = dicepool[ability.value];
       }
     }
     
