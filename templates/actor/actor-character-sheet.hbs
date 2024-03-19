@@ -74,6 +74,7 @@
       <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}</section>
       <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
       <hr>
+      <aside>
           <div class="stats grid grid-2col">
             {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
             use both the "grid" and "grid-Ncol" class where "N" can be any number
@@ -100,7 +101,7 @@
               </div>
               {{/each}}
           </div>
-
+    </aside>
     </div>
   
     {{!-- Biography Tab --}}
@@ -111,9 +112,9 @@
     </div>
     {{!-- Owned Items Tab --}}
     <div class="tab items" data-group="primary" data-tab="items">
-      <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}</section>
-      <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
-      <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-items.hbs"}}</section>
+      {{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}
+      {{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}
+      {{> "systems/kaiserschlacht/templates/actor/parts/actor-items.hbs"}}
     </div>
     {{!--  Feats Tab --}}
     <div class="tab items" data-group="primary" data-tab="features">
