@@ -151,7 +151,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
     context.features = features;
     context.spells = spells;
     context.weapons = weapons;
-    
+    context.armor = armor;
   }
 
   /* -------------------------------------------- */
