@@ -160,6 +160,14 @@
       "type":"",
       "equipped": false
 
+    },
+    "armor": {
+      "templates": ["base"],
+      "armorBonus": 0,
+      "traits":"",
+      "type":"",
+      "equipped": false
+
     }
   }
 }

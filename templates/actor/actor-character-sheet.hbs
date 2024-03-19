@@ -31,6 +31,14 @@
           </div>
         </div>
 
+ <div class="resource flex-group-center">
+          <label for="system.attributes.skillPoints.value" class="resource-label">Armor</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.armor.value"
+              value="{{system.attributes.armor.value}}" data-dtype="Number" />
+          </div>
+        </div>
+
         <div class="resource flex-group-center">
           <label for="system.attributes.skillPoints.value" class="resource-label">Skill Points</label>
           <div class="resource-content flexrow flex-center flex-between">
@@ -38,13 +46,7 @@
               value="{{system.attributes.skillPoints.value}}" data-dtype="Number" />
           </div>
         </div>
-        <div class="resource flex-group-center">
-          <label for="system.attributes.skillPoints.value" class="resource-label">Armor</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.attributes.armor.value"
-              value="{{system.attributes.armor.value}}" data-dtype="Number" />
-          </div>
-        </div>
+       
 
       </div>
     </div>
@@ -70,10 +72,9 @@
     {{!-- Actions Tab --}}
     <div class="tab actions" data-group="primary" data-tab="actions">
       <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}</section>
+      <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
       <hr>
-      <section class="grid grid-2row">
-        <aside class="big grid">
-          <div class="stats grid grid-2col">
+              <div class="stats grid grid-2col">
             {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
             use both the "grid" and "grid-Ncol" class where "N" can be any number
             from 1 to 12 and will create that number of columns. --}}
@@ -99,14 +100,6 @@
               </div>
               {{/each}}
             </div>
-          </div>
-        </aside>
-
-       
-        
-
-      </section>
-
 
     </div>
   
@@ -119,6 +112,7 @@
     {{!-- Owned Items Tab --}}
     <div class="tab items" data-group="primary" data-tab="items">
       <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}</section>
+      <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
       <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-items.hbs"}}<section>
     </div>
     {{!--  Feats Tab --}}
