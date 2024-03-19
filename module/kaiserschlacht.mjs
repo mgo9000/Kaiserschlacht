@@ -108,7 +108,7 @@ async function createItemMacro(data, slot) {
       name: item.name,
       type: 'script',
       img: item.img,
-      command: command,
+      command: item.system.formula,
       flags: { 'kaiserschlacht.itemMacro': true },
     });
   }
