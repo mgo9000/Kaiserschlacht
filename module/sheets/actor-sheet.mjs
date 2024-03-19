@@ -103,6 +103,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
     const gear = [];
     const features = [];
     const weapons = [];
+    const armor = [];
     const spells = {
       0: [],
       1: [],
@@ -136,6 +137,11 @@ export class KaiserschlachtActorSheet extends ActorSheet {
       else if (i.type === 'weapon') {
         {
           weapons.push(i);
+        }
+      }
+      else if (i.type === 'armor') {
+        {
+          armor.push(i);
         }
       }
     }
