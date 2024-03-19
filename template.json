@@ -167,6 +167,7 @@
       "armorBonus": 0,
       "traits":"",
       "type":"",
+      "armorPenalty": 0,
       "equipped": false,
       "weight": 1,
       "quantity": 1
