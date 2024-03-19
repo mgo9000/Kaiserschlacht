@@ -23,24 +23,49 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.stress.value" class="resource-label">Stress</label>
+          <label for="system.meleeDie.value" class="resource-label">Melee/Ranged DC</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.stress.value" value="{{system.stress.value}}" data-dtype="Number"/>
+            <input type="text" name="system.meleeDie.value" value="{{system.meleeDie.value}}" data-dtype="String"/>
             <span> / </span>
-            <input type="text" name="system.stress.max" value="{{system.stress.max}}" data-dtype="Number"/>
+            <input type="text" name="system.rangedDie.max" value="{{system.rangedDie.value}}" data-dtype="String"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.cr" class="resource-label">CR / XP</label>
+          <label for="system.damage" class="resource-label">Damage</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.cr" value="{{system.cr}}" data-dtype="Number"/>
-            <span> / </span>
-            <input type="text" disabled="true" name="system.xp" value="{{system.xp}}" data-dtype="Number"/>
+            <input type="text" name="system.cr" value="{{system.damage}}" data-dtype="String"/>
+          </div>
+          <label for="system.damage" class="resource-label">Tags</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.cr" value="{{system.damageTags}}" data-dtype="String"/>
+          </div>
+          <label for="system.cr" class="resource-label">Armor</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.cr" value="{{system.armor}}" data-dtype="Number"/>
           </div>
         </div>
 
       </div>
+    </div>
+    <div class="resources grid grid-3col">
+      <div class="resource flex-group-center">
+          <label for="system.cr" class="resource-label">Move</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.cr" value="{{system.speed}}" data-dtype="Number"/>
+          </div>
+          <div class="resource flex-group-center">
+          <label for="system.cr" class="resource-label">Type</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.cr" value="{{system.type}}" data-dtype="String"/>
+          </div>
+                    <div class="resource flex-group-center">
+          <label for="system.cr" class="resource-label">CR</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.cr" value="{{system.cr}}" data-dtype="Number"/>
+        </div>
+
+
     </div>
   </header>
 
