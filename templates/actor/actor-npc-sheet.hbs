@@ -17,19 +17,19 @@
           <label for="system.health.value" class="resource-label">Health</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
-            <span> / </span>
+            <span>/</span>
             <input type="text" name="system.health.max" value="{{system.health.max}}" data-dtype="Number" />
           </div>
         </div>
 
         <div class="resource flex-group-center">
           <label for="system.meleeDie.value" class="resource-label rollable" data-roll="{{system.meleeDie.value}}"
-            data-label="{{system.meleeDie.value}}">{{ability.label}}>Melee DC</label><span>/</span><label
-            for="system.meleeDie.value" class="resource-label rollable" data-roll="{{system.meleeDie.value}}"
-            data-label="{{system.meleeDie.value}}">{{ability.label}}>Ranged DC</label>
+            data-label="{{system.meleeDie.value}}">Melee</label><span>/</span><label
+            for="system.meleeDie.value" class="resource-label rollable" data-roll="{{system.rangedDie.value}}"
+            data-label="{{system.meleeDie.value}}">Ranged</label> <span> DC</span>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.meleeDie.value" value="{{system.meleeDie.value}}" data-dtype="String" />
-            <span> / </span>
+            <span>/</span>
             <input type="text" name="system.rangedDie.value" value="{{system.rangedDie.value}}" data-dtype="String" />
           </div>
         </div>
@@ -38,7 +38,7 @@
           <label for="system.damage" class="resource-label">Damage/Tags</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
-            <span> / </span>
+            <span>/</span>
             <input type="text" name="system.damageTags" value="{{system.damageTags}}" data-dtype="String" />
           </div>
 
@@ -52,7 +52,7 @@
       </div>
     </div>
   </header>
-
+  <header class ="sheet-header">
   <div class="resources grid grid-3col">
     <div class="resource flex-group-center">
       <label for="system.speed" class="resource-label">Move</label>
@@ -74,7 +74,7 @@
 
     </div>
   </div>
-
+</header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
