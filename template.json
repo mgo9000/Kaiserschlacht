@@ -24,6 +24,9 @@
         },
         "class": {
           "value": ""
+        },
+        "armor": {
+          "value": 0
         }
       },
       "abilities": {

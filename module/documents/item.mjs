@@ -36,6 +36,7 @@ export class KaiserschlachtItem extends Item {
    */
   async roll() {
     const item = this;
+    console.log(item);
     await this.system;
     console.log(this.system);
 

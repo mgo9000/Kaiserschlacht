@@ -1,6 +1,7 @@
 <ol class='items-list'>
   <li class='item flexrow items-header'>
     <div class='item-name'>{{localize 'Name'}}</div>
+    <div class='item-name'>{{localize 'Quantity'}}</div>
     <div class='item-formula'>{{localize 'Roll Formula'}}</div>
     <div class='item-controls'>
       <a
@@ -29,6 +30,7 @@
         </div>
         <h4>{{item.name}}</h4>
       </div>
+      <div class='item-quantity item-prop'>{{item.system.quantity}}</div>
       <div class='item-formula item-prop rollable' data-roll-type='item'>{{item.system.formula}}</div>
       <div class='item-controls'>
         <a
