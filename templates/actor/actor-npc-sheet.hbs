@@ -8,7 +8,7 @@
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
       use both the "grid" and "grid-Ncol" class where "N" can be any number
       from 1 to 12 and will create that number of columns. --}}
-      <div class="resources grid grid-4col">
+      <div class="resources grid grid-3col">
 
         {{!-- "flex-group-center" is also defined in the _grid.scss file
         and it will add a small amount of padding, a border, and will
@@ -34,14 +34,6 @@
           </div>
         </div>
 
-        <div class="resource flex-group-center">
-          <label for="system.damage" class="resource-label">Damage/Tags</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
-            <span>/</span>
-            <input type="text" name="system.damageTags" value="{{system.damageTags}}" data-dtype="String" />
-          </div>
-
         </div>
         <div class="resource flex-group-center">
           <label for="system.armor" class="resource-label">Armor</label>
@@ -52,6 +44,26 @@
       </div>
     </div>
   </header>
+  <header class="sheet-header">
+<div class="resource flex-group-center">
+          <label for="system.damage" class="resource-label">Damage</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
+          </div>
+</div>
+<div class="resource flex-group-center">
+          <label for="system.damageTags" class="resource-label">Traits</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.damageTags" value="{{system.damageTags}}" data-dtype="String" />
+          </div>
+</div>
+<div class="resource flex-group-center">
+          <label for="system.range" class="resource-label">Traits</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.range" value="{{system.range}}" data-dtype="String" />
+          </div>
+</div>
+</header>
   <header class ="sheet-header">
   <div class="resources grid grid-3col">
     <div class="resource flex-group-center">
