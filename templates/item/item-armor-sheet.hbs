@@ -20,6 +20,7 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="description">Description</a>
     <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="effects">Effects</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -45,9 +46,10 @@
         <a class='equip-toggle' name="system.equipped"><i class="fas {{#if system.equipped}}fa-solid fa-hand-fist{{else}}fa-regular fa-hand"></i></a>
       </div>
           {{!-- Effects Tab --}}
+    
+    </div>
     <div class="tab effects" data-group="primary" data-tab="effects">
       {{> "systems/kaiserschlacht/templates/item/parts/item-effects.hbs"}}
-    </div>
     </div>
   </section>
 </form>
