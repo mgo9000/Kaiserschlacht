@@ -94,12 +94,12 @@ export class KaiserschlachtItem extends Item {
     console.log(this);
     console.log(this.collections);
     for (let [key, activeEffect] of Object.entries(this.collections.effects)){
-      activeEffect.update({ activeEffect: {disabled: true }});
+      key.update({ activeEffect: {disabled: true }});
     }
   }
   else {this.update({ system: {equipped: true }});
   for (let [key, activeEffect] of Object.entries(this.collections.effects)){
-    activeEffect.update({ activeEffect: {disabled: false }});
+    key.update({ activeEffect: {disabled: false }});
   }
 }
 
