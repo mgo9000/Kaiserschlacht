@@ -56,6 +56,7 @@ export function prepareActiveEffectCategories(effects) {
       label: game.i18n.localize('KAISERSCHLACHT.Effect.Inactive'),
       effects: [],
     },
+    
   };
 
   // Iterate over active effects, classifying them into categories
