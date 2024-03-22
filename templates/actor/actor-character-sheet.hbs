@@ -86,8 +86,7 @@
                   data-roll="@abilities.{{key}}.mod" data-roll-type="diff" data-label="{{ability.label}}">{{ability.label}}</label>
                 <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}"
                   data-dtype="Number" />
-                <span class="ability-mod rollable" data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
-                  data-label="{{ability.label}}"></span>
+                <span></span>
               </div>
               {{/each}}
               {{#each system.classStats as |classStat key|}}{{#with visible}}
@@ -96,7 +95,7 @@
                   >{{classStat.label}}</label>
                 <input type="text" name="system.classStats.{{key}}.value" value="{{classStat.value}}"
                   data-dtype="Number" />
-            
+            <span></span>
               </div>
               {{/with}}
               {{/each}}
@@ -107,7 +106,7 @@
                 <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
                   data-roll="@skills.{{key}}.mod" data-roll-type="diff" data-label="{{skill.label}}">{{skill.label}}</label>
                 <input type="text" name="system.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" />
-                <span class="skill-mod rollable" data-roll="@skills.{{key}}.mod" data-roll-type="diff" data-label="{{skill.label}}"></span>
+                <span></span>
               </div>
               {{/each}}
           </div>
