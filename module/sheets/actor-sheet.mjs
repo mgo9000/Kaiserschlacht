@@ -82,7 +82,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterData(context) {
-    // Handle ability scores.
+    // Handle ability scores, skills, and class stats.
     for (let [k, v] of Object.entries(context.system.abilities)) {
 
       if (typeof v != "object"){
@@ -97,6 +97,14 @@ export class KaiserschlachtActorSheet extends ActorSheet {
        }
        else
       v.label = game.i18n.localize(CONFIG.KAISERSCHLACHT.skills[k]) ?? k;
+    }
+    for (let [k, v] of Object.entries(context.system.classStats)) {
+
+      if (typeof v != "object"){
+       console.log("error rendering actor classStat");
+      }
+      else
+      v.label = game.i18n.localize(CONFIG.KAISERSCHLACHT.classStats[k]) ?? k;
     }
   }
 
