@@ -88,7 +88,7 @@ export class KaiserschlachtItem extends Item {
       return roll;
     }
   }
-  EquipToggle(){
+  equipToggle(){
     if (this.system.equipped)
     {item.update({ system: {equipped: false }});}
   else {item.update({ system: {equipped: true }});}
