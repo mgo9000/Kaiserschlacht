@@ -12,13 +12,11 @@ export class KaiserschlachtItem extends Item {
     super.prepareData();
     if (this.system.equipped === false){
       this.collections.effects.forEach(e => e.update({ transfer: false}));
-      console.log("logging effects collection of this item");
-      console.log(this.collections.effects);
+
     }
     else{
       this.collections.effects.forEach(e => e.update({ transfer: true}));
-      console.log("logging effects collection of this item");
-      console.log(this.collections.effects);
+
     }
   }
 

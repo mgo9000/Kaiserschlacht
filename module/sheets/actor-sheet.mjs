@@ -51,7 +51,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
 
     // Prepare character data and items.
     if (actorData.type == 'character') {
-      console.log(context);
+
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
@@ -182,12 +182,12 @@ export class KaiserschlachtActorSheet extends ActorSheet {
 
     // toggle item equip
     html.on('click', '.equip-toggle', (ev) => {
-      console.log("clicked item button")
+
       const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
-      console.log(item.system.equipped ?? "item.system.equipped is null");
+     
       item.equipToggle()
-    console.log(item.system.equipped);
+
     });
 
     // Add Inventory Item
