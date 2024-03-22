@@ -25,7 +25,10 @@ KAISERSCHLACHT.skills = {
   intimidation: 'KAISERSCHLACHT.Skill.Intimidation.long',
 
 };
+KAISERSCHLACHT.classStats = {
 
+
+};
 KAISERSCHLACHT.abilityAbbreviations = {
   physique: 'KAISERSCHLACHT.Ability.Physique.abbr',
   finesse: 'KAISERSCHLACHT.Ability.Finesse.abbr',
