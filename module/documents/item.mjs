@@ -90,8 +90,8 @@ export class KaiserschlachtItem extends Item {
   }
   equipToggle(){
     if (this.system.equipped)
-    {item.update({ system: {equipped: false }});}
-  else {item.update({ system: {equipped: true }});}
+    {this.update({ system: {equipped: false }});}
+  else {this.update({ system: {equipped: true }});}
 
   }
 }
