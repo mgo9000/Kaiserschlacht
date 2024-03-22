@@ -11,21 +11,11 @@ export class KaiserschlachtItem extends Item {
     // preparation methods overridden (such as prepareBaseData()).
     super.prepareData();
     if (this.equipped === false){
-      this.updateEmbeddedDocuments("ActiveEffect", [
-        {
-          
-          transfer: false,
-        },
-      ]);
+      this.collections.effects.forEach(e => e.update({ transfer: false}));
       
     }
     else{
-      this.updateEmbeddedDocuments("ActiveEffect", [
-        {
-          
-          transfer: true,
-        },
-      ]);
+      this.collections.effects.forEach(e => e.update({ transfer: true}));
     }
   }
 
