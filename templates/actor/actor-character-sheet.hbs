@@ -93,7 +93,7 @@
               {{#each system.classStats as |classStat key|}}{{#with visible}}
               <div class="classStat flexrow flex-group-center">
                 <label for="system.classStats.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                  >{{ability.label}}</label>
+                  >{{classStat.label}}</label>
                 <input type="text" name="system.classStats.{{key}}.value" value="{{classStat.value}}"
                   data-dtype="Number" />
             
