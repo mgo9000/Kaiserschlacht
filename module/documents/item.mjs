@@ -10,12 +10,15 @@ export class KaiserschlachtItem extends Item {
     // As with the actor class, items are documents that can have their data
     // preparation methods overridden (such as prepareBaseData()).
     super.prepareData();
-    if (this.equipped === false){
+    if (this.system.equipped === false){
       this.collections.effects.forEach(e => e.update({ transfer: false}));
-      
+      console.log("logging effects collection of this item");
+      console.log(this.collections.effects);
     }
     else{
       this.collections.effects.forEach(e => e.update({ transfer: true}));
+      console.log("logging effects collection of this item");
+      console.log(this.collections.effects);
     }
   }
 
