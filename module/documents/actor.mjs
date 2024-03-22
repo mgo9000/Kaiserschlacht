@@ -120,7 +120,11 @@ export class KaiserschlachtActor extends Actor {
         data[k] = foundry.utils.deepClone(v);
       }
     }
-
+    if (data.classStats) {
+      for (let [k, v] of Object.entries(data.classStats)) {
+        data[k] = foundry.utils.deepClone(v);
+      }
+    }
     // Add skillPoints for easier access, or fall back to 0.
     if (data.attributes.skillPoints) {
       data.skillPoints = data.attributes.skillPoints.value ?? 0;
