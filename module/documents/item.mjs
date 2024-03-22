@@ -10,6 +10,23 @@ export class KaiserschlachtItem extends Item {
     // As with the actor class, items are documents that can have their data
     // preparation methods overridden (such as prepareBaseData()).
     super.prepareData();
+    if (this.equipped === false){
+      this.updateEmbeddedDocuments("ActiveEffect", [
+        {
+          
+          transfer: false,
+        },
+      ]);
+      
+    }
+    else{
+      this.updateEmbeddedDocuments("ActiveEffect", [
+        {
+          
+          transfer: true,
+        },
+      ]);
+    }
   }
 
   /**
@@ -88,20 +105,15 @@ export class KaiserschlachtItem extends Item {
       return roll;
     }
   }
-  equipToggle(){ //toggles equip value and whether the items are deleted or not
-    if (this.system.equipped)
-    {this.update({ system: {equipped: false }});
-    console.log(this);
-    console.log(this.collections);
-    for (let [key, activeEffect] of Object.entries(this.collections.effects)){
-      key.update({ activeEffect: {disabled: true }});
+  equipToggle() { //toggles equip value and whether the items are deleted or not
+    if (this.system.equipped) {
+      this.update({ system: { equipped: false } });
+
     }
-  }
-  else {this.update({ system: {equipped: true }});
-  for (let [key, activeEffect] of Object.entries(this.collections.effects)){
-    key.update({ activeEffect: {disabled: false }});
-  }
-}
+    else {
+      this.update({ system: { equipped: true } });
+
+    }
 
   }
 }
