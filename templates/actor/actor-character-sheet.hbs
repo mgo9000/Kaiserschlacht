@@ -90,6 +90,16 @@
                   data-label="{{ability.label}}"></span>
               </div>
               {{/each}}
+              {{#each system.classStats as |classStat key|}}{{#with visible}}
+              <div class="ability flexrow flex-group-center">
+                <label for="system.classStats.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                  >{{ability.label}}</label>
+                <input type="text" name="system.classStats.{{key}}.value" value="{{classStats.value}}"
+                  data-dtype="Number" />
+            
+              </div>
+              {{/with}}
+              {{/each}}
             </div>
             <div class="skills flexcol">
               {{#each system.skills as |skill key|}}

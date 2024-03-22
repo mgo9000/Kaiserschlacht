@@ -51,6 +51,50 @@
           "max": 6
         }
       },
+      "classStats":{
+        "faith": {
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "visible": false
+        },
+        "scrap": {
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "visible": false
+        },
+        "tactics": {
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "visible": false
+        },
+        "static": {
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "visible": false
+        },
+        "moxie": {
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "visible": false
+        },
+        "heart": {
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "visible": false
+        },
+        "grit": {
+          "value": 0,
+          "min": 0,
+          "max": 100,
+          "visible": false
+        }
+      },
       "skills": {
         "brawl": {
           "value": 0,
