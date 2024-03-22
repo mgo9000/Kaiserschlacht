@@ -84,9 +84,18 @@ export class KaiserschlachtActorSheet extends ActorSheet {
   _prepareCharacterData(context) {
     // Handle ability scores.
     for (let [k, v] of Object.entries(context.system.abilities)) {
+
+      if (typeof v != "object"){
+       console.log("error rendering actor ability");
+      }
+      else
       v.label = game.i18n.localize(CONFIG.KAISERSCHLACHT.abilities[k]) ?? k;
     }
     for (let [k, v] of Object.entries(context.system.skills)) {
+      if (typeof v != "object"){
+        console.log("error rendering actor skill");
+       }
+       else
       v.label = game.i18n.localize(CONFIG.KAISERSCHLACHT.skills[k]) ?? k;
     }
   }
