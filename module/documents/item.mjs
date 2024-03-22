@@ -88,10 +88,18 @@ export class KaiserschlachtItem extends Item {
       return roll;
     }
   }
-  equipToggle(){
+  equipToggle(){ //toggles equip value and whether the items are deleted or not
     if (this.system.equipped)
-    {this.update({ system: {equipped: false }});}
-  else {this.update({ system: {equipped: true }});}
+    {this.update({ system: {equipped: false }});
+    for (let [key, activeEffect] of Object.entries(this.effects)){
+      activeEffect.disabled = true;
+    }
+  }
+  else {this.update({ system: {equipped: true }});
+  for (let [key, activeEffect] of Object.entries(this.effects)){
+    activeEffect.disabled = false;
+  }
+}
 
   }
 }

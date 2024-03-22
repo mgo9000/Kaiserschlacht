@@ -155,7 +155,7 @@
       "traits":[""],
       "reload": "1+",
       "type":"",
-      "equipped": false,
+      "equipped": true,
       "weight": 1,
       "quantity": 1
     },
@@ -165,7 +165,7 @@
       "traits":[""],
       "type":"",
       "armorPenalty": 0,
-      "equipped": false,
+      "equipped": true,
       "weight": 1,
       "quantity": 1
     }
