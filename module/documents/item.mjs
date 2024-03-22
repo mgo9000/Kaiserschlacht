@@ -91,12 +91,12 @@ export class KaiserschlachtItem extends Item {
   equipToggle(){ //toggles equip value and whether the items are deleted or not
     if (this.system.equipped)
     {this.update({ system: {equipped: false }});
-    for (let [key, activeEffect] of Object.entries(this.effects)){
+    for (let [key, activeEffect] of Object.entries(this.collections.effects)){
       activeEffect.disabled = true;
     }
   }
   else {this.update({ system: {equipped: true }});
-  for (let [key, activeEffect] of Object.entries(this.effects)){
+  for (let [key, activeEffect] of Object.entries(this.collections.effects)){
     activeEffect.disabled = false;
   }
 }
