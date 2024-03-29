@@ -79,6 +79,21 @@ Hooks.once('ready', function () {
   Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
 });
 
+//dice so nice special color for difficulty dice
+Hooks.once('diceSoNiceReady', (dice3d) => {
+  dice3d.addColorset({
+    name: 'diff',
+    description: 'Black and gold difficulty dice.',
+    category: 'Colors',
+    foreground: '#ffe436',
+    background: '#000000',
+    outline: 'black',
+    texture: 'none',
+    material: 'plastic'
+});
+
+});
+
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
