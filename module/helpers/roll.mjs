@@ -14,6 +14,8 @@ static CHAT_TEMPLATE = "systems/kaiserschlacht/templates/chat/roll.hbs";
    if ( !this._evaluated ) await this.evaluate({async: true});
    messageData.rolls = [this];
    messageData.rolls.targetNumber = game.user.targets.first()?.document.actor.system.targetNumber ?? null;
+   console.log(game.user.targets.first() ?? null);
+   console.log(messageData.rolls.targetNumber);
     return super.toMessage(messageData, options);
  }
 }
