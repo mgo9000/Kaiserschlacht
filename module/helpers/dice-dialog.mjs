@@ -1,5 +1,4 @@
-
-export async function diffRoll(formula, actorObject, labelfromSheet){
+export async function diffDialog(formula){
 const diffMod = await Dialog.wait({
     title: "Difficulty Dialog",
     content: "Select the difficulty die.",
@@ -33,13 +32,6 @@ const diffMod = await Dialog.wait({
     },
   });
     let amendedFormula = (formula + diffMod);
-    let label = labelfromSheet;
-      let roll = new Roll(amendedFormula, actorObject.getRollData());
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: actorObject }),
-        flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
-      });
-      return roll;
+      return amendedFormula;
   
 }

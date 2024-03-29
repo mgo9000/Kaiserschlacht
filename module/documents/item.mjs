@@ -14,10 +14,7 @@ export class KaiserschlachtItem extends Item {
       this.collections.effects.forEach(e => e.update({ transfer: false}));
 
     }
-    else{
-      this.collections.effects.forEach(e => e.update({ transfer: true}));
-
-    }
+    
   }
 
   /**
@@ -99,11 +96,11 @@ export class KaiserschlachtItem extends Item {
   equipToggle() { //toggles equip value and whether the items are deleted or not
     if (this.system.equipped) {
       this.update({ system: { equipped: false } });
-
+      this.collections.effects.forEach(e => e.update({ transfer: false}));
     }
     else {
       this.update({ system: { equipped: true } });
-
+      this.collections.effects.forEach(e => e.update({ transfer: true}));
     }
 
   }

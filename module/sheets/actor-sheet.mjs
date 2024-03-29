@@ -3,9 +3,11 @@ import {
   prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
 import {
-  diffRoll,
-} from '../helpers/dice-dialogue.js';
-
+  diffDialog,
+} from '../helpers/dice-dialog.mjs';
+import{
+  KSRoll,
+}from '../helpers/roll.js';
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -16,7 +18,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['kaiserschlacht', 'sheet', 'actor'],
       width: 600,
-      height: 650,
+      height: 680,
       tabs: [
         {
           navSelector: '.sheet-tabs',
@@ -265,12 +267,12 @@ export class KaiserschlachtActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event) {
+  async _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
     let label = dataset.label ? `${dataset.label}` : '';
-    let roll = new Roll(dataset.roll, this.actor.getRollData());
+    
     // Handle item rolls.
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
@@ -284,11 +286,19 @@ export class KaiserschlachtActorSheet extends ActorSheet {
         if (item) return item.roll();
       }
       else if (dataset.rollType == 'diff'){
-        diffRoll(dataset.roll, this.actor, label);
+        const amendedFormula = await diffDialog(dataset.roll);
+        let roll = new KSRoll(amendedFormula, this.actor.getRollData());
+
+        roll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: label,
+        rollMode: game.settings.get('core', 'rollMode'),
+      });
+      return roll;
       }
     }
     else if (dataset.roll) {
-      
+      let roll = new KSRoll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,

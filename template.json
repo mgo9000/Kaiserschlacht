@@ -161,6 +161,7 @@
     "npc": {
       "templates": ["base"],
       "cr": 0,
+      "targetNumber": 0,
       "type": "",
       "speed": 0,
       "damage": 0,
