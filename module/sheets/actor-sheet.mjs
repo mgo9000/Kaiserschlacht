@@ -287,9 +287,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
       }
       else if (dataset.rollType == 'diff'){
         const amendedFormula = await diffDialog(dataset.roll);
-        console.log(amendedFormula);
-        let roll = new KSRoll(amendedFormula, this.actor.getRollData());
-        console.log(roll);
+        let roll = new KSRoll(amendedFormula, this.actor.getRollData(),{});
         roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,

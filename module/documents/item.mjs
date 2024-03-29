@@ -1,3 +1,6 @@
+import{
+  KSRoll,
+}from '../helpers/roll.mjs';
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -58,7 +61,7 @@ export class KaiserschlachtItem extends Item {
         const rollData = await this.getRollData();
 
         // Invoke the roll and submit it to chat.
-        const roll = new Roll("1d6", rollData);
+        const roll = new KSRoll("1d6", rollData);
         // If you need to store the value first, uncomment the next line.
         // const result = await roll.evaluate();
         roll.toMessage({
@@ -82,7 +85,7 @@ export class KaiserschlachtItem extends Item {
       const rollData = await this.getRollData();
 
       // Invoke the roll and submit it to chat.
-      const roll = new Roll(rollData.formula, rollData);
+      const roll = new KSRoll(rollData.formula, rollData);
       // If you need to store the value first, uncomment the next line.
       // const result = await roll.evaluate();
       roll.toMessage({

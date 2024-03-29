@@ -83,7 +83,7 @@ Hooks.once('ready', function () {
 Hooks.once('diceSoNiceReady', (dice3d) => {
   dice3d.addColorset({
     name: 'diff',
-    description: 'Black and gold difficulty dice.',
+    description: 'Difficulty dice.',
     category: 'Colors',
     foreground: '#ffe436',
     background: '#000000',
