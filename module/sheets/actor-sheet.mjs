@@ -7,7 +7,7 @@ import {
 } from '../helpers/dice-dialog.mjs';
 import{
   KSRoll,
-}from '../helpers/roll.js';
+}from '../helpers/roll.mjs';
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
