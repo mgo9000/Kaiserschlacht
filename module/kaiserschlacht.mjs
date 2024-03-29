@@ -6,6 +6,7 @@ import { KaiserschlachtActorSheet } from './sheets/actor-sheet.mjs';
 import { KaiserschlachtItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
+import { KSRoll } from './helpers/roll.mjs';
 import { KAISERSCHLACHT } from './helpers/config.mjs';
 
 /* -------------------------------------------- */
@@ -36,7 +37,9 @@ Hooks.once('init', function () {
   // Define custom Document classes
   CONFIG.Actor.documentClass = KaiserschlachtActor;
   CONFIG.Item.documentClass = KaiserschlachtItem;
-
+  // Define and push custom dice types
+  CONFIG.Dice.KSRoll = KSRoll;
+  CONFIG.Dice.rolls.push(KSRoll);
   // Active Effects are never copied to the Actor,
   // but will still apply to the Actor from within the Item
   // if the transfer property on the Active Effect is true.

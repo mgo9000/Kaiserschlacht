@@ -288,7 +288,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
       else if (dataset.rollType == 'diff'){
         const amendedFormula = await diffDialog(dataset.roll);
         console.log(amendedFormula);
-        let roll = new Roll(amendedFormula, this.actor.getRollData());
+        let roll = new KSRoll(amendedFormula, this.actor.getRollData());
         console.log(roll);
         roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -299,7 +299,7 @@ export class KaiserschlachtActorSheet extends ActorSheet {
       }
     }
     else if (dataset.roll) {
-      let roll = new Roll(dataset.roll, this.actor.getRollData());
+      let roll = new KSRoll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
