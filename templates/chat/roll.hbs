@@ -3,10 +3,7 @@
     <div class="dice-flavor">{{flavor}}</div>
     {{/if}}
     {{#if targetNumber includeZero=true}}
-    <div class="targetNumber">{{targetNumber}}</div>
-    {{/if}}
-    {{#if degreeOfSuccess}}
-    <div class="degreeOfSuccess">{{degreeOfSuccess}}</div>
+    <div class="dice-degree">Target:{{targetNumber}} {{#if degreeOfSuccess}}Result: {{degreeOfSuccess}}{{/if}}</div>
     {{/if}}
     <div class="dice-result">
         <div class="dice-formula">{{formula}}</div>
