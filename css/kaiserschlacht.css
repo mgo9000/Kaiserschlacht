@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-.dice-roll .dice-target-number {
+/*.dice-roll .dice-target-number {
   font-size: var(--font-size-12);
-}
+}*/
 
 .dice-roll .dice-target-hit {
   color: #047700;
