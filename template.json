@@ -198,7 +198,7 @@
       "damage": "",
       "range":"",
       "traits":[""],
-      "reload": "1+",
+      "reload": 1,
       "type":"",
       "equipped": false,
       "weight": 1,
