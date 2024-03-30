@@ -4,11 +4,11 @@
 }
 
 .dice-roll .dice-target-hit {
-  color: #09ff00;
+  color: #047700;
 }
 
 .dice-roll .dice-target-miss {
-  color: #ff0000;
+  color: #6e0000;
 }
 
 /* Global styles */
