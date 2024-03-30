@@ -3,7 +3,7 @@
     <div class="dice-flavor">{{flavor}}</div>
     {{/if}}
     {{#if targetNumber includeZero=true}}
-    <div><span class="dice-target-number">TN: <strong>{{targetNumber}}</strong></span> Result: {{#if degreeOfSuccess}}<span
+    <div><span class="dice-tn-label">TN:</span> <strong>{{targetNumber}} </strong>Result: {{#if degreeOfSuccess}}<span
             class="dice-target-hit"><strong>Hit</strong></span>{{else}}<span
             class="dice-target-miss"><strong>Miss</strong></span> {{/if}}</div>
     {{/if}}
