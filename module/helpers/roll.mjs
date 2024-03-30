@@ -19,8 +19,11 @@ export class KSRoll extends Roll {
     * @type {number}
     */
    configureTargetNumber() {
-      this.options.targetNumber = game.user.targets.first()?.document.actor.system.targetNumber ?? null;
-      return;
+      derivedTargetNumber = game.user.targets.first()?.document.actor.system.targetNumber ?? null;
+      Object.assign(this.options, {
+         targetNumber: derivedTargetNumber
+       });
+      return this.options.targetNumber;
    }
 
    /** @inheritdoc */
