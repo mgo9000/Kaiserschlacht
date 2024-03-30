@@ -8,6 +8,7 @@
 export class KSRoll extends Roll {
    constructor(formula, data, options) {
       super(formula, data, options);
+      console.log(this.options.targetNumber);
       if (!this.options.targetNumber) {this.configureTargetNumber();}
     }
    /** @override */
@@ -19,12 +20,9 @@ export class KSRoll extends Roll {
     * @type {number}
     */
    configureTargetNumber() {
-      let derivedTargetNumber = game.user.targets.first()?.document.actor.system.targetNumber ?? null;
-      Object.assign(this.options, {
-         targetNumber: derivedTargetNumber
-       });
-      return this.options.targetNumber;
+      this.options.targetNumber = game.user.targets.first()?.document.actor.system.targetNumber ?? null;
    }
+
 
    /** @inheritdoc */
    async toMessage(messageData = {}, options = {}) {
