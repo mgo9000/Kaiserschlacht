@@ -15,7 +15,7 @@ export class KSRoll extends Roll {
     * @type {string}
     */
    get targetNumber() {
-      return messageData.rolls.targetNumber = game.user.targets.first()?.document.actor.system.targetNumber ?? null;
+      return game.user.targets.first()?.document.actor.system.targetNumber ?? null;
    }
    /** @inheritdoc */
    async toMessage(messageData = {}, options = {}) {
