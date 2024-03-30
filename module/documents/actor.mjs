@@ -16,6 +16,7 @@ export class KaiserschlachtActor extends Actor {
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded
     // documents or derived data.
+
   }
 
   /**
@@ -46,7 +47,8 @@ export class KaiserschlachtActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-    actorData.update({ prototypeToken: { actorLink: true } });
+
+    
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(systemData.abilities)) {
       // Calculate the modifier using dice pool rules.
@@ -76,13 +78,14 @@ export class KaiserschlachtActor extends Actor {
     }
     
   }
+  
 
   /**
    * Prepare NPC type specific data.
    */
   _prepareNpcData(actorData) {
     if (actorData.type !== 'npc') return;
-
+    
     // Make modifications to data here. For example:
     const systemData = actorData.system;
     systemData.xp = systemData.cr * systemData.cr * 100;
@@ -139,4 +142,19 @@ export class KaiserschlachtActor extends Actor {
 
     // Process additional NPC data here.
   }
+
+//Default token params overwritten 
+
+/** @override */
+async _preCreate(data, options, user) {
+  if ( (await super._preCreate(data, options, user)) === false ) return false;
+
+  // Configure prototype token initial settings
+  const prototypeToken = {};
+  prototypeToken.bar2.attribute = null;
+  if ( this.type === "character" ) Object.assign(prototypeToken, {
+    sight: { enabled: true }, actorLink: true, disposition: 1
+  });
+  this.updateSource({ prototypeToken });
 }
+}  
