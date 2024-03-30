@@ -9,7 +9,7 @@ export class KSRoll extends Roll {
    constructor(formula, data, options) {
       super(formula, data, options);
       console.log(this.options.targetNumber);
-      if (!this.options.targetNumber) {this.configureTargetNumber();}
+      if (this.options.targetNumber === undefined) {this.configureTargetNumber();}
     }
    /** @override */
    static CHAT_TEMPLATE = "systems/kaiserschlacht/templates/chat/roll.hbs";
