@@ -34,7 +34,7 @@ export class KSRoll extends Roll {
          return null;
       }
       else{
-         const degreeOfSuccess = this.total >= this.options.targetNumber ? 'Hit' : 'Miss';
+         const degreeOfSuccess = this.total >= this.options.targetNumber ? true : false;
          console.log(degreeOfSuccess);
          return degreeOfSuccess;
       }
