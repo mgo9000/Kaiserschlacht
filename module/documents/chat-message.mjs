@@ -7,10 +7,10 @@ export class KSChatMessage extends ChatMessage {
     activateListeners(html) {
         super.activateListeners(html);
         html.on('click', '.apply-damage-button', (ev) => {
-            console.log("damage button clicked")
+            console.log("damage button clicked");
         });
         html.on('click', '.reload-button', (ev) => {
-            console.log("reload button clicked")
+            console.log("reload button clicked");
         });
     }
 

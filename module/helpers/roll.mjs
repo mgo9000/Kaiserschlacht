@@ -61,6 +61,7 @@ export class KSRoll extends Roll {
      flavor: isPrivate ? null : flavor,
      targetNumber: isPrivate ? null : this.options.targetNumber,
      damage: isPrivate ? null : this.options.damage,
+     damage: isPrivate ? null : this.options.reload,
      damageTags: isPrivate ? null : this.options.damageTags,
      degreeOfSuccess: isPrivate ? null : await this.getDegreeOfSuccess(),
      user: game.user.id,
