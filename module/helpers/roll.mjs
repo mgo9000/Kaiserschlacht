@@ -24,11 +24,13 @@ export class KSRoll extends Roll {
    }
    async getDegreeOfSuccess() {
       if ( !this._evaluated ) await this.evaluate({async: true});
-      if (!this.targetNumber){
+      console.log(this.targetNumber);
+      if (this.targetNumber === null){
          return null;
       }
       else{
          const degreeOfSuccess = this.total >= this.targetNumber ? 'Success' : 'Failure';
+         console.log(degreeOfSuccess);
          return degreeOfSuccess;
       }
    }
