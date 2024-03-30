@@ -24,7 +24,7 @@ export class KSRoll extends Roll {
    }
    async getDegreeOfSuccess() {
       if ( !this._evaluated ) await this.evaluate({async: true});
-      if (!targetNumber){
+      if (!this.targetNumber){
          return null;
       }
       else{
