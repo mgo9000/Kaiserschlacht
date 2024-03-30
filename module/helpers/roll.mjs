@@ -49,7 +49,7 @@ export class KSRoll extends Roll {
      formula: isPrivate ? "???" : this._formula,
      flavor: isPrivate ? null : flavor,
      targetNumber: isPrivate ? null : this.targetNumber,
-     degreeOfSuccess: isPrivate ? null : this.getDegreeOfSuccess(),
+     degreeOfSuccess: isPrivate ? null : await this.getDegreeOfSuccess(),
      user: game.user.id,
      tooltip: isPrivate ? "" : await this.getTooltip(),
      total: isPrivate ? "?" : Math.round(this.total * 100) / 100
