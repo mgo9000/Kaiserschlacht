@@ -8,7 +8,7 @@
 export class KSRoll extends Roll {
    constructor(formula, data, options) {
       super(formula, data, options);
-      if ( !this.options.targetNumber) {this.configureTargetNumber();}
+      if (!this.options.targetNumber) {this.configureTargetNumber();}
     }
    /** @override */
    static CHAT_TEMPLATE = "systems/kaiserschlacht/templates/chat/roll.hbs";
@@ -19,7 +19,7 @@ export class KSRoll extends Roll {
     * @type {number}
     */
    configureTargetNumber() {
-      derivedTargetNumber = game.user.targets.first()?.document.actor.system.targetNumber ?? null;
+      let derivedTargetNumber = game.user.targets.first()?.document.actor.system.targetNumber ?? null;
       Object.assign(this.options, {
          targetNumber: derivedTargetNumber
        });
