@@ -17,11 +17,21 @@ export class KSRoll extends Roll {
    get targetNumber() {
       return game.user.targets.first()?.document.actor.system.targetNumber ?? null;
    }
+
    /** @inheritdoc */
    async toMessage(messageData = {}, options = {}) {
       return super.toMessage(messageData, options);
    }
-
+   async getDegreeOfSuccess() {
+      if ( !this._evaluated ) await this.evaluate({async: true});
+      if (!targetNumber){
+         return null;
+      }
+      else{
+         const degreeOfSuccess = this.total >= this.targetNumber ? 'Success' : 'Failure';
+         return degreeOfSuccess;
+      }
+   }
      /* -------------------------------------------- */
 
   /**
@@ -39,6 +49,7 @@ export class KSRoll extends Roll {
      formula: isPrivate ? "???" : this._formula,
      flavor: isPrivate ? null : flavor,
      targetNumber: isPrivate ? null : this.targetNumber,
+     degreeOfSuccess: isPrivate ? null : this.getDegreeOfSuccess(),
      user: game.user.id,
      tooltip: isPrivate ? "" : await this.getTooltip(),
      total: isPrivate ? "?" : Math.round(this.total * 100) / 100
