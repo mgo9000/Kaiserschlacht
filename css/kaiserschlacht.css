@@ -1,4 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+.dice-roll .dice-target-number {
+  font-size: var(--font-size-12);
+}
+
+.dice-roll .dice-target-hit {
+  color: #09ff00;
+}
+
+.dice-roll .dice-target-miss {
+  color: #ff0000;
+}
+
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
@@ -353,6 +365,10 @@
   flex: 0 0 200px;
   padding: 0 8px;
 }
+.kaiserschlacht .weapon-field {
+  flex: 0 90px;
+  padding: 0 8px;
+}
 .kaiserschlacht .effects .item .effect-source,
 .kaiserschlacht .effects .item .effect-duration,
 .kaiserschlacht .effects .item .effect-controls {
@@ -364,3 +380,5 @@
 .kaiserschlacht .effects .item .effect-controls {
   border: none;
 }
+
+/*# sourceMappingURL=kaiserschlacht.css.map */
