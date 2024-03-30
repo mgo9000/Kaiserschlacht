@@ -4,6 +4,9 @@
  * @param {object} [options={}]                 Options which modify or describe the Roll
  * @param {object} [options.targetedToken]   The token which is provided as a target.
  * @param {number} [options.targetNumber]   the target number of a check, if provided
+ * @param {number} [options.damage=null]   the damage, if provided
+ * * @param {number} [options.reload=null]   the reload target, if provided
+ * @param {string} [options.damageTags=null]   the tags for the damage to be applied, if provided
  */
 export class KSRoll extends Roll {
    constructor(formula, data, options) {
@@ -57,6 +60,8 @@ export class KSRoll extends Roll {
      formula: isPrivate ? "???" : this._formula,
      flavor: isPrivate ? null : flavor,
      targetNumber: isPrivate ? null : this.options.targetNumber,
+     damage: isPrivate ? null : this.options.damage,
+     damageTags: isPrivate ? null : this.options.damageTags,
      degreeOfSuccess: isPrivate ? null : await this.getDegreeOfSuccess(),
      user: game.user.id,
      tooltip: isPrivate ? "" : await this.getTooltip(),

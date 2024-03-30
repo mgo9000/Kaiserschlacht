@@ -18,6 +18,7 @@
     },
     "character": {
       "templates": ["base"],
+      "initiative":1,
       "attributes": {
         "skillPoints": {
           "value": 0
@@ -169,7 +170,8 @@
       "armor": 0,
       "range": 0,
       "meleeDie":"",
-      "rangedDie":""
+      "rangedDie":"",
+      "initiative":2
     }
   },
   "Item": {

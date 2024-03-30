@@ -1,11 +1,14 @@
-import{
+import {
   KSRoll,
-}from '../helpers/roll.mjs';
+} from '../helpers/roll.mjs';
+import {
+  diffDialog,
+} from '../helpers/dice-dialog.mjs';
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
  */
-export class KaiserschlachtItem extends Item {
+export class KSItem extends Item {
   /**
    * Augment the basic Item data model with additional dynamic data.
    */
@@ -13,13 +16,34 @@ export class KaiserschlachtItem extends Item {
     // As with the actor class, items are documents that can have their data
     // preparation methods overridden (such as prepareBaseData()).
     super.prepareData();
-    if (this.system.equipped === false){
-      this.collections.effects.forEach(e => e.update({ transfer: false}));
+    if (this.system.equipped === false) {
+      this.collections.effects.forEach(e => e.update({ transfer: false }));
 
     }
-    
-  }
 
+  }
+  /**
+   * Returns a given item's attack roll.
+   * @type {string}
+   */
+  get attackFormula() {
+    let weaponType = this.system.type || "ranged";
+    switch (weaponType) {
+      case "ranged":
+        return "@skills.shooting.mod";
+      case "melee":
+        return "@skills.smash.mod";
+      case "brawl":
+        return "@skills.brawl.mod";
+      case "thrown":
+        return "@skills.athletics.mod";
+      case "acrobatics":
+        return "@skills.acrobatics.mod";
+      default:
+        console.log("improper weapon type given, defaulting to ranged");
+        return "@skills.shooting.mod";
+    }
+  }
   /**
    * Prepare a data object which defines the data schema used by dice roll commands against this Item
    * @override
@@ -61,13 +85,13 @@ export class KaiserschlachtItem extends Item {
         const rollData = await this.getRollData();
 
         // Invoke the roll and submit it to chat.
-        const roll = new KSRoll("1d6", rollData,{targetNumber: rollData.reload});
+        const roll = new KSRoll("1d6", rollData, { targetNumber: rollData.reload });
         // If you need to store the value first, uncomment the next line.
         // const result = await roll.evaluate();
         roll.toMessage({
           speaker: speaker,
           rollMode: rollMode,
-          flavor: "Reload: " + rollData.reload,
+          flavor: "Reload",
         });
         return roll;
       }
@@ -96,14 +120,57 @@ export class KaiserschlachtItem extends Item {
       return roll;
     }
   }
+  /**
+   * Handle attack rolls from a given weapon.
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async attackRoll() {
+    const item = this;
+    console.log(item);
+    await this.system;
+    console.log(this.system);
+
+    // Initialize chat data.
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+    const rollMode = game.settings.get('core', 'rollMode');
+    const label = `${item.name}`;
+
+    // If there's no roll data, send a chat message.
+    if (!this.attackFormula) {
+      ChatMessage.create({
+        speaker: speaker,
+        rollMode: rollMode,
+        flavor: label,
+        content: item.system.description ?? '',
+      });
+    }
+    // Otherwise, create a roll and send a chat message from it.
+    else {
+      // Retrieve roll data.
+      const rollData = await this.getRollData();
+      let formula = this.attackFormula;
+      const amendedFormula = await diffDialog(formula);
+      // Invoke the roll and submit it to chat.
+      const roll = new KSRoll(amendedFormula, rollData.actor, { reload: this.system.reload || null, damage: this.system.damage || 0, damageTags: this.system.traits || null });
+      // If you need to store the value first, uncomment the next line.
+      // const result = await roll.evaluate();
+      roll.toMessage({
+        speaker: speaker,
+        rollMode: rollMode,
+        flavor: label,
+      });
+      return roll;
+    }
+  }
   equipToggle() { //toggles equip value and whether the items are deleted or not
     if (this.system.equipped) {
       this.update({ system: { equipped: false } });
-      this.collections.effects.forEach(e => e.update({ transfer: false}));
+      this.collections.effects.forEach(e => e.update({ transfer: false }));
     }
     else {
       this.update({ system: { equipped: true } });
-      this.collections.effects.forEach(e => e.update({ transfer: true}));
+      this.collections.effects.forEach(e => e.update({ transfer: true }));
     }
 
   }

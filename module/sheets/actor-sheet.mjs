@@ -12,7 +12,7 @@ import{
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class KaiserschlachtActorSheet extends ActorSheet {
+export class KSActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
@@ -280,6 +280,11 @@ export class KaiserschlachtActorSheet extends ActorSheet {
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
       }
+       else if (dataset.rollType == 'attack') {
+          const itemId = element.closest('.item').dataset.itemId;
+          const item = this.actor.items.get(itemId);
+          if (item) return item.attackRoll();
+        }
       else if (dataset.rollType == 'reload') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);

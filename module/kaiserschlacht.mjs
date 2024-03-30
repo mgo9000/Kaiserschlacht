@@ -1,9 +1,10 @@
 // Import document classes.
-import { KaiserschlachtActor } from './documents/actor.mjs';
-import { KaiserschlachtItem } from './documents/item.mjs';
+import { KSActor } from './documents/actor.mjs';
+import { KSItem } from './documents/item.mjs';
+import { KSChatMessage } from './documents/chat-message.mjs';
 // Import sheet classes.
-import { KaiserschlachtActorSheet } from './sheets/actor-sheet.mjs';
-import { KaiserschlachtItemSheet } from './sheets/item-sheet.mjs';
+import { KSActorSheet } from './sheets/actor-sheet.mjs';
+import { KSItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { KSRoll } from './helpers/roll.mjs';
@@ -17,9 +18,11 @@ Hooks.once('init', function () {
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
   game.kaiserschlacht = {
-    KaiserschlachtActor,
-    KaiserschlachtItem,
+    KSActor,
+    KSItem,
     rollItemMacro,
+    KSChatMessage,
+    KSRoll
   };
 
   // Add custom constants for configuration.
@@ -30,13 +33,15 @@ Hooks.once('init', function () {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: '@abilities.finesse.value',
+    formula: '@initiative',
     decimals: 2,
   };
 
   // Define custom Document classes
-  CONFIG.Actor.documentClass = KaiserschlachtActor;
-  CONFIG.Item.documentClass = KaiserschlachtItem;
+  CONFIG.Actor.documentClass = KSActor;
+  CONFIG.Item.documentClass = KSItem;
+  CONFIG.ChatMessage.documentClass = KSChatMessage;
+
   // Define and push custom dice types
   CONFIG.Dice.KSRoll = KSRoll;
   CONFIG.Dice.rolls.push(KSRoll);
@@ -47,12 +52,12 @@ Hooks.once('init', function () {
 
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('kaiserschlacht', KaiserschlachtActorSheet, {
+  Actors.registerSheet('kaiserschlacht', KSActorSheet, {
     makeDefault: true,
     label: 'KAISERSCHLACHT.SheetLabels.Actor',
   });
   Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('kaiserschlacht', KaiserschlachtItemSheet, {
+  Items.registerSheet('kaiserschlacht', KSItemSheet, {
     makeDefault: true,
     label: 'KAISERSCHLACHT.SheetLabels.Item',
   });
