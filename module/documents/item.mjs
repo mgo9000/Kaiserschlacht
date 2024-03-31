@@ -32,8 +32,6 @@ export class KSItem extends Item {
       case "ranged":
         return "@skills.shooting.mod";
       case "melee":
-        return "@skills.smash.mod";
-      case "brawl":
         return "@skills.brawl.mod";
       case "thrown":
         return "@skills.athletics.mod";
