@@ -8,6 +8,7 @@ export class KSChatMessage extends ChatMessage {
     const html = await super.getHTML();
     html.on('click', '.apply-damage-button', (ev) => {
         console.log("clicked damage button");
+        console.log(ev);
       });
     return html;
   }
