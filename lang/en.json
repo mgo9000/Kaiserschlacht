@@ -7,6 +7,14 @@
       "Presence": { "long": "Presence", "abbr": "presence" },
       "ClassStat": { "long": "ClassStat", "abbr": "classStat" }
     },
+    "ClassStat": {
+      "Faith": { "long": "Faith", "abbr": "Faith" },
+      "Scrap": { "long": "Scrap", "abbr": "Scrap" },
+      "Tactics": { "long": "Tactics", "abbr": "Tactics" },
+      "Moxie": { "long": "Moxie", "abbr": "Moxie" },
+      "Heart": { "long": "Heart", "abbr": "Heart" },
+      "Grit": { "long": "Grit", "abbr": "Grit" }
+    },
     "Skill": {
       "Brawl": { "long": "Brawl", "abbr": "brawl" },
       "Athletics": { "long": "Athletics", "abbr": "athletics" },
@@ -35,8 +43,16 @@
         "range": "Range",
         "traits": "Traits",
         "reload": "Reload",
-        "equipped": "Equipped"
-
+        "equipped": "Equipped",
+        "type": "Type"
+      },
+      "Armor":{
+        "damage": "Damage",
+        "range": "Range",
+        "traits": "Traits",
+        "reload": "Reload",
+        "equipped": "Equipped",
+        "type": "Type"
       }
     },
     "Effect": {

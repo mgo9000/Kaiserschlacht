@@ -53,27 +53,27 @@ export class KSActor extends Actor {
     for (let [key, ability] of Object.entries(systemData.abilities)) {
       // Calculate the modifier using dice pool rules.
       let dicepool = ["1d4", "1d4", "1d6", "1d8", "1d8+1d4", "1d8+1d6", "2d8"];
-      if (ability.value > 6) {
+      if (ability.value + ability.bonus > 6) {
         ability.mod = dicepool[6];
       }
       else if (ability.value < 0) {
         ability.mod = dicepool[0];
       }
       else {
-        ability.mod = dicepool[ability.value] ?? "Error";
+        ability.mod = dicepool[ability.value + ability.bonus] ?? "Error";
       }
 
     }
     for (let [key, skill] of Object.entries(systemData.skills)) {
       let dicepool = ["1d4", "1d4", "1d6", "1d8", "1d8+1d4", "1d8+1d6", "2d8"];
-      if (skill.value > 6) {
+      if (skill.value + skill.bonus > 6) {
         skill.mod = dicepool[6];
       }
-      else if (skill.value < 0) {
+      else if (skill.value + skill.bonus < 0) {
         skill.mod = dicepool[0]; 
       }
       else {
-        skill.mod = dicepool[skill.value] ?? "Error";
+        skill.mod = dicepool[skill.value + skill.bonus] ?? "Error";
       }
     }
     

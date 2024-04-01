@@ -26,8 +26,13 @@ KAISERSCHLACHT.skills = {
 
 };
 KAISERSCHLACHT.classStats = {
-
-
+  faith: 'KAISERSCHLACHT.ClassStat.Faith.long',
+  scrap: 'KAISERSCHLACHT.ClassStat.Scrap.long',
+  tactics: 'KAISERSCHLACHT.ClassStat.Tactics.long',
+  static: 'KAISERSCHLACHT.ClassStat.Static.long',
+  moxie: 'KAISERSCHLACHT.ClassStat.Moxie.long',
+  heart: 'KAISERSCHLACHT.ClassStat.Heart.long',
+  grit: 'KAISERSCHLACHT.ClassStat.Grit.long',
 };
 KAISERSCHLACHT.abilityAbbreviations = {
   physique: 'KAISERSCHLACHT.Ability.Physique.abbr',

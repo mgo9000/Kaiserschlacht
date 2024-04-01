@@ -35,22 +35,26 @@
         "physique": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "finesse": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "wits": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "presence": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         }
       },
       "classStats":{
@@ -101,62 +105,74 @@
         "brawl": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "athletics": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "smash": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "shooting": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "skullduggery": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "acrobatics": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "knowledgeMen": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "knowledgeMachines": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "knowledgeMagic": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "empathy": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "manipulation": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         },
         "intimidation": {
           "value": 0,
           "min": 0,
-          "max": 6
+          "max": 6,
+          "bonus": 0
         }
       }
     },

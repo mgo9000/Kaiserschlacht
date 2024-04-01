@@ -80,12 +80,18 @@
             use both the "grid" and "grid-Ncol" class where "N" can be any number
             from 1 to 12 and will create that number of columns. --}}
             <div class="abilities flexcol">
+              <div class="ability flexrow flex-group-center"></div>
+              <aside class ="flexlarge align-left"></aside>
+              <label>Base</label>
+              <label>Bonus</label>
               {{#each system.abilities as |ability key|}}
               <div class="ability flexrow flex-group-center">
                 <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
                   data-roll="@abilities.{{key}}.mod" data-roll-type="diff" data-label="{{ability.label}}">{{ability.label}}</label>
                 <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}"
-                  data-dtype="Number" />
+                  data-dtype="Number"/>
+                   <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}"
+                  data-dtype="Number"/>
                 <span></span>
               </div>
               {{/each}}
@@ -106,6 +112,8 @@
                 <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
                   data-roll="@skills.{{key}}.mod" data-roll-type="diff" data-label="{{skill.label}}">{{skill.label}}</label>
                 <input type="text" name="system.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" />
+                <input type="text" name="system.skills.{{key}}.bonus" value="{{skill.bonus}}"
+                  data-dtype="Number" />
                 <span></span>
               </div>
               {{/each}}
