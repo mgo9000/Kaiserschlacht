@@ -31,11 +31,11 @@
           </div>
         </div>
 
- <div class="resource flex-group-center">
+        <div class="resource flex-group-center">
           <label for="system.attributes.skillPoints.value" class="resource-label">Armor</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.attributes.armor.value"
-              value="{{system.attributes.armor.value}}" data-dtype="Number" />
+            <input type="text" name="system.attributes.armor.value" value="{{system.attributes.armor.value}}"
+              data-dtype="Number" />
           </div>
         </div>
 
@@ -46,7 +46,7 @@
               value="{{system.attributes.skillPoints.value}}" data-dtype="Number" />
           </div>
         </div>
-       
+
 
       </div>
     </div>
@@ -54,7 +54,7 @@
       {{> "systems/kaiserschlacht/templates/actor/parts/actor-effects.hbs"}}
     </div>
   </header>
- 
+
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
@@ -75,58 +75,64 @@
       <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
       <hr>
       <aside>
-          <div class="stats grid grid-2col">
-            {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-            use both the "grid" and "grid-Ncol" class where "N" can be any number
-            from 1 to 12 and will create that number of columns. --}}
-            <div class="abilities flexcol">
-              <div class="ability flexrow flexshrink flex-group-center">
-              <aside class ="flexlarge align-left"></aside>
+        <div class="stats grid grid-2col">
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns. --}}
+          <div class="abilities flexcol">
+            <div class="ability flexrow flexshrink flex-group-center">
+              <aside class="flexlarge align-left"></aside>
               <label class="resource-label">Base</label>
+              <span></span>
               <label class="resource-label">Bonus</label>
-              <span></div>
-              {{#each system.abilities as |ability key|}}
-              <div class="ability flexrow flex-group-center">
-                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                  data-roll="@abilities.{{key}}.mod" data-roll-type="diff" data-label="{{ability.label}}">{{ability.label}}</label>
-                <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}"
-                  data-dtype="Number"/>
-                   <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}"
-                  data-dtype="Number"/>
-                <span></span>
-              </div>
-              {{/each}}
-              {{#each system.classStats as |classStat key|}}{{#with visible}}
-              <div class="classStat flexrow flex-group-center">
-                <label for="system.classStats.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                  >{{classStat.label}}</label>
-                <input type="text" name="system.classStats.{{key}}.value" value="{{classStat.value}}"
-                  data-dtype="Number" />
-            <span></span>
-              </div>
-              {{/with}}
-              {{/each}}
+              <span>
             </div>
-            <div class="skills flexcol">
-              <div class="skill flexrow flexshrink flex-group-center">
-              <aside class ="flexlarge align-left"></aside>
-              <label class="resource-label">Base</label>
-              <label class="resource-label">Bonus</label>
-              <span></div>
-              {{#each system.skills as |skill key|}}
-              <div class="skill flexrow flex-group-center">
-                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                  data-roll="@skills.{{key}}.mod" data-roll-type="diff" data-label="{{skill.label}}">{{skill.label}}</label>
-                <input type="text" name="system.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" />
-                <input type="text" name="system.skills.{{key}}.bonus" value="{{skill.bonus}}"
-                  data-dtype="Number" />
-                <span></span>
-              </div>
-              {{/each}}
+            {{#each system.abilities as |ability key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
+                data-label="{{ability.label}}">{{ability.label}}</label>
+              <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
+              <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}" data-dtype="Number" />
+              <span></span>
+            </div>
+            {{/each}}
+            {{#each system.classStats as |classStat key|}}{{#with visible}}
+            <div class="classStat flexrow flex-group-center">
+              <label for="system.classStats.{{key}}.value"
+                class="resource-label rollable flexlarge align-left">{{classStat.label}}</label>
+              <input type="text" name="system.classStats.{{key}}.value" value="{{classStat.value}}"
+                data-dtype="Number" />
+              <span></span>
+
+              <span></span>
+            </div>
+            {{/with}}
+            {{/each}}
           </div>
-    </aside>
+          <div class="skills flexcol">
+            <div class="skill flexrow flexshrink flex-group-center">
+              <aside class="flexlarge align-left"></aside>
+              <label class="resource-label">Base</label>
+              <span></span>
+              <label class="resource-label">Bonus</label>
+              <span>
+            </div>
+            {{#each system.skills as |skill key|}}
+            <div class="skill flexrow flex-group-center">
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                data-roll="@skills.{{key}}.mod" data-roll-type="diff"
+                data-label="{{skill.label}}">{{skill.label}}</label>
+              <input type="text" name="system.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" />
+              <span></span>
+              <input type="text" name="system.skills.{{key}}.bonus" value="{{skill.bonus}}" data-dtype="Number" />
+              <span></span>
+            </div>
+            {{/each}}
+          </div>
+      </aside>
     </div>
-  
+
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="description">
       {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to
@@ -139,7 +145,7 @@
       {{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}
       {{> "systems/kaiserschlacht/templates/actor/parts/actor-items.hbs"}}
     </div>
-    {{!--  Feats Tab --}}
+    {{!-- Feats Tab --}}
     <div class="tab items" data-group="primary" data-tab="features">
       {{> "systems/kaiserschlacht/templates/actor/parts/actor-features.hbs"}}
     </div>
@@ -147,7 +153,7 @@
     {{!-- Owned Spells Tab --}}
     {{!<div class="tab spells" data-group="primary" data-tab="spells">
       {{> "systems/kaiserschlacht/templates/actor/parts/actor-spells.hbs"}}
-    {{!</div>}}
+      {{!</div>}}
     {{!-- Active Effects Tab --}}
     <div class="tab effects flexcol" data-group="primary" data-tab="effects">
       {{> "systems/kaiserschlacht/templates/actor/parts/actor-effects.hbs"}}

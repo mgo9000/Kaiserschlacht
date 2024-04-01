@@ -4,8 +4,7 @@
       "Physique": { "long": "Physique", "abbr": "physique" },
       "Finesse": { "long": "Finesse", "abbr": "finesse" },
       "Wits": { "long": "Wits", "abbr": "wits" },
-      "Presence": { "long": "Presence", "abbr": "presence" },
-      "ClassStat": { "long": "ClassStat", "abbr": "classStat" }
+      "Presence": { "long": "Presence", "abbr": "presence" }
     },
     "ClassStat": {
       "Faith": { "long": "Faith", "abbr": "Faith" },
@@ -13,7 +12,8 @@
       "Tactics": { "long": "Tactics", "abbr": "Tactics" },
       "Moxie": { "long": "Moxie", "abbr": "Moxie" },
       "Heart": { "long": "Heart", "abbr": "Heart" },
-      "Grit": { "long": "Grit", "abbr": "Grit" }
+      "Grit": { "long": "Grit", "abbr": "Grit" },
+      "Static": { "long": "Static", "abbr": "Static" }
     },
     "Skill": {
       "Brawl": { "long": "Brawl", "abbr": "brawl" },

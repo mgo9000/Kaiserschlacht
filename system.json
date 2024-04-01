@@ -3,7 +3,7 @@
   "title": "Kaiserschlacht",
   "description": "The Kaiserschlacht system for FoundryVTT!",
   "authors": [
-    { 
+    {
       "name": "***REMOVED***",
       "discord": "***REMOVED***",
       "boilerplateName": "Asacolips",
@@ -22,13 +22,17 @@
       "thumbnail": "systems/kaiserschlacht/assets/anvil-impact.png"
     }
   ],
-  "version": "0.1.29",
+  "version": "0.1.30",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
   },
-  "esmodules": ["module/kaiserschlacht.mjs"],
-  "styles": ["css/kaiserschlacht.css"],
+  "esmodules": [
+    "module/kaiserschlacht.mjs"
+  ],
+  "styles": [
+    "css/kaiserschlacht.css"
+  ],
   "languages": [
     {
       "lang": "en",
