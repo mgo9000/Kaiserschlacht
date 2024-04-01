@@ -22,7 +22,7 @@
       "thumbnail": "systems/kaiserschlacht/assets/anvil-impact.png"
     }
   ],
-  "version": "0.1.26",
+  "version": "0.1.27",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
@@ -45,5 +45,5 @@
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "stress"
+  "secondaryTokenAttribute": ""
 }

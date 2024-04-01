@@ -151,7 +151,7 @@ async _preCreate(data, options, user) {
 
   // Configure prototype token initial settings
   const prototypeToken = {};
-  Object.assign(prototypeToken, {bar2:{attribute: null}});
+  // Object.assign(prototypeToken, {bar2:{attribute: null}});
   if ( this.type === "character" ) Object.assign(prototypeToken, {
     sight: { enabled: true }, actorLink: true, disposition: 1
   });
