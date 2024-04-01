@@ -48,7 +48,7 @@ export class KSActor extends Actor {
     // Make modifications to data here. For example:
     const systemData = actorData.system;
 
-    
+
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(systemData.abilities)) {
       // Calculate the modifier using dice pool rules.
@@ -70,22 +70,22 @@ export class KSActor extends Actor {
         skill.mod = dicepool[6];
       }
       else if (skill.value + skill.bonus < 0) {
-        skill.mod = dicepool[0]; 
+        skill.mod = dicepool[0];
       }
       else {
         skill.mod = dicepool[skill.value + skill.bonus] ?? "Error";
       }
     }
-    
+
   }
-  
+
 
   /**
    * Prepare NPC type specific data.
    */
   _prepareNpcData(actorData) {
     if (actorData.type !== 'npc') return;
-    
+
     // Make modifications to data here. For example:
     const systemData = actorData.system;
     systemData.xp = systemData.cr * systemData.cr * 100;
@@ -143,18 +143,18 @@ export class KSActor extends Actor {
     // Process additional NPC data here.
   }
 
-//Default token params overwritten 
+  //Default token params overwritten 
 
-/** @override */
-async _preCreate(data, options, user) {
-  if ( (await super._preCreate(data, options, user)) === false ) return false;
+  /** @override */
+  async _preCreate(data, options, user) {
+    if ((await super._preCreate(data, options, user)) === false) return false;
 
-  // Configure prototype token initial settings
-  const prototypeToken = {};
-  // Object.assign(prototypeToken, {bar2:{attribute: null}});
-  if ( this.type === "character" ) Object.assign(prototypeToken, {
-    sight: { enabled: true }, actorLink: true, disposition: 1
-  });
-  this.updateSource({ prototypeToken });
-}
+    // Configure prototype token initial settings
+    const prototypeToken = {};
+    // Object.assign(prototypeToken, {bar2:{attribute: null}});
+    if (this.type === "character") Object.assign(prototypeToken, {
+      sight: { enabled: true }, actorLink: true, disposition: 1
+    });
+    this.updateSource({ prototypeToken });
+  }
 }  

@@ -12,13 +12,30 @@ export class KSChatMessage extends ChatMessage {
     });
     html.on('click', '.reload-button', (ev) => {
       console.log("clicked reload button");
-      console.log(ev);
+      chatReload(ev);
     });
     return html;
   }
-  async chatReload(event) {
+  applyDamage(event) {
     event.preventDefault();
+    let dataset = event.dataset;
+    const targetTokens = canvas.tokens.controlled;
 
+
+  }
+  chatReload(event) {
+    event.preventDefault();
+    let dataset = event.dataset;
+    const speaker = super.getSpeaker({ actor: this.actor });
+    console.log(this.actor);
+    const rollMode = game.settings.get('core', 'rollMode');
+    const roll = new KSRoll("1d6", dataset, { targetNumber: dataset.reload });
+    roll.toMessage({
+      speaker: speaker,
+      rollMode: rollMode,
+      flavor: "Reload",
+    });
+    return roll;
 
   }
 }
