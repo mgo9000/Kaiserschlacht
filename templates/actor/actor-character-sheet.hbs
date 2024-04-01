@@ -8,7 +8,7 @@
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
       use both the "grid" and "grid-Ncol" class where "N" can be any number
       from 1 to 12 and will create that number of columns. --}}
-      <div class="resources grid grid-4col">
+      <div class="resources flexrow">
 
         {{!-- "flex-group-center" is also defined in the _grid.scss file
         and it will add a small amount of padding, a border, and will
@@ -46,7 +46,15 @@
               value="{{system.attributes.skillPoints.value}}" data-dtype="Number" />
           </div>
         </div>
-
+        {{#each system.classStats as |classStat key|}}{{#with visible}}
+        <div class="resource flex-group-center">
+          <label for="system.classStats.{{key}}.value" class="resource-label">{{classStat.label}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.classStats.{{key}}.value" value="{{classStat.value}}" data-dtype="Number" />
+          </div>
+        </div>
+        {{/with}}
+        {{/each}}
 
       </div>
     </div>
@@ -98,18 +106,7 @@
               <span></span>
             </div>
             {{/each}}
-            {{#each system.classStats as |classStat key|}}{{#with visible}}
-            <div class="classStat flexrow flex-group-center">
-              <label for="system.classStats.{{key}}.value"
-                class="resource-label rollable flexlarge align-left">{{classStat.label}}</label>
-              <input type="text" name="system.classStats.{{key}}.value" value="{{classStat.value}}"
-                data-dtype="Number" />
-              <span></span>
 
-              <span></span>
-            </div>
-            {{/with}}
-            {{/each}}
           </div>
           <div class="skills flexcol">
             <div class="skill flexrow flexshrink flex-group-center">

@@ -19,17 +19,17 @@ export class KSChatMessage extends ChatMessage {
   }
   _onClickApplyDamage(event) {
     event.preventDefault();
-    let dataset = event.dataset;
+    const a = event.currentTarget
+    let dataset = a.dataset;
     const targetTokens = canvas.tokens.controlled;
-
+    targetTokens.foreach(token => token.actor._applyDamage(dataset.damage, dataset.damagetags));
 
   }
   _onClickChatReload(event) {
     event.preventDefault();
     const a = event.currentTarget
     let dataset = a.dataset;
-    console.log(event);
-    console.log(dataset);
+
     const speaker = KSChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
     const roll = new KSRoll("1d6", dataset, { targetNumber: dataset.reload });

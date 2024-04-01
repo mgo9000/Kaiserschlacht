@@ -157,4 +157,33 @@ export class KSActor extends Actor {
     });
     this.updateSource({ prototypeToken });
   }
+
+  // Apply damage
+  _applyDamage(damage, damageTags = null) {
+    const damageTemplate = "systems/kaiserschlacht/templates/chat/damage-card.hbs";
+    const damageValue = damage;
+    const currentHealth = this.health.value;
+    const armorPiercing = damageTags.includes("ap") || damageTags.includes("AP");
+    const currentArmor = this.attributes.armor.value;
+    let APBeat = false;
+    if (armorPiercing && damageValue >= currentArmor) {
+      APBeat = true;
+    }
+    else {
+      APBeat = false;
+    }
+    let adjustedDamage = Math.clamped(damageValue - currentArmor, 0, 9999);
+    let adjustedHealth = Math.clamped(currentHealth - adjustedDamage, 0, 9999);
+    this.update({ health: adjustedHealth });
+    const chatData = {
+      recipient: this.name,
+      originalDamage: damageValue,
+      totalDamage: adjustedDamage,
+      armor: currentArmor,
+      ap: armorPiercing,
+      beaten: APBeat,
+      user: game.user.id
+    };
+    return renderTemplate(template, chatData);
+  }
 }  

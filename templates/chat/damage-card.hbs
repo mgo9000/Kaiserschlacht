@@ -1,0 +1,11 @@
+<div class="damage-card">
+    {{#if flavor}}
+    <div class="damage-flavor">{{flavor}}</div>
+    {{/if}}
+    {{#if armor}}
+    <div><span class="dice-tn-label">Armor:</span> <strong>{{armor}} </strong>{{#if ap}}{{#if beaten}}<span
+            class="dice-target-hit"><strong>Pierced</strong></span>{{else}}<span class="dice-target-miss"><strong>Not
+                Pierced</strong></span> {{/if}}{{/if}}</div>
+    {{/if}}
+    <div class="damage-result">{{recipient}} received <strong>{{totalDamage}}</strong> damage.</div>
+</div>
