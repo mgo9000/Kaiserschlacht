@@ -192,6 +192,10 @@
   flex: 0;
 }
 
+.flex-restricted {
+  align-self: start;
+}
+
 .flex-between {
   justify-content: space-between;
 }
