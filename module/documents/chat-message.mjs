@@ -1,3 +1,6 @@
+import {
+  KSRoll,
+} from '../helpers/roll.mjs';
 /**
 * Extend the base ChatMessage document
 * @extends {ChatMessage}
@@ -6,18 +9,18 @@ export class KSChatMessage extends ChatMessage {
   /** @inheritDoc */
   async getHTML(...args) {
     const html = await super.getHTML();
-    html.on('click', '.apply-damage-button', this.applyDamage().bind(this));
-    html.on('click', '.reload-button', this.chatReload().bind(this));
+    html.querySelector(".reload-button").addEventListener("click", this._onCLickApplyDamage.bind(this));
+    html.querySelector(".reload-button").addEventListener("click", this._onClickChatReload.bind(this));
     return html;
   }
-  applyDamage(event) {
+  _onCLickApplyDamage(event) {
     event.preventDefault();
     let dataset = event.dataset;
     const targetTokens = canvas.tokens.controlled;
 
 
   }
-  chatReload(event) {
+  _onClickChatReload(event) {
     event.preventDefault();
     let dataset = event.dataset;
     const speaker = super.getSpeaker({ actor: this.actor });
