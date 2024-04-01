@@ -206,7 +206,8 @@
       "formula": "1d6"
     },
     "feature": {
-      "templates": ["base"]
+      "templates": ["base"],
+      "traits": [""]
     },
     "spell": {
       "templates": ["base"],
