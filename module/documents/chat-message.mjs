@@ -9,11 +9,12 @@ export class KSChatMessage extends ChatMessage {
   /** @inheritDoc */
   async getHTML(...args) {
     const html = await super.getHTML();
-    html.querySelector(".reload-button").addEventListener("click", this._onCLickApplyDamage.bind(this));
-    html.querySelector(".reload-button").addEventListener("click", this._onClickChatReload.bind(this));
+    console.log(html);
+    html.querySelectorAll(".apply-damage-button").forEach(el => el.addEventListener("click", this._onClickApplyDamage.bind(this)));
+    html.querySelectorAll(".reload-button").forEach(el => el.addEventListener("click", this._onClickChatReload.bind(this)));
     return html;
   }
-  _onCLickApplyDamage(event) {
+  _onClickApplyDamage(event) {
     event.preventDefault();
     let dataset = event.dataset;
     const targetTokens = canvas.tokens.controlled;
