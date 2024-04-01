@@ -12,7 +12,7 @@ export class KSChatMessage extends ChatMessage {
     });
     html.on('click', '.reload-button', (ev) => {
       console.log("clicked reload button");
-      chatReload(ev);
+      this.chatReload(ev);
     });
     return html;
   }
