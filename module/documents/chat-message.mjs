@@ -26,7 +26,10 @@ export class KSChatMessage extends ChatMessage {
   }
   _onClickChatReload(event) {
     event.preventDefault();
-    let dataset = event.dataset;
+    const a = event.currentTarget
+    let dataset = a.dataset;
+    console.log(event);
+    console.log(dataset);
     const speaker = KSChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
     const roll = new KSRoll("1d6", dataset, { targetNumber: dataset.reload });
