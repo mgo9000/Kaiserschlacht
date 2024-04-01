@@ -6,14 +6,8 @@ export class KSChatMessage extends ChatMessage {
   /** @inheritDoc */
   async getHTML(...args) {
     const html = await super.getHTML();
-    html.on('click', '.apply-damage-button', (ev) => {
-      console.log("clicked damage button");
-      console.log(ev);
-    });
-    html.on('click', '.reload-button', (ev) => {
-      console.log("clicked reload button");
-      this.chatReload(ev);
-    });
+    html.on('click', '.apply-damage-button', this.applyDamage().bind(this));
+    html.on('click', '.reload-button', this.chatReload().bind(this));
     return html;
   }
   applyDamage(event) {
