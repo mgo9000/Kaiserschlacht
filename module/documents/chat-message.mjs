@@ -59,6 +59,7 @@ export class KSChatMessage extends ChatMessage {
     actor.update({ system: { health: { value: originalHealth } } });
     actor.update({ system: { armor: originalArmor } });
     ui.notifications.info(`Damage to ${actor.name} reverted.`);
+    a.remove();
 
 
   }
