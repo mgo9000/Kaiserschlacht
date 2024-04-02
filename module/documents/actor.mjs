@@ -195,7 +195,7 @@ export class KSActor extends Actor {
     const chatData = {
       user: game.user.id,
       content: html,
-      speaker: ChatMessage.getSpeaker({ actor: this })
+      // speaker: ChatMessage.getSpeaker({ actor: this })
     };
 
     ChatMessage.create(chatData);
