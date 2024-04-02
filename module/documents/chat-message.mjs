@@ -16,7 +16,7 @@ export class KSChatMessage extends ChatMessage {
   _configureButtons(html) {
     html.querySelectorAll(".apply-damage-button").forEach(el => el.addEventListener("click", this._onClickApplyDamage.bind(this)));
     html.querySelectorAll(".reload-button").forEach(el => el.addEventListener("click", this._onClickChatReload.bind(this)));
-    html.querySelectorAll(".undo-damage-button").forEach(el => el.addEventListener("click", this._onClickUndoDamage.bind(this, html)));
+    html.querySelectorAll(".undo-damage-button").forEach(el => el.addEventListener("click", this._onClickUndoDamage.bind(this)));
   }
   _onClickApplyDamage(event) {
     event.preventDefault();
@@ -46,13 +46,10 @@ export class KSChatMessage extends ChatMessage {
 
   }
   // undo damage
-  async _onClickUndoDamage(event, html) {
+  async _onClickUndoDamage(event) {
     event.preventDefault();
-    console.log(html);
-    console.log(event);
-    console.log(event.currentTarget.parentNode);
-    console.log(event.currentTarget.firstChild);
     const a = event.currentTarget
+    const messageId = a.closest("data-message-id")?.dataset.messageId;
     console.log(a);
     let dataset = a.dataset;
     const uuid = dataset.uuid;
@@ -63,6 +60,7 @@ export class KSChatMessage extends ChatMessage {
     actor.update({ system: { armor: originalArmor } });
     ui.notifications.info(`Damage to ${actor.name} reverted.`);
 
-
+    a.remove();
+    Messages.delete(messageId)
   }
 }
