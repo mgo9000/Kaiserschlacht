@@ -46,11 +46,6 @@ Hooks.once('init', function () {
       icon: "icons/svg/unconscious.svg"
     },
     {
-      id: "sleep",
-      name: "EFFECT.StatusAsleep",
-      icon: "icons/svg/sleep.svg"
-    },
-    {
       id: "stun",
       name: "EFFECT.StatusStunned",
       icon: "icons/svg/daze.svg"
@@ -89,11 +84,6 @@ Hooks.once('init', function () {
       id: "disease",
       name: "EFFECT.StatusDisease",
       icon: "icons/svg/biohazard.svg"
-    },
-    {
-      id: "poison",
-      name: "EFFECT.StatusPoison",
-      icon: "icons/svg/poison.svg"
     },
     {
       id: "invisible",
@@ -204,7 +194,7 @@ async function createItemMacro(data, slot) {
       name: item.name,
       type: 'script',
       img: item.img,
-      command: item.system.formula,
+      command: command,
       flags: { 'kaiserschlacht.itemMacro': true },
     });
   }
