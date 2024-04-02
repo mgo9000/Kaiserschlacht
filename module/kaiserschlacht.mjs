@@ -192,12 +192,9 @@ async function createItemMacro(data, slot) {
   // Create the macro command using the uuid.
   const command = `game.kaiserschlacht.rollItemMacro("${data.uuid}");`;
   console.log(command);
-  let macro = game.macros.find(
-    (m) => m.name === item.name && m.command === command
-  );
-  console.log(macro);
-  if (!macro) {
-    macro = await Macro.create({
+  const macro = game.macros.find(
+    (m) => m.name === item.name && m.command === command)
+    || await Macro.create({
       name: item.name,
       type: 'script',
       scope: "actor",
@@ -205,8 +202,7 @@ async function createItemMacro(data, slot) {
       command: command,
       flags: { 'kaiserschlacht.itemMacro': true },
     });
-    console.log(macro);
-  }
+
   game.user.assignHotbarMacro(macro, slot);
   return false;
 }
