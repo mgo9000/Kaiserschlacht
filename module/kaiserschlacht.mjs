@@ -177,14 +177,17 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
 async function createItemMacro(data, slot) {
   // First, determine if this is a valid owned item.
   console.log(data.type);
-  if (data.type !== 'Item' || 'weapon') return;
+  if (data.type !== 'Item' || 'weapon') {
+    console.log("Wrong type for making macros.");
+    return;
+  }
   if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
     return ui.notifications.warn(
       'You can only create macro buttons for owned Items'
     );
   }
   // If it is, retrieve it based on the uuid.
-  const item = await fromDropData(data);
+  const item = await Item.implementation.fromDropData(data);
   console.log(item);
   // Create the macro command using the uuid.
   const command = `game.kaiserschlacht.rollItemMacro("${data.uuid}");`;
@@ -217,7 +220,7 @@ function rollItemMacro(itemUuid) {
     uuid: itemUuid,
   };
   // Load the item from the uuid.
-  fromDropData(dropData).then((item) => {
+  Item.implementation.fromDropData(dropData).then((item) => {
     // Determine if the item loaded and if it's an owned item.
     if (!item || !item.parent) {
       const itemName = item?.name ?? itemUuid;
