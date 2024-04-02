@@ -48,6 +48,7 @@ export class KSChatMessage extends ChatMessage {
   async _onClickUndoDamage(event) {
     event.preventDefault();
     const a = event.currentTarget
+    console.log(a);
     let dataset = a.dataset;
     const uuid = dataset.uuid;
     let actor = await fromUuid(uuid);
