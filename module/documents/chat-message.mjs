@@ -56,7 +56,7 @@ export class KSChatMessage extends ChatMessage {
     const uuid = dataset.uuid;
     let actor = await fromUuid(uuid);
     const originalHealth = dataset.originalHealth;
-    const originalArmor = dataset.armor;
+    const originalArmor = dataset.originalArmor;
     actor.update({ system: { health: { value: originalHealth } } });
     actor.update({ system: { armor: originalArmor } });
     ui.notifications.info(`Damage to ${actor.name} reverted.`);

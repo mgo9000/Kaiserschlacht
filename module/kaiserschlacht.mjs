@@ -27,7 +27,79 @@ Hooks.once('init', function () {
 
   // Add custom constants for configuration.
   CONFIG.KAISERSCHLACHT = KAISERSCHLACHT;
-
+  /**
+   * An array of status effects which can be applied to a TokenDocument.
+   * Each effect can either be a string for an icon path, or an object representing an Active Effect data.
+   * @override
+   * @type {Array<string|ActiveEffectData>}
+   */
+  CONFIG.statusEffects[
+    {
+      id: "dead",
+      name: "EFFECT.StatusDead",
+      icon: "icons/svg/skull.svg"
+    },
+    {
+      id: "unconscious",
+      name: "EFFECT.StatusUnconscious",
+      icon: "icons/svg/unconscious.svg"
+    },
+    {
+      id: "sleep",
+      name: "EFFECT.StatusAsleep",
+      icon: "icons/svg/sleep.svg"
+    },
+    {
+      id: "stun",
+      name: "EFFECT.StatusStunned",
+      icon: "icons/svg/daze.svg"
+    },
+    {
+      id: "prone",
+      name: "EFFECT.StatusProne",
+      icon: "icons/svg/falling.svg"
+    },
+    {
+      id: "restrain",
+      name: "EFFECT.StatusRestrained",
+      icon: "icons/svg/net.svg"
+    },
+    {
+      id: "paralysis",
+      name: "EFFECT.StatusParalysis",
+      icon: "icons/svg/paralysis.svg"
+    },
+    {
+      id: "blind",
+      name: "EFFECT.StatusBlind",
+      icon: "icons/svg/blind.svg"
+    },
+    {
+      id: "fear",
+      name: "EFFECT.StatusFear",
+      icon: "icons/svg/terror.svg"
+    },
+    {
+      id: "bleeding",
+      name: "EFFECT.StatusBleeding",
+      icon: "icons/svg/blood.svg"
+    },
+    {
+      id: "disease",
+      name: "EFFECT.StatusDisease",
+      icon: "icons/svg/biohazard.svg"
+    },
+    {
+      id: "poison",
+      name: "EFFECT.StatusPoison",
+      icon: "icons/svg/poison.svg"
+    },
+    {
+      id: "invisible",
+      name: "EFFECT.StatusInvisible",
+      icon: "icons/svg/invisible.svg"
+    }
+  ]
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -95,7 +167,7 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
     outline: 'black',
     texture: 'none',
     material: 'plastic'
-});
+  });
 
 });
 
