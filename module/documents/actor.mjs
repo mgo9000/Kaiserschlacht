@@ -174,7 +174,7 @@ export class KSActor extends Actor {
     }
     let adjustedDamage = Math.clamped(damageValue - currentArmor, 0, 9999);
     let adjustedHealth = Math.clamped(currentHealth - adjustedDamage, 0, 9999);
-    this.update({ system: { health: adjustedHealth } });
+    this.update({ system: { health: { value: adjustedHealth } } });
     const chatData = {
       recipient: this.name,
       originalDamage: damageValue,
@@ -184,6 +184,6 @@ export class KSActor extends Actor {
       beaten: APBeat,
       user: game.user.id
     };
-    return renderTemplate(template, chatData);
+    return renderTemplate(damageTemplate, chatData);
   }
 }  
