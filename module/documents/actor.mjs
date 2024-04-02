@@ -179,12 +179,15 @@ export class KSActor extends Actor {
       recipient: this.name,
       originalDamage: damageValue,
       totalDamage: adjustedDamage,
+      originalHealth: currentHealth,
       armor: currentArmor,
       ap: armorPiercing,
       beaten: APBeat,
-      user: game.user.id
+      user: game.user.id,
+      uuid: this.uuid
     };
     const html = await renderTemplate(damageTemplate, templateData);
+    html.querySelectorAll(".undo-damage-button").forEach(el => el.addEventListener("click", this._onUndoDamage.bind(this)));
     const chatData = {
       user: game.user.id,
       content: html,
@@ -192,5 +195,24 @@ export class KSActor extends Actor {
     };
 
     ChatMessage.create(chatData);
+  }
+  // undo damage
+  async _onUndoDamage(event) {
+    event.preventDefault();
+    const a = event.currentTarget
+    let dataset = a.dataset;
+    const uuid = dataset.uuid;
+    let actor = await fromUuid(uuid);
+    const originalHealth = dataset.originalHealth;
+    const originalArmor = dataset.armor;
+    actor.update({ system: { health: { value: originalHealth } } });
+    actor.update({ system: { armor: originalArmor } });
+    const chatData = {
+      user: game.user.id,
+      content: "Damage undone.",
+      speaker: ChatMessage.getSpeaker({ actor: actor })
+    };
+    ChatMessage.create(chatData);
+
   }
 }  
