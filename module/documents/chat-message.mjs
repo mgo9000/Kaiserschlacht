@@ -16,6 +16,7 @@ export class KSChatMessage extends ChatMessage {
   _configureButtons(html) {
     html.querySelectorAll(".apply-damage-button").forEach(el => el.addEventListener("click", this._onClickApplyDamage.bind(this)));
     html.querySelectorAll(".reload-button").forEach(el => el.addEventListener("click", this._onClickChatReload.bind(this)));
+    html.querySelectorAll(".undo-damage-button").forEach(el => el.addEventListener("click", this._onClickUndoDamage.bind(this)));
   }
   _onClickApplyDamage(event) {
     event.preventDefault();
@@ -41,6 +42,25 @@ export class KSChatMessage extends ChatMessage {
       flavor: "Reload",
     });
     return roll;
+
+  }
+  // undo damage
+  async _onClickUndoDamage(event) {
+    event.preventDefault();
+    const a = event.currentTarget
+    let dataset = a.dataset;
+    const uuid = dataset.uuid;
+    let actor = await fromUuid(uuid);
+    const originalHealth = dataset.originalHealth;
+    const originalArmor = dataset.armor;
+    actor.update({ system: { health: { value: originalHealth } } });
+    actor.update({ system: { armor: originalArmor } });
+    const chatData = {
+      user: game.user.id,
+      content: "Damage undone.",
+      speaker: ChatMessage.getSpeaker({ actor: actor })
+    };
+    ChatMessage.create(chatData);
 
   }
 }
