@@ -49,7 +49,7 @@ export class KSChatMessage extends ChatMessage {
   async _onClickUndoDamage(event) {
     event.preventDefault();
     const a = event.currentTarget
-    const messageId = a.closest("data-message-id")?.dataset.messageId;
+    const messageId = a.closest("[data-message-id]")?.dataset.messageId;
     console.log(messageId);
     console.log(a);
     let dataset = a.dataset;
