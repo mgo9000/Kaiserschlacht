@@ -191,13 +191,16 @@ async function createItemMacro(data, slot) {
   console.log(item);
   // Create the macro command using the uuid.
   const command = `game.kaiserschlacht.rollItemMacro("${data.uuid}");`;
+  console.log(command);
   let macro = game.macros.find(
     (m) => m.name === item.name && m.command === command
   );
+  console.log(macro);
   if (!macro) {
     macro = await Macro.create({
       name: item.name,
       type: 'script',
+      scope: "actor",
       img: item.img,
       command: command,
       flags: { 'kaiserschlacht.itemMacro': true },
@@ -213,14 +216,14 @@ async function createItemMacro(data, slot) {
  * Get an existing item macro if one exists, otherwise create a new one.
  * @param {string} itemUuid
  */
-function rollItemMacro(itemUuid) {
+export function rollItemMacro(itemUuid) {
   // Reconstruct the drop data so that we can load the item.
   const dropData = {
-    type: 'Macro',
+    type: 'Item',
     uuid: itemUuid,
   };
   // Load the item from the uuid.
-  Item.implementation.fromDropData(dropData).then((item) => {
+  Item.fromDropData(dropData).then((item) => {
     // Determine if the item loaded and if it's an owned item.
     if (!item || !item.parent) {
       const itemName = item?.name ?? itemUuid;
