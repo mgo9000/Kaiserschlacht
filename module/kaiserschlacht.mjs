@@ -184,10 +184,10 @@ async function createItemMacro(data, slot) {
     );
   }
   // If it is, retrieve it based on the uuid.
-  const item = await fromUuid(data.uuid);
-  console.log(item);
+  const item = await fromDropData(data);
+  console.log(data);
   // Create the macro command using the uuid.
-  const command = `game.kaiserschlacht.rollItemMacro("${item}");`;
+  const command = `game.kaiserschlacht.rollItemMacro("${data.uuid}");`;
   let macro = game.macros.find(
     (m) => m.name === item.name && m.command === command
   );
