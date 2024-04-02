@@ -11,12 +11,26 @@
   color: #6e0000;
 }
 
+.dice-target-hit {
+  color: #047700;
+}
+
+.dice-target-miss {
+  color: #6e0000;
+}
+
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
 }
 
 .rollable:hover, .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.clickable:hover, .clickable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;

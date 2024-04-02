@@ -5,9 +5,9 @@ import {
 import {
   diffDialog,
 } from '../helpers/dice-dialog.mjs';
-import{
+import {
   KSRoll,
-}from '../helpers/roll.mjs';
+} from '../helpers/roll.mjs';
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -87,26 +87,26 @@ export class KSActorSheet extends ActorSheet {
     // Handle ability scores, skills, and class stats.
     for (let [k, v] of Object.entries(context.system.abilities)) {
 
-      if (typeof v != "object"){
-       console.log("error rendering actor ability");
+      if (typeof v != "object") {
+        console.log("error rendering actor ability");
       }
       else
-      v.label = game.i18n.localize(CONFIG.KAISERSCHLACHT.abilities[k]) ?? k;
+        v.label = game.i18n.localize(CONFIG.KAISERSCHLACHT.abilities[k]) ?? k;
     }
     for (let [k, v] of Object.entries(context.system.skills)) {
-      if (typeof v != "object"){
+      if (typeof v != "object") {
         console.log("error rendering actor skill");
-       }
-       else
-      v.label = game.i18n.localize(CONFIG.KAISERSCHLACHT.skills[k]) ?? k;
+      }
+      else
+        v.label = game.i18n.localize(CONFIG.KAISERSCHLACHT.skills[k]) ?? k;
     }
     for (let [k, v] of Object.entries(context.system.classStats)) {
 
-      if (typeof v != "object"){
-       console.log("error rendering actor classStat");
+      if (typeof v != "object") {
+        console.log("error rendering actor classStat");
       }
       else
-      v.label = game.i18n.localize(CONFIG.KAISERSCHLACHT.classStats[k]) ?? k;
+        v.label = game.i18n.localize(CONFIG.KAISERSCHLACHT.classStats[k]) ?? k;
     }
   }
 
@@ -185,7 +185,7 @@ export class KSActorSheet extends ActorSheet {
       const item = this.actor.items.get(li.data('itemId'));
       item.sheet.render(true);
     });
-    
+
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
@@ -195,7 +195,7 @@ export class KSActorSheet extends ActorSheet {
 
       const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
-     
+
       item.equipToggle()
 
     });
@@ -223,7 +223,8 @@ export class KSActorSheet extends ActorSheet {
 
     // Rollable abilities.
     html.on('click', '.rollable', this._onRoll.bind(this));
-   
+    // Damage application from the button.
+    html.on('click', '.apply-damage-button', this._onClickApplyDamage.bind(this));
     // Drag events for macros.
     if (this.actor.isOwner) {
       let handler = (ev) => this._onDragStart(ev);
@@ -272,7 +273,7 @@ export class KSActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     let label = dataset.label ? `${dataset.label}` : '';
-    
+
     // Handle item rolls.
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
@@ -280,25 +281,25 @@ export class KSActorSheet extends ActorSheet {
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
       }
-       else if (dataset.rollType == 'attack') {
-          const itemId = element.closest('.item').dataset.itemId;
-          const item = this.actor.items.get(itemId);
-          if (item) return item.attackRoll();
-        }
+      else if (dataset.rollType == 'attack') {
+        const itemId = element.closest('.item').dataset.itemId;
+        const item = this.actor.items.get(itemId);
+        if (item) return item.attackRoll();
+      }
       else if (dataset.rollType == 'reload') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
       }
-      else if (dataset.rollType == 'diff'){
+      else if (dataset.rollType == 'diff') {
         const amendedFormula = await diffDialog(dataset.roll);
-        let roll = new KSRoll(amendedFormula, this.actor.getRollData(),{});
+        let roll = new KSRoll(amendedFormula, this.actor.getRollData(), {});
         roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
-      });
-      return roll;
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          flavor: label,
+          rollMode: game.settings.get('core', 'rollMode'),
+        });
+        return roll;
       }
     }
     else if (dataset.roll) {
@@ -311,5 +312,14 @@ export class KSActorSheet extends ActorSheet {
       return roll;
     }
   }
-  
+  _onClickApplyDamage(event) {
+    event.preventDefault();
+    const a = event.currentTarget
+    let dataset = a.dataset;
+    const targetTokens = canvas.tokens.controlled;
+    for (let token of targetTokens) {
+      token.actor._applyDamage(dataset.damage, dataset.damageTags);
+    }
+
+  }
 }

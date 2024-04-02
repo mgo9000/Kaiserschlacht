@@ -3,6 +3,17 @@
 }
 
 .rollable {
+
+  &:hover,
+  &:focus {
+    color: #000;
+    text-shadow: 0 0 10px red;
+    cursor: pointer;
+  }
+}
+
+.clickable {
+
   &:hover,
   &:focus {
     color: #000;

@@ -24,8 +24,8 @@
 
         <div class="resource flex-group-center">
           <label for="system.meleeDie.value" class="resource-label rollable" data-roll="{{system.meleeDie.value}}"
-            data-label="{{system.meleeDie.value}}">Melee</label><span>/</span><label
-            for="system.meleeDie.value" class="resource-label rollable" data-roll="{{system.rangedDie.value}}"
+            data-label="{{system.meleeDie.value}}">Melee</label><span>/</span><label for="system.meleeDie.value"
+            class="resource-label rollable" data-roll="{{system.rangedDie.value}}"
             data-label="{{system.meleeDie.value}}">Ranged</label> <span> DC</span>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.meleeDie.value" value="{{system.meleeDie.value}}" data-dtype="String" />
@@ -33,60 +33,61 @@
             <input type="text" name="system.rangedDie.value" value="{{system.rangedDie.value}}" data-dtype="String" />
           </div>
         </div>
- <div class="resource flex-group-center">
+        <div class="resource flex-group-center">
           <label for="system.armor" class="resource-label">Armor</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.armor" value="{{system.armor}}" data-dtype="Number" />
           </div>
         </div>
-        </div>
-       
+      </div>
+
+    </div>
+    </div>
+  </header>
+  <header class="sheet-header">
+    <div class="resource flex-group-center">
+      <label for="system.damage" class="resource-label clickable apply-damage-button" data-damage="{{system.damage}}"
+        data-damage-tags="{{system.damageTags}}">Damage</label>
+      <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
+      </div>
+    </div>
+    <div class="resource flex-group-center">
+      <label for="system.damageTags" class="resource-label">Traits</label>
+      <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="system.damageTags" value="{{system.damageTags}}" data-dtype="String" />
+      </div>
+    </div>
+    <div class="resource flex-group-center">
+      <label for="system.range" class="resource-label">Range</label>
+      <div class="resource-content flexrow flex-center flex-between">
+        <input type="text" name="system.range" value="{{system.range}}" data-dtype="String" />
       </div>
     </div>
   </header>
   <header class="sheet-header">
-<div class="resource flex-group-center">
-          <label for="system.damage" class="resource-label">Damage</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
-          </div>
-</div>
-<div class="resource flex-group-center">
-          <label for="system.damageTags" class="resource-label">Traits</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.damageTags" value="{{system.damageTags}}" data-dtype="String" />
-          </div>
-</div>
-<div class="resource flex-group-center">
-          <label for="system.range" class="resource-label">Range</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.range" value="{{system.range}}" data-dtype="String" />
-          </div>
-</div>
-</header>
-  <header class ="sheet-header">
-  <div class="resources grid grid-3col">
-    <div class="resource flex-group-center">
-      <label for="system.speed" class="resource-label">Move</label>
-      <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="system.speed" value="{{system.speed}}" data-dtype="Number" />
+    <div class="resources grid grid-3col">
+      <div class="resource flex-group-center">
+        <label for="system.speed" class="resource-label">Move</label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.speed" value="{{system.speed}}" data-dtype="Number" />
+        </div>
       </div>
-    </div>
-    <div class="resource flex-group-center">
-      <label for="system.type" class="resource-label">Type</label>
-      <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="system.type" value="{{system.type}}" data-dtype="String" />
+      <div class="resource flex-group-center">
+        <label for="system.type" class="resource-label">Type</label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.type" value="{{system.type}}" data-dtype="String" />
+        </div>
       </div>
-    </div>
-    <div class="resource flex-group-center">
-      <label for="system.cr" class="resource-label">Target</label>
-      <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="system.targetNumber" value="{{system.targetNumber}}" data-dtype="Number" />
-      </div>
+      <div class="resource flex-group-center">
+        <label for="system.cr" class="resource-label">Target</label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.targetNumber" value="{{system.targetNumber}}" data-dtype="Number" />
+        </div>
 
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
