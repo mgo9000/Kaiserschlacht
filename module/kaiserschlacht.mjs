@@ -1,3 +1,4 @@
+import { KSHotbar } from './applications/hotbar.mjs';
 // Import document classes.
 import { KSActor } from './documents/actor.mjs';
 import { KSItem } from './documents/item.mjs';
