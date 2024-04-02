@@ -9,7 +9,14 @@ import { KSItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { KSRoll } from './helpers/roll.mjs';
 import { KAISERSCHLACHT } from './helpers/config.mjs';
-
+globalThis.kaiserschlacht = {
+  KSActor,
+  KSItem,
+  rollItemMacro,
+  KSChatMessage,
+  KSRoll,
+  config: KAISERSCHLACHT
+};
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
@@ -17,14 +24,8 @@ import { KAISERSCHLACHT } from './helpers/config.mjs';
 Hooks.once('init', function () {
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
-  game.kaiserschlacht = {
-    KSActor,
-    KSItem,
-    rollItemMacro,
-    KSChatMessage,
-    KSRoll
-  };
 
+  globalThis.kaiserschlacht = game.kaiserschlacht = Object.assign(game.system, globalThis.kaiserschlacht);
   // Add custom constants for configuration.
   CONFIG.KAISERSCHLACHT = KAISERSCHLACHT;
   /**
@@ -33,7 +34,7 @@ Hooks.once('init', function () {
    * @override
    * @type {Array<string|ActiveEffectData>}
    */
-  CONFIG.statusEffects[
+  CONFIG.statusEffects = [
     {
       id: "dead",
       name: "EFFECT.StatusDead",
@@ -99,7 +100,7 @@ Hooks.once('init', function () {
       name: "EFFECT.StatusInvisible",
       icon: "icons/svg/invisible.svg"
     }
-  ]
+  ];
   /**
    * Set an initiative formula for the system
    * @type {String}
