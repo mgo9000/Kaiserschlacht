@@ -1,8 +1,10 @@
-
+// Import application classes.
+import { KSHotbar } from './applications/hotbar.mjs';
 // Import document classes.
 import { KSActor } from './documents/actor.mjs';
 import { KSItem } from './documents/item.mjs';
 import { KSChatMessage } from './documents/chat-message.mjs';
+
 // Import sheet classes.
 import { KSActorSheet } from './sheets/actor-sheet.mjs';
 import { KSItemSheet } from './sheets/item-sheet.mjs';
@@ -14,6 +16,8 @@ globalThis.kaiserschlacht = {
   KSActor,
   KSItem,
   rollItemMacro,
+  createItemMacro,
+  KSHotbar,
   KSChatMessage,
   KSRoll,
   config: KAISERSCHLACHT
@@ -105,7 +109,7 @@ Hooks.once('init', function () {
   CONFIG.Actor.documentClass = KSActor;
   CONFIG.Item.documentClass = KSItem;
   CONFIG.ChatMessage.documentClass = KSChatMessage;
-
+  CONFIG.ui.hotbar = KSHotbar;
   // Define and push custom dice types
   CONFIG.Dice.KSRoll = KSRoll;
   CONFIG.Dice.rolls.push(KSRoll);
@@ -145,7 +149,7 @@ Handlebars.registerHelper('toLowerCase', function (str) {
 
 Hooks.once('ready', function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
+  // Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
 });
 
 //dice so nice special color for difficulty dice
@@ -171,10 +175,9 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
  * @param {Object} data     The dropped data
- * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
-async function createItemMacro(data, slot) {
+export async function createItemMacro(data) {
   // First, determine if this is a valid owned item.
   console.log(data.type);
   if (data.type !== 'Item') {
@@ -200,8 +203,7 @@ async function createItemMacro(data, slot) {
       command: command,
       flags: { 'kaiserschlacht.itemMacro': true },
     });
-  console.log(macro);
-  game.user.assignHotbarMacro(macro, slot);
+  return macro;
 }
 
 /**
