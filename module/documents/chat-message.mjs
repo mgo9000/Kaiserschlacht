@@ -61,6 +61,6 @@ export class KSChatMessage extends ChatMessage {
     ui.notifications.info(`Damage to ${actor.name} reverted.`);
 
     a.remove();
-    Messages.delete(messageId)
+    game.messages.delete(messageId);
   }
 }
