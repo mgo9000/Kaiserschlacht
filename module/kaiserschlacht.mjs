@@ -175,7 +175,7 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
  */
 async function createItemMacro(data, slot) {
   // First, determine if this is a valid owned item.
-  if (data.type !== 'Item') return;
+  if (data.type !== 'Item' || 'Weapon') return;
   if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
     return ui.notifications.warn(
       'You can only create macro buttons for owned Items'
@@ -191,7 +191,7 @@ async function createItemMacro(data, slot) {
   if (!macro) {
     macro = await Macro.create({
       name: item.name,
-      type: 'script',
+      type: 'Macro',
       img: item.img,
       command: command,
       flags: { 'kaiserschlacht.itemMacro': true },
