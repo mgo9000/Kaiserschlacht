@@ -1,7 +1,59 @@
 class KSHotbar extends Hotbar {
     constructor(options) {
         super(options);
+        game.macros.apps.push(this);
+        /**
+             * The currently viewed macro page
+             * @type {number}
+             */
+        this.page = 1;
+
+        /**
+         * The currently displayed set of macros
+         * @type {Macro[]}
+         */
+        this.macros = [];
+
+        /**
+         * Track collapsed state
+         * @type {boolean}
+         */
+        this._collapsed = false;
+
+        /**
+         * Track which hotbar slot is the current hover target, if any
+         * @type {number|null}
+         */
+        this._hover = null;
     }
+
+    /* -------------------------------------------- */
+
+    /** @override */
+    static get defaultOptions() {
+        return mergeObject(super.defaultOptions, {
+            id: "hotbar",
+            template: "templates/hud/hotbar.html",
+            popOut: false,
+            dragDrop: [{ dragSelector: ".macro-icon", dropSelector: "#macro-list" }]
+        });
+    }
+
+    /* -------------------------------------------- */
+
+    /**
+    * Whether the hotbar is locked.
+    * @returns {boolean}
+    */
+    get locked() {
+        return game.settings.get("core", "hotbarLock");
+
+    }
+    /** @override */
+    getData(options = {}) {
+        super.getData(options);
+    };
+
     /** @override */
     async _onDrop(event) {
         event.preventDefault();
@@ -31,4 +83,5 @@ class KSHotbar extends Hotbar {
         if (!macro) return;
         return game.user.assignHotbarMacro(macro, slot, { fromSlot: data.slot });
     }
+
 }

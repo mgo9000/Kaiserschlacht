@@ -193,7 +193,7 @@ async function createItemMacro(data, slot) {
   if (!macro) {
     macro = await Macro.create({
       name: item.name,
-      type: 'Macro',
+      type: 'string',
       img: item.img,
       command: command,
       flags: { 'kaiserschlacht.itemMacro': true },
