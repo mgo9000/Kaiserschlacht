@@ -159,7 +159,7 @@ export class KSActor extends Actor {
   }
 
   // Apply damage
-  _applyDamage(damage, damageTags = null) {
+  async _applyDamage(damage, damageTags = null) {
     const damageTemplate = "systems/kaiserschlacht/templates/chat/damage-card.hbs";
     const damageValue = damage;
     const currentHealth = this.system.health.value;
@@ -175,7 +175,7 @@ export class KSActor extends Actor {
     let adjustedDamage = Math.clamped(damageValue - currentArmor, 0, 9999);
     let adjustedHealth = Math.clamped(currentHealth - adjustedDamage, 0, 9999);
     this.update({ system: { health: { value: adjustedHealth } } });
-    const chatData = {
+    const templateData = {
       recipient: this.name,
       originalDamage: damageValue,
       totalDamage: adjustedDamage,
@@ -184,6 +184,13 @@ export class KSActor extends Actor {
       beaten: APBeat,
       user: game.user.id
     };
-    return renderTemplate(damageTemplate, chatData);
+    const html = await renderTemplate(damageTemplate, templateData);
+    const chatData = {
+      user: game.user.id,
+      content: html,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor, token })
+    };
+
+    ChatMessage.create(chatData);
   }
 }  
