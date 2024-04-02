@@ -48,7 +48,7 @@ export class KSChatMessage extends ChatMessage {
   async _onClickUndoDamage(event) {
     event.preventDefault();
     console.log(event);
-    console.log(event.currentTarget.parentNode);
+    console.log(event.currentTarget.ownerDocument);
     const a = event.currentTarget
     console.log(a);
     let dataset = a.dataset;
