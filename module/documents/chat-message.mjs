@@ -23,7 +23,7 @@ export class KSChatMessage extends ChatMessage {
     let dataset = a.dataset;
     const targetTokens = canvas.tokens.controlled;
     for (token of targetTokens) {
-      token.Actor._applyDamage(dataset.damage, dataset.damageTags);
+      token.actor._applyDamage(dataset.damage, dataset.damageTags);
     }
 
   }
