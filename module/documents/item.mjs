@@ -59,7 +59,11 @@ export class KSItem extends Item {
     return rollData;
   }
 
-
+  /** @override */
+  async _onDrop(event) {
+    this._event = event;
+    return super._onDrop(event);
+  }
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event

@@ -18,7 +18,11 @@ export class KSActor extends Actor {
     // documents or derived data.
 
   }
-
+  /** @override */
+  async _onDrop(event) {
+    this._event = event;
+    return super._onDrop(event);
+  }
   /**
    * @override
    * Augment the actor source data with additional dynamic data. Typically,
