@@ -1,4 +1,4 @@
-class KSHotbar extends hotbar {
+class KSHotbar extends Hotbar {
     constructor(options) {
         super(options);
     }
