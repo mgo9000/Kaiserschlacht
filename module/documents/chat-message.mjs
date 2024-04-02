@@ -50,6 +50,7 @@ export class KSChatMessage extends ChatMessage {
     event.preventDefault();
     const a = event.currentTarget
     const messageId = a.closest("[data-message-id]")?.dataset.messageId;
+    const message = game.messages.get(messageId);
     console.log(messageId);
     console.log(a);
     let dataset = a.dataset;
@@ -62,6 +63,6 @@ export class KSChatMessage extends ChatMessage {
     ui.notifications.info(`Damage to ${actor.name} reverted.`);
 
     a.remove();
-    game.messages.delete(messageId);
+    message.delete();
   }
 }
