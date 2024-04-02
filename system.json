@@ -22,7 +22,7 @@
       "thumbnail": "systems/kaiserschlacht/assets/anvil-impact.png"
     }
   ],
-  "version": "0.1.50",
+  "version": "0.1.51",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
