@@ -177,7 +177,7 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
 async function createItemMacro(data, slot) {
   // First, determine if this is a valid owned item.
   console.log(data.type);
-  if (data.type !== 'Item' || 'weapon') {
+  if (data.type !== 'Item') {
     console.log("Wrong type for making macros.");
     return;
   }
