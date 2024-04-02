@@ -17,7 +17,6 @@ globalThis.kaiserschlacht = {
   KSItem,
   rollItemMacro,
   createItemMacro,
-  KSHotbar,
   KSChatMessage,
   KSRoll,
   config: KAISERSCHLACHT
