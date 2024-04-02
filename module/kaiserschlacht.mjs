@@ -1,4 +1,4 @@
-import { KSHotbar } from './applications/hotbar.mjs';
+
 // Import document classes.
 import { KSActor } from './documents/actor.mjs';
 import { KSItem } from './documents/item.mjs';
@@ -15,7 +15,6 @@ globalThis.kaiserschlacht = {
   KSItem,
   rollItemMacro,
   KSChatMessage,
-  KSHotbar,
   KSRoll,
   config: KAISERSCHLACHT
 };
@@ -177,6 +176,7 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
  */
 async function createItemMacro(data, slot) {
   // First, determine if this is a valid owned item.
+  console.log(data);
   if (data.type !== 'Item' || 'weapon') return;
   if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
     return ui.notifications.warn(
@@ -193,7 +193,7 @@ async function createItemMacro(data, slot) {
   if (!macro) {
     macro = await Macro.create({
       name: item.name,
-      type: 'string',
+      type: 'script',
       img: item.img,
       command: command,
       flags: { 'kaiserschlacht.itemMacro': true },
@@ -212,7 +212,7 @@ async function createItemMacro(data, slot) {
 function rollItemMacro(itemUuid) {
   // Reconstruct the drop data so that we can load the item.
   const dropData = {
-    type: 'Item',
+    type: 'Macro',
     uuid: itemUuid,
   };
   // Load the item from the uuid.
