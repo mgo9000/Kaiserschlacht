@@ -162,9 +162,9 @@ export class KSActor extends Actor {
   _applyDamage(damage, damageTags = null) {
     const damageTemplate = "systems/kaiserschlacht/templates/chat/damage-card.hbs";
     const damageValue = damage;
-    const currentHealth = this.health.value;
+    const currentHealth = this.system.health.value;
     const armorPiercing = damageTags.includes("ap") || damageTags.includes("AP");
-    const currentArmor = this.attributes.armor.value;
+    const currentArmor = this.system.attributes.armor.value;
     let APBeat = false;
     if (armorPiercing && damageValue >= currentArmor) {
       APBeat = true;
@@ -174,7 +174,7 @@ export class KSActor extends Actor {
     }
     let adjustedDamage = Math.clamped(damageValue - currentArmor, 0, 9999);
     let adjustedHealth = Math.clamped(currentHealth - adjustedDamage, 0, 9999);
-    this.update({ health: adjustedHealth });
+    this.update({ system: { health: adjustedHealth } });
     const chatData = {
       recipient: this.name,
       originalDamage: damageValue,
