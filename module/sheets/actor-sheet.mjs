@@ -34,6 +34,11 @@ export class KSActorSheet extends ActorSheet {
     return `systems/kaiserschlacht/templates/actor/actor-${this.actor.type}-sheet.hbs`;
   }
 
+  /** @override */
+  async _onDrop(event) {
+    this._event = event;
+    return super._onDrop(event);
+  }
   /* -------------------------------------------- */
 
   /** @override */

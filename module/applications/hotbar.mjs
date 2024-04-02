@@ -7,6 +7,7 @@ import { createItemMacro } from './kaiserschlacht.mjs';
 export class KSHotbar extends Hotbar {
     /** @override */
     async _onDrop(event) {
+        console.log("hotbar _onDrop is running");
         event.preventDefault();
         const li = event.target.closest(".macro");
         const slot = Number(li.dataset.slot);
@@ -26,8 +27,8 @@ export class KSHotbar extends Hotbar {
         let macro;
         if (data.type === "Macro") macro = game.macros.has(doc.id) ? doc : await cls.create(doc.toObject());
         else if (data.type === "RollTable") macro = await this._createRollTableRollMacro(doc);
-        if (data.type === "Item") macro = await createItemMacro(data);
-        else macro = await this._createDocumentSheetToggle(doc);
+        else if (data.type === "Item") macro = await createItemMacro(data);
+
 
         // Assign the macro to the hotbar
         if (!macro) return;

@@ -23,7 +23,11 @@ export class KSItemSheet extends ItemSheet {
       ],
     });
   }
-
+  /** @override */
+  async _onDrop(event) {
+    this._event = event;
+    return super._onDrop(event);
+  }
   /** @override */
   get template() {
     const path = 'systems/kaiserschlacht/templates/item';
@@ -68,7 +72,7 @@ export class KSItemSheet extends ItemSheet {
     if (!this.isEditable) return;
     // toggle item equip
     html.on('click', '.equip-toggle', (ev) => {
-   
+
       //const li = $(ev.currentTarget).parents('.item');
       this.item.equipToggle()
 
