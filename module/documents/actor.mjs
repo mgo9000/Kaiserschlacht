@@ -164,7 +164,7 @@ export class KSActor extends Actor {
     const damageValue = damage;
     const currentHealth = this.system.health.value;
     const armorPiercing = damageTags.includes("ap") || damageTags.includes("AP");
-    const currentArmor = this.system.attributes.armor.value;
+    const currentArmor = this.system.armor;
     let APBeat = false;
     if (armorPiercing && damageValue >= currentArmor) {
       APBeat = true;
