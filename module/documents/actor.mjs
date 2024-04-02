@@ -164,10 +164,14 @@ export class KSActor extends Actor {
     const damageValue = damage;
     const currentHealth = this.system.health.value;
     const armorPiercing = damageTags.includes("ap") || damageTags.includes("AP");
+    const piercing = damageTags.includes("piercing") || damageTags.includes("Piercing");
     const currentArmor = this.system.armor;
+    let adjustedArmor;
     let APBeat = false;
-    if (armorPiercing && damageValue >= currentArmor) {
+    if ((armorPiercing && damageValue >= currentArmor) || piercing) {
       APBeat = true;
+      adjustedArmor = Math.clamped(currentArmor - 1, 0, 9999);
+      this.update({ system: { armor: adjustedArmor } });
     }
     else {
       APBeat = false;

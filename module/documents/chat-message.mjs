@@ -58,12 +58,8 @@ export class KSChatMessage extends ChatMessage {
     const originalArmor = dataset.armor;
     actor.update({ system: { health: { value: originalHealth } } });
     actor.update({ system: { armor: originalArmor } });
-    const chatData = {
-      user: game.user.id,
-      content: "Damage undone.",
-      speaker: ChatMessage.getSpeaker({ actor: actor })
-    };
-    ChatMessage.create(chatData);
+    ui.notifications.info(`Damage to ${actor.name} reverted.`);
+
 
   }
 }
