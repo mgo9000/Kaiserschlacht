@@ -15,13 +15,6 @@
   "readme": "README.md",
   "bugs": "https://github.com/mgo9000/Kaiserschlacht/issues",
   "changelog": "CHANGELOG.md",
-  "media": [
-    {
-      "type": "setup",
-      "url": "systems/kaiserschlacht/assets/anvil-impact.png",
-      "thumbnail": "systems/kaiserschlacht/assets/anvil-impact.png"
-    }
-  ],
   "version": "0.1.91",
   "compatibility": {
     "minimum": 11,
