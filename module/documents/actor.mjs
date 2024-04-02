@@ -185,7 +185,7 @@ export class KSActor extends Actor {
       totalDamage: adjustedDamage,
       originalHealth: currentHealth,
       armor: currentArmor,
-      ap: armorPiercing,
+      ap: armorPiercing || piercing,
       beaten: APBeat,
       user: game.user.id,
       uuid: this.uuid

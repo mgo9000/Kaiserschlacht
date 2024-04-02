@@ -51,8 +51,7 @@ export class KSChatMessage extends ChatMessage {
     const a = event.currentTarget
     const messageId = a.closest("[data-message-id]")?.dataset.messageId;
     const message = game.messages.get(messageId);
-    console.log(messageId);
-    console.log(a);
+
     let dataset = a.dataset;
     const uuid = dataset.uuid;
     let actor = await fromUuid(uuid);
