@@ -9,7 +9,7 @@
     <div>{{#if ap}}{{recipient}}'s armor was {{#if beaten}}<span class="dice-target-miss"><strong>damaged by
                 1.</strong></span>{{else}}<span class="dice-target-hit"><strong>not damaged.</strong></span>
         {{/if}}{{/if}}</div>
-    <div class="flexrow"><a class="fa-solid fa-rotate-left align-right clickable" data-original-armor="{{armor}}"
-            data-original-health="{{originalHealth}}" data-uuid="{{uuid}}"></a>
+    <div class="flexrow"><a class="fa-solid fa-rotate-left undo-damage-button align-right clickable"
+            data-original-armor="{{armor}}" data-original-health="{{originalHealth}}" data-uuid="{{uuid}}"></a>
     </div>
 </div>
