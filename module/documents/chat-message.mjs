@@ -23,6 +23,7 @@ export class KSChatMessage extends ChatMessage {
     const a = event.currentTarget
     let dataset = a.dataset;
     const targetTokens = canvas.tokens.controlled;
+    if (targetTokens.length <= 0) ui.notifications.warn("You must select a target first.");
     for (let token of targetTokens) {
       token.actor._applyDamage(dataset.damage, dataset.damageTags);
     }
@@ -48,7 +49,8 @@ export class KSChatMessage extends ChatMessage {
   async _onClickUndoDamage(event) {
     event.preventDefault();
     console.log(event);
-    console.log(event.currentTarget.ownerDocument);
+    console.log(event.currentTarget.parentNode);
+    console.log(event.currentTarget.firstChild);
     const a = event.currentTarget
     console.log(a);
     let dataset = a.dataset;
