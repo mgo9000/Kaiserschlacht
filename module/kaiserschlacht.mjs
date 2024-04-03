@@ -176,7 +176,7 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
  * @param {Object} data     The dropped data
  * @returns {Promise}
  */
-export async function createItemMacro(data) {
+export async function createItemMacro(data, slot) {
   // First, determine if this is a valid owned item.
   console.log(data.type);
   if (data.type !== 'Item') {
@@ -202,7 +202,8 @@ export async function createItemMacro(data) {
       command: command,
       flags: { 'kaiserschlacht.itemMacro': true },
     });
-  return macro;
+  game.user.assignHotbarMacro(macro, slot);
+  return;
 }
 
 /**
@@ -218,7 +219,7 @@ export function rollItemMacro(itemUuid) {
     uuid: itemUuid,
   };
   // Load the item from the uuid.
-  Item.fromDropData(dropData).then((item) => {
+  KSItem.fromDropData(dropData).then((item) => {
     // Determine if the item loaded and if it's an owned item.
     if (!item || !item.parent) {
       const itemName = item?.name ?? itemUuid;

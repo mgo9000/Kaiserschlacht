@@ -23,11 +23,7 @@ export class KSItemSheet extends ItemSheet {
       ],
     });
   }
-  /** @override */
-  async _onDrop(event) {
-    this._event = event;
-    return super._onDrop(event);
-  }
+
   /** @override */
   get template() {
     const path = 'systems/kaiserschlacht/templates/item';
