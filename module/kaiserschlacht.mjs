@@ -219,7 +219,6 @@ export async function createItemMacro(data, slot) {
  * @param {string} itemUuid
  */
 export function rollItemMacro(itemUuid) {
-  console.log("doing rollitemmacr");
   // Reconstruct the drop data so that we can load the item.
   const dropData = {
     type: 'Item',
@@ -234,8 +233,11 @@ export function rollItemMacro(itemUuid) {
         `Could not find item ${itemName}. You may need to delete and recreate this macro.`
       );
     }
-
-    // Trigger the item roll
-    item.roll();
+    if (item.type == 'weapon') {
+      item.attackRoll();
+    }
+    else {// Trigger the item roll
+      item.roll();
+    }
   });
 }

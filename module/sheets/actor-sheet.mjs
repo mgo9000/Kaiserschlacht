@@ -9,7 +9,7 @@ import {
   KSRoll,
 } from '../helpers/roll.mjs';
 /**
- * Extend the basic ActorSheet with some very simple modifications
+ * Extend the basic ActorSheet with some very simple modifications   
  * @extends {ActorSheet}
  */
 export class KSActorSheet extends ActorSheet {
