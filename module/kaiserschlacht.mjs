@@ -1,5 +1,5 @@
 // Import application classes.
-import { KSHotbar } from './applications/hotbar.mjs';
+// import { KSHotbar } from './applications/hotbar.mjs';
 // Import document classes.
 import { KSActor } from './documents/actor.mjs';
 import { KSItem } from './documents/item.mjs';
@@ -108,7 +108,7 @@ Hooks.once('init', function () {
   CONFIG.Actor.documentClass = KSActor;
   CONFIG.Item.documentClass = KSItem;
   CONFIG.ChatMessage.documentClass = KSChatMessage;
-  CONFIG.ui.hotbar = KSHotbar;
+  // CONFIG.ui.hotbar = KSHotbar;
   // Define and push custom dice types
   CONFIG.Dice.KSRoll = KSRoll;
   CONFIG.Dice.rolls.push(KSRoll);
