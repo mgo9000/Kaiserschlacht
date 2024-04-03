@@ -1,4 +1,4 @@
-import { createItemMacro } from './kaiserschlacht.mjs';
+
 
 /**
  * Extend the base Hotbar document to handle macro dragging more effectl.
@@ -7,7 +7,6 @@ import { createItemMacro } from './kaiserschlacht.mjs';
 export class KSHotbar extends Hotbar {
     /** @override */
     async _onDrop(event) {
-        console.log("hotbar _onDrop is running");
         event.preventDefault();
         const li = event.target.closest(".macro");
         const slot = Number(li.dataset.slot);
@@ -23,16 +22,8 @@ export class KSHotbar extends Hotbar {
         const doc = await cls?.fromDropData(data);
         if (!doc) return;
 
-        // Get the Macro to add to the bar
-        let macro;
-        if (data.type === "Macro") macro = game.macros.has(doc.id) ? doc : await cls.create(doc.toObject());
-        else if (data.type === "RollTable") macro = await this._createRollTableRollMacro(doc);
-        else if (data.type === "Item") macro = await createItemMacro(data);
-        else macro = await this._createDocumentSheetToggle(doc);
+        return;
 
-        // Assign the macro to the hotbar
-        if (!macro) return;
-        return game.user.assignHotbarMacro(macro, slot, { fromSlot: data.slot });
     }
 
 }

@@ -13,7 +13,7 @@
   "readme": "README.md",
   "bugs": "https://github.com/mgo9000/Kaiserschlacht/issues",
   "changelog": "CHANGELOG.md",
-  "version": "0.1.98",
+  "version": "0.1.99",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"

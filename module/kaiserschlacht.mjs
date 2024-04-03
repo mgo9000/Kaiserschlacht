@@ -148,7 +148,7 @@ Handlebars.registerHelper('toLowerCase', function (str) {
 
 Hooks.once('ready', function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on('hotbarDrop', (bar, data, slot));
+  Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
 });
 
 //dice so nice special color for difficulty dice
@@ -211,7 +211,7 @@ export async function createItemMacro(data) {
  * @param {string} itemUuid
  */
 export function rollItemMacro(itemUuid) {
-  console.log("doing rollitemmacro");
+  console.log("doing rollitemmacr");
   // Reconstruct the drop data so that we can load the item.
   const dropData = {
     type: 'Item',
