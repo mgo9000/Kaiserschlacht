@@ -28,7 +28,7 @@ export class KSHotbar extends Hotbar {
         if (data.type === "Macro") macro = game.macros.has(doc.id) ? doc : await cls.create(doc.toObject());
         else if (data.type === "RollTable") macro = await this._createRollTableRollMacro(doc);
         else if (data.type === "Item") macro = await createItemMacro(data);
-
+        else macro = await this._createDocumentSheetToggle(doc);
 
         // Assign the macro to the hotbar
         if (!macro) return;
