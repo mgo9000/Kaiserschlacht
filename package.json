@@ -9,7 +9,7 @@
   "browserslist": [
     "last 3 versions"
   ],
-  "author": "Asacolips for boilerplate, ***REMOVED*** for additions",
+  "author": "m. okonsky, using Asacolips' boilerplate as a base.",
   "license": "MIT",
   "private": true,
   "devDependencies": {
