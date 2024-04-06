@@ -37,14 +37,6 @@
             <input type="text" name="system.armor" value="{{system.armor}}" data-dtype="Number" />
           </div>
         </div>
-
-        <div class="resource flex-group-center">
-          <label for="system.attributes.skillPoints.value" class="resource-label">Skill Points</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.attributes.skillPoints.value"
-              value="{{system.attributes.skillPoints.value}}" data-dtype="Number" />
-          </div>
-        </div>
         {{#each system.classStats as |classStat key|}}{{#with visible}}
         <div class="resource flex-group-center">
           <label for="system.classStats.{{key}}.value" class="resource-label">{{classStat.label}}</label>
@@ -54,6 +46,14 @@
         </div>
         {{/with}}
         {{/each}}
+        <div class="resource flex-group-center">
+          <label for="system.attributes.skillPoints.value" class="resource-label">Skill Points</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.skillPoints.value"
+              value="{{system.attributes.skillPoints.value}}" data-dtype="Number" />
+          </div>
+        </div>
+
 
       </div>
     </div>
