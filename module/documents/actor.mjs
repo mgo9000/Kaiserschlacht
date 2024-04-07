@@ -168,7 +168,7 @@ export class KSActor extends Actor {
     const currentArmor = this.system.armor;
     let adjustedArmor;
     let APBeaten = false;
-    if ((armorPiercing && damageValue >= currentArmor) || piercing) {
+    if ((armorPiercing && damageValue >= currentArmor)) {
       APBeaten = true;
       adjustedArmor = Math.clamped(currentArmor - 1, 0, 9999);
       this.update({ system: { armor: adjustedArmor } });
@@ -176,7 +176,7 @@ export class KSActor extends Actor {
     else {
       APBeaten = false;
     }
-    let adjustedDamage = Math.clamped(damageValue - currentArmor, 0, 9999);
+    let adjustedDamage = piercing === true ? Math.clamped(damageValue, 0, 9999) : Math.clamped(damageValue - currentArmor, 0, 9999);
     let adjustedHealth = Math.clamped(currentHealth - adjustedDamage, 0, 9999);
     this.update({ system: { health: { value: adjustedHealth } } });
     const templateData = {
