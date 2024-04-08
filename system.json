@@ -19,8 +19,7 @@
     "verified": "11.315"
   },
   "esmodules": [
-    "module/kaiserschlacht.mjs",
-    "@yaireo/tagify"
+    "module/kaiserschlacht.mjs"
   ],
   "styles": [
     "css/kaiserschlacht.css"
