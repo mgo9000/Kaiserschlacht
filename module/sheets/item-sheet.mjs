@@ -5,6 +5,7 @@ import {
 } from '../helpers/effects.mjs';
 // The DOM element you wish to replace with Tagify
 let weaponTagInput = document.querySelector('input[name=system.weaponTraits]');
+console.log(weaponTagInput);
 let typeInput = document.querySelector('input[name=system.type]');
 
 // initialize Tagify on the above input node reference
