@@ -1,7 +1,17 @@
+import Tagify from "@yaireo/tagify";
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
+// The DOM element you wish to replace with Tagify
+let weaponTagInput = document.querySelector('input[name=system.weaponTraits]');
+let typeInput = document.querySelector('input[name=system.type]');
+
+// initialize Tagify on the above input node reference
+weaponTagify = new Tagify(weaponTagInput, {
+  whitelist: CONFIG.weaponTagWhitelist,
+  userInput: false
+});
 
 /**
  * Extend the basic ItemSheet with some very simple modifications

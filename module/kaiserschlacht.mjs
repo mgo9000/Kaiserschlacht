@@ -38,6 +38,9 @@ Hooks.once('init', function () {
    * @override
    * @type {Array<string|ActiveEffectData>}
    */
+  CONFIG.weaponTagWhitelist = ["AP", "Awesome", "Blast", "Block", "Breaching", "Cobbled", "Combo", "Deployed",
+    "Double-Barrel", "Illuminating", "Lasting", "Parry", "Piercing", "Reach",
+    "Signal", "Slam-Fire", "Slow", "Smokescreen", "Squad", "Stream", "Terror", "Unwieldy", "Utility"];
   CONFIG.statusEffects = [
     {
       id: "dead",

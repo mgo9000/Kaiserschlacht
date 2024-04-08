@@ -1,13 +1,10 @@
+import Tagify from "@yaireo/tagify";
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
-import {
-  diffDialog,
-} from '../helpers/dice-dialog.mjs';
-import {
-  KSRoll,
-} from '../helpers/roll.mjs';
+import diffDialog from '../helpers/dice-dialog.mjs';
+import KSRoll from '../helpers/roll.mjs';
 /**
  * Extend the basic ActorSheet with some very simple modifications   
  * @extends {ActorSheet}

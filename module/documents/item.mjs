@@ -150,7 +150,7 @@ export class KSItem extends Item {
       let formula = this.attackFormula;
       const amendedFormula = await diffDialog(formula);
       // Invoke the roll and submit it to chat.
-      const roll = new KSRoll(amendedFormula, rollData.actor, { reload: this.system.reload || null, damage: this.system.damage || 0, damageTags: this.system.traits || null });
+      const roll = new KSRoll(amendedFormula, rollData.actor, { reload: this.system.reload || null, damage: this.system.damage || 0, damageTags: this.system.weaponTraits || null });
       // If you need to store the value first, uncomment the next line.
       // const result = await roll.evaluate();
       roll.toMessage({

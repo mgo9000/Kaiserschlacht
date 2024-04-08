@@ -240,7 +240,7 @@
       ],
       "damage": "",
       "range": "",
-      "traits": [
+      "weaponTraits": [
         ""
       ],
       "reload": null,
@@ -254,7 +254,7 @@
         "base"
       ],
       "armorBonus": 0,
-      "traits": [
+      "armorTraits": [
         ""
       ],
       "type": "",

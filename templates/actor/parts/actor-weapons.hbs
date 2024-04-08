@@ -26,9 +26,9 @@
       <h4 class='rollable' data-roll-type="attack">{{item.name}}</h4>
     </div>
     <div class='item-damage item-prop clickable apply-damage-button' data-damage="{{item.system.damage}}"
-      data-damage-tags="{{item.system.traits}}">{{item.system.damage}}</div>
+      data-damage-tags="{{item.system.weaponTraits}}">{{item.system.damage}}</div>
     <div class='item-reload rollable item-prop' data-roll-type='reload'>{{item.system.reload}}</div>
-    <div class='item-traits item-prop'>{{item.system.traits}}</div>
+    <div class='item-traits item-prop'>{{item.system.weaponTraits}}</div>
     <div class='item-range item-prop'>{{item.system.range}}</div>
     <div class='item-controls'> {{!--below should render different hands depending on status --}}
       <a class='equip-toggle' name="system.equipped"><i
