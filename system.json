@@ -13,13 +13,14 @@
   "readme": "README.md",
   "bugs": "https://github.com/mokonsky/Kaiserschlacht/issues",
   "changelog": "CHANGELOG.md",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
   },
   "esmodules": [
-    "module/kaiserschlacht.mjs"
+    "module/kaiserschlacht.mjs",
+    "@yaireo/tagify"
   ],
   "styles": [
     "css/kaiserschlacht.css"
