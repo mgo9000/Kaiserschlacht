@@ -34,15 +34,15 @@ Hooks.once('init', function () {
   globalThis.kaiserschlacht = game.kaiserschlacht = Object.assign(game.system, globalThis.kaiserschlacht);
   // Add custom constants for configuration.
   CONFIG.KAISERSCHLACHT = KAISERSCHLACHT;
+  CONFIG.weaponTagWhitelist = ["AP", "Awesome", "Blast", "Block", "Breaching", "Cobbled", "Combo", "Deployed",
+    "Double-Barrel", "Illuminating", "Lasting", "Parry", "Piercing", "Reach",
+    "Signal", "Slam-Fire", "Slow", "Smokescreen", "Squad", "Stream", "Terror", "Unwieldy", "Utility"];
   /**
    * An array of status effects which can be applied to a TokenDocument.
    * Each effect can either be a string for an icon path, or an object representing an Active Effect data.
    * @override
    * @type {Array<string|ActiveEffectData>}
    */
-  CONFIG.weaponTagWhitelist = ["AP", "Awesome", "Blast", "Block", "Breaching", "Cobbled", "Combo", "Deployed",
-    "Double-Barrel", "Illuminating", "Lasting", "Parry", "Piercing", "Reach",
-    "Signal", "Slam-Fire", "Slow", "Smokescreen", "Squad", "Stream", "Terror", "Unwieldy", "Utility"];
   CONFIG.statusEffects = [
     {
       id: "dead",
