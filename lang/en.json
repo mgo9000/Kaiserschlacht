@@ -1,33 +1,102 @@
 {
   "KAISERSCHLACHT": {
     "Ability": {
-      "Physique": { "long": "Physique", "abbr": "physique" },
-      "Finesse": { "long": "Finesse", "abbr": "finesse" },
-      "Wits": { "long": "Wits", "abbr": "wits" },
-      "Presence": { "long": "Presence", "abbr": "presence" }
+      "Physique": {
+        "long": "Physique",
+        "abbr": "physique"
+      },
+      "Finesse": {
+        "long": "Finesse",
+        "abbr": "finesse"
+      },
+      "Wits": {
+        "long": "Wits",
+        "abbr": "wits"
+      },
+      "Presence": {
+        "long": "Presence",
+        "abbr": "presence"
+      }
     },
     "ClassStat": {
-      "Faith": { "long": "Faith", "abbr": "Faith" },
-      "Scrap": { "long": "Scrap", "abbr": "Scrap" },
-      "Tactics": { "long": "Tactics", "abbr": "Tactics" },
-      "Moxie": { "long": "Moxie", "abbr": "Moxie" },
-      "Heart": { "long": "Heart", "abbr": "Heart" },
-      "Grit": { "long": "Grit", "abbr": "Grit" },
-      "Static": { "long": "Static", "abbr": "Static" }
+      "Faith": {
+        "long": "Faith",
+        "abbr": "Faith"
+      },
+      "Scrap": {
+        "long": "Scrap",
+        "abbr": "Scrap"
+      },
+      "Tactics": {
+        "long": "Tactics",
+        "abbr": "Tactics"
+      },
+      "Moxie": {
+        "long": "Moxie",
+        "abbr": "Moxie"
+      },
+      "Heart": {
+        "long": "Heart",
+        "abbr": "Heart"
+      },
+      "Grit": {
+        "long": "Grit",
+        "abbr": "Grit"
+      },
+      "Static": {
+        "long": "Static",
+        "abbr": "Static"
+      }
     },
     "Skill": {
-      "Brawl": { "long": "Brawl", "abbr": "brawl" },
-      "Athletics": { "long": "Athletics", "abbr": "athletics" },
-      "Smash": { "long": "Smash", "abbr": "smash" },
-      "Shooting": { "long": "Shooting", "abbr": "shooting" },
-      "Skullduggery": { "long": "Skullduggery", "abbr": "skullduggery" },
-      "Acrobatics": { "long": "Acrobatics", "abbr": "acrobatics" },
-      "KnowledgeMen": { "long": "Knowledge of Men", "abbr": "knowledgeMen" },
-      "KnowledgeMachines": { "long": "Knowledge of Machines", "abbr": "knowledgeMachines" },
-      "KnowledgeMagic": { "long": "Knowledge of Magic", "abbr": "knowledgeMagic" },
-      "Empathy": { "long": "Empathy", "abbr": "empathy" },
-      "Manipulation": { "long": "Manipulation", "abbr": "manipulation" },
-      "Intimidation": { "long": "Intimidation", "abbr": "intimidation" }
+      "Brawl": {
+        "long": "Brawl",
+        "abbr": "brawl"
+      },
+      "Athletics": {
+        "long": "Athletics",
+        "abbr": "athletics"
+      },
+      "Smash": {
+        "long": "Smash",
+        "abbr": "smash"
+      },
+      "Shooting": {
+        "long": "Shooting",
+        "abbr": "shooting"
+      },
+      "Skullduggery": {
+        "long": "Skullduggery",
+        "abbr": "skullduggery"
+      },
+      "Acrobatics": {
+        "long": "Acrobatics",
+        "abbr": "acrobatics"
+      },
+      "KnowledgeMen": {
+        "long": "Knowledge of Men",
+        "abbr": "knowledgeMen"
+      },
+      "KnowledgeMachines": {
+        "long": "Knowledge of Machines",
+        "abbr": "knowledgeMachines"
+      },
+      "KnowledgeMagic": {
+        "long": "Knowledge of Magic",
+        "abbr": "knowledgeMagic"
+      },
+      "Empathy": {
+        "long": "Empathy",
+        "abbr": "empathy"
+      },
+      "Manipulation": {
+        "long": "Manipulation",
+        "abbr": "manipulation"
+      },
+      "Intimidation": {
+        "long": "Intimidation",
+        "abbr": "intimidation"
+      }
     },
     "SheetLabels": {
       "Actor": "Kaiserschlacht Actor Sheet",
@@ -38,18 +107,18 @@
         "SpellLVL": "Level {level} Spells",
         "AddLVL": "Add LVL {level}"
       },
-      "Weapon":{
+      "Weapon": {
         "damage": "Damage",
         "range": "Range",
-        "traits": "Traits",
+        "weaponTraits": "Traits",
         "reload": "Reload",
         "equipped": "Equipped",
         "type": "Type"
       },
-      "Armor":{
+      "Armor": {
         "damage": "Damage",
         "range": "Range",
-        "traits": "Traits",
+        "armorTraits": "Traits",
         "reload": "Reload",
         "equipped": "Equipped",
         "type": "Type"
@@ -63,7 +132,6 @@
       "Inactive": "Inactive Effects"
     }
   },
-
   "TYPES": {
     "Actor": {
       "character": "Character",
