@@ -11,6 +11,6 @@ jobs:
     steps:
 
       - name: Zip Files
-        working-directory: ./dist
-        run: zip -r ./kaiserschlacht.zip ./*
+        working-directory: /dist
+        run: zip -r /kaiserschlacht.zip ./*
 
