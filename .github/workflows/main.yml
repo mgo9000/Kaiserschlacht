@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Zip Files
-        working-directory: /dist
+        working-directory: ./dist
         run: zip -r ./kaiserschlacht.zip ./*
 
