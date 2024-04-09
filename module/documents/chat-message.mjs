@@ -22,6 +22,8 @@ export class KSChatMessage extends ChatMessage {
     event.preventDefault();
     const a = event.currentTarget
     let dataset = a.dataset;
+    console.log(dataset);
+    console.log(dataset.damageTags);
     const targetTokens = canvas.tokens.controlled;
     if (targetTokens.length <= 0) ui.notifications.warn("You must select a token first.");
     for (let token of targetTokens) {
