@@ -1152,7 +1152,6 @@ KAISERSCHLACHT.skillAbbreviations = {
 // Import application classes.
 // import { KSHotbar } from './applications/hotbar.mjs';
 // Import document classes.
-console.log(Tagify + "tagify?????");
 globalThis.kaiserschlacht = {
   KSActor,
   KSItem,
