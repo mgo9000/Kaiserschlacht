@@ -160,11 +160,12 @@ export class KSActor extends Actor {
 
   // Apply damage
   async _applyDamage(damage, damageTags = null) {
+    const damageTagObject = JSON.parse(damageTags);
     const damageTemplate = "systems/kaiserschlacht/templates/chat/damage-card.hbs";
     const damageValue = damage;
     const currentHealth = this.system.health.value;
-    const armorPiercing = damageTags.some(damageTags.value === "AP");
-    const piercing = damageTags.some(damageTags.value === "Piercing");
+    const armorPiercing = damageTagObject.some(damageTagObject.value === "AP");
+    const piercing = damageTagObject.some(damageTagObject.value === "Piercing");
     const currentArmor = this.system.armor;
     let adjustedArmor;
     let APBeaten = false;

@@ -1,7 +1,8 @@
 <ol class='items-list'>
   <li class='item flexrow items-header'>
     <div class='item-name'>{{localize 'Weapon'}}</div>
-    <div class='item-prop ' data-damage="{{item.system.damage}}" data-damage-tags="{{item.system.traits}}">{{localize
+    <div class='item-prop ' data-damage="{{item.system.damage}}" data-damage-tags="{{json item.system.traits}}">
+      {{localize
       'Damage'}}</div>
     <div class='item-prop'>{{localize 'Reload'}}</div>
     <div class='item-prop'>{{localize 'Traits'}}</div>
@@ -28,7 +29,7 @@
     <div class='item-damage item-prop clickable apply-damage-button' data-damage="{{item.system.damage}}"
       data-damage-tags="{{json item.system.weaponTraits}}">{{item.system.damage}}</div>
     <div class='item-reload rollable item-prop' data-roll-type='reload'>{{item.system.reload}}</div>
-    <div class='item-traits item-prop'>{{#each item.system.weaponTraits}}{{value}}</div>
+    <div class='item-traits item-prop'>{{#each item.system.weaponTraits}}{{value}}{{/each}}</div>
     <div class='item-range item-prop'>{{item.system.range}}</div>
     <div class='item-controls'> {{!--below should render different hands depending on status --}}
       <a class='equip-toggle' name="system.equipped"><i
