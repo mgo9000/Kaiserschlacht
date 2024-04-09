@@ -164,8 +164,8 @@ export class KSActor extends Actor {
     const damageTemplate = "systems/kaiserschlacht/templates/chat/damage-card.hbs";
     const damageValue = damage;
     const currentHealth = this.system.health.value;
-    const armorPiercing = damageTags.some(damageTags.value === "AP");
-    const piercing = damageTags.some(damageTags.value === "Piercing");
+    const armorPiercing = damageTags.some(damageTags => damageTags.value === "AP");
+    const piercing = damageTags.some(damageTags => damageTags.value === "Piercing");
     const currentArmor = this.system.armor;
     let adjustedArmor;
     let APBeaten = false;
