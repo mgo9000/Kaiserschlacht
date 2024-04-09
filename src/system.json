@@ -34,7 +34,7 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "https://raw.githubusercontent.com/mokonsky/kaiserschlacht/debugging/system.json",
+  "manifest": "https://raw.githubusercontent.com/mokonsky/kaiserschlacht/debugging/dist/system.json",
   "download": "https://raw.githubusercontent.com/mokonsky/kaiserschlacht/debugging/kaiserschlacht.zip",
   "gridDistance": 1,
   "gridUnits": "space",
