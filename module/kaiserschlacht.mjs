@@ -12,7 +12,6 @@ import { KSItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { KSRoll } from './helpers/roll.mjs';
 import { KAISERSCHLACHT } from './helpers/config.mjs';
-import Tagify from "../lib/tagify.min.js";
 globalThis.kaiserschlacht = {
   KSActor,
   KSItem,

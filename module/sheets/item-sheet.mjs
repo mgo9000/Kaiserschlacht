@@ -1,13 +1,8 @@
-import Tagify from "../../lib/tagify.min.js";
+
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
-// let weaponTagInput = document.querySelector('input[name=system.weaponTraits]');
-// 
-// let typeInput = document.querySelector('input[name=system.type]');
-
-// initialize Tagify on the above input node reference
 
 
 /**
@@ -88,8 +83,8 @@ export class KSItemSheet extends ItemSheet {
       whitelist: CONFIG.weaponTagWhitelist,
       enforceWhitelist: true,
       callbacks: {
-        add: console.log,  // callback when adding a tag
-        remove: console.log   // callback when removing a tag
+        add: console.log("tag added"),  // callback when adding a tag
+        remove: console.log("tag removed")  // callback when removing a tag
       }
 
     });
