@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
+      - uses: actions/checkout@v4
       - name: Zip Files
         working-directory: /dist
-        run: zip -r /kaiserschlacht.zip ./*
+        run: zip -r ./kaiserschlacht.zip ./*
 
