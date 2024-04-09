@@ -23,7 +23,7 @@ export class KSItem extends Item {
 
   }
   /**
-   * Returns a given item's attack roll.
+   * Returns a given item's attack roll formula.
    * @type {string}
    */
   get attackFormula() {

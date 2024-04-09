@@ -328,7 +328,7 @@ export class KSActorSheet extends ActorSheet {
     let dataset = a.dataset;
     const targetTokens = canvas.tokens.controlled;
     for (let token of targetTokens) {
-      token.actor._applyDamage(dataset.damage, dataset.damageTags);
+      token.actor._applyDamage(dataset.damage, JSON.parse(dataset.damageTags));
     }
 
   }
