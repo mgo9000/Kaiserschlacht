@@ -1284,7 +1284,9 @@ Hooks.once('init', function () {
 Handlebars.registerHelper('toLowerCase', function (str) {
   return str.toLowerCase();
 });
-
+Handlebars.registerHelper("json", (data) => {
+  return JSON.stringify(data);
+});
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
