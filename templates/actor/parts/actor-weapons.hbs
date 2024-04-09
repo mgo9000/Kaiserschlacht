@@ -26,7 +26,7 @@
       </div>
       <h4 class='rollable' data-roll-type="attack">{{item.name}}</h4>
     </div>
-    <div class='item-damage item-prop clickable apply-damage-button' data-damage="{{item.system.damage}}"
+    <div class='item-damage item-prop clickable apply-damage-button' data-damage="{{json item.system.damage}}"
       data-damage-tags="{{json item.system.weaponTraits}}">{{item.system.damage}}</div>
     <div class='item-reload rollable item-prop' data-roll-type='reload'>{{item.system.reload}}</div>
     <div class='item-traits item-prop'>{{#each item.system.weaponTraits}}{{value}} {{/each}}</div>
