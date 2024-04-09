@@ -981,7 +981,7 @@ var tagify_minExports = tagify_min.exports;
 var Tagify = /*@__PURE__*/getDefaultExportFromCjs(tagify_minExports);
 
 // let weaponTagInput = document.querySelector('input[name=system.weaponTraits]');
-// console.log(weaponTagInput);
+// 
 // let typeInput = document.querySelector('input[name=system.type]');
 
 // initialize Tagify on the above input node reference
@@ -1059,6 +1059,7 @@ class KSItemSheet extends ItemSheet {
     });
     // Roll handlers, click handlers, etc. would go here.
     let weaponTagInput = html[0].querySelector('input[name=system.weaponTraits]');
+    console.log(weaponTagInput);
     weaponTagify = new Tagify(weaponTagInput, {
       whitelist: CONFIG.weaponTagWhitelist,
       userInput: false

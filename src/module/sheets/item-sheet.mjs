@@ -4,7 +4,7 @@ import {
   prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
 // let weaponTagInput = document.querySelector('input[name=system.weaponTraits]');
-// console.log(weaponTagInput);
+// 
 // let typeInput = document.querySelector('input[name=system.type]');
 
 // initialize Tagify on the above input node reference
@@ -82,6 +82,7 @@ export class KSItemSheet extends ItemSheet {
     });
     // Roll handlers, click handlers, etc. would go here.
     let weaponTagInput = html[0].querySelector('input[name=system.weaponTraits]');
+    console.log(weaponTagInput);
     weaponTagify = new Tagify(weaponTagInput, {
       whitelist: CONFIG.weaponTagWhitelist,
       userInput: false
