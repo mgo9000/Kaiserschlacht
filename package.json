@@ -3,8 +3,8 @@
   "version": "0.2.11",
   "description": "",
   "scripts": {
-    "build": "gulp build",
-    "watch": "gulp watch"
+    "build": "sass styles/kaiserschlacht.scss styles/kaiserschlacht.css --style=expanded --no-source-map",
+    "watch": "sass styles/kaiserschlacht.scss styles/kaiserschlacht.css --style=expanded --source-map --watch"
   },
   "browserslist": [
     "last 3 versions"

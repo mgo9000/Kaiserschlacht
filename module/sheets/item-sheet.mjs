@@ -1,4 +1,4 @@
-import Tagify from "@yaireo/tagify";
+import Tagify from "../../lib/tagify.min.js";
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
@@ -86,7 +86,12 @@ export class KSItemSheet extends ItemSheet {
     this.item.weaponTagify = new Tagify(weaponTagInput, {
       id: 'system.weaponTraits',
       whitelist: CONFIG.weaponTagWhitelist,
-      userInput: false
+      enforceWhitelist: true,
+      callbacks: {
+        add: console.log,  // callback when adding a tag
+        remove: console.log   // callback when removing a tag
+      }
+
     });
     console.log(this.item.weaponTagify);
     // Active Effect management
