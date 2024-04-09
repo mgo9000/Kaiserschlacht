@@ -464,6 +464,7 @@
   --tags-border-color: #D39494;
 }
 .tagify__dropdown {
+  background-color: white;
   position: absolute;
   z-index: 9999;
   transform: translateY(-1px);

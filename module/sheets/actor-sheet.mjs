@@ -231,6 +231,19 @@ export class KSActorSheet extends ActorSheet {
         li.addEventListener('dragstart', handler, false);
       });
     }
+    let damageTagInput = html[0].querySelector('input[name="system.damageTags"]');
+    console.log(damageTagInput);
+    console.log(CONFIG.weaponTagWhitelist);
+    this.item.weaponTagify = new Tagify(damageTagInput, {
+      id: 'system.damageTags',
+      whitelist: CONFIG.weaponTagWhitelist,
+      enforceWhitelist: true,
+      callbacks: {
+        add: console.log("tag added"),  // callback when adding a tag
+        remove: console.log("tag removed")  // callback when removing a tag
+      }
+
+    });
   }
 
   /**

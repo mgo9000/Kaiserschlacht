@@ -147,6 +147,9 @@ Handlebars.registerHelper('toLowerCase', function (str) {
 Handlebars.registerHelper("json", (data) => {
   return JSON.stringify(data);
 });
+Handlebars.registerHelper("values", (data) => {
+  return Object.values(data);
+});
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */

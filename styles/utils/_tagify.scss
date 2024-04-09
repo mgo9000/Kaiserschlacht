@@ -667,7 +667,7 @@
         $dropdown: &;
         $trans: .3s;
         $trans-curve: cubic-bezier(.5, 0, .3, 1);
-
+        background-color: white;
         position: absolute;
         z-index: 9999;
         transform: translateY(-1px);
