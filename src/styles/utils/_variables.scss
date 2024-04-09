@@ -3,3 +3,8 @@ $padding-md: 10px;
 $padding-lg: 20px;
 
 $border-groove: 2px groove #eeede0;
+
+$tagify-dd-color-primary: rgb(53, 149, 246); // should be same as "$tags-focus-border-color"
+$tagify-dd-bg-color: white;
+$tagify-dd-item-pad: .3em .5em; // should be same as $tag-pad (below)
+$tagify-dd-max-height: 300px;

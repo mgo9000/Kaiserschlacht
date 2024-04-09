@@ -80,9 +80,10 @@ export class KSItemSheet extends ItemSheet {
 
     });
     // Roll handlers, click handlers, etc. would go here.
-    let weaponTagInput = html[0].querySelector('input[name="system.weaponTraits"]');
+    let weaponTagInput = html[0].querySelector('input[name=system.weaponTraits]');
     console.log(weaponTagInput);
     this.weaponTagify = new Tagify(weaponTagInput, {
+      id: 'system.weaponTraits',
       whitelist: CONFIG.weaponTagWhitelist,
       userInput: false
     });
