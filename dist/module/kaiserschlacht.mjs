@@ -1057,13 +1057,15 @@ class KSItemSheet extends ItemSheet {
 
     });
     // Roll handlers, click handlers, etc. would go here.
-    let weaponTagInput = html[0].querySelector('input[name=system.weaponTraits]');
+    let weaponTagInput = html[0].querySelector('input[name="system.weaponTraits"]');
     console.log(weaponTagInput);
-    this.weaponTagify = new Tagify(weaponTagInput, {
+    console.log(CONFIG.weaponTagWhitelist);
+    this.item.weaponTagify = new Tagify(weaponTagInput, {
       id: 'system.weaponTraits',
       whitelist: CONFIG.weaponTagWhitelist,
       userInput: false
     });
+    console.log(this.item.weaponTagify);
     // Active Effect management
     html.on('click', '.effect-control', (ev) =>
       onManageActiveEffect(ev, this.item)
