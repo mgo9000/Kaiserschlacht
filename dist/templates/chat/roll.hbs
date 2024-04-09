@@ -1,0 +1,19 @@
+<div class="dice-roll">
+    {{#if flavor}}
+    <div class="dice-flavor">{{flavor}}</div>
+    {{/if}}
+    {{#if targetNumber includeZero=true}}
+    <div><span class="dice-tn-label">TN:</span> <strong>{{targetNumber}} </strong>Result: {{#if degreeOfSuccess}}<span
+            class="dice-target-hit"><strong>Success</strong></span>{{else}}<span
+            class="dice-target-miss"><strong>Failure</strong></span> {{/if}}</div>
+    {{/if}}
+    <div class="dice-result">
+        <div class="dice-formula">{{formula}}</div>
+        {{{tooltip}}}
+        <h4 class="dice-total">{{total}}</h4>
+    </div>
+    <br>
+</div>
+<div class="flexrow"> {{#if damage includeZero=true}}<button class="apply-damage-button" type="button"
+        data-damage="{{damage}}" data-damage-tags="{{damageTags}}">Apply {{damage}} Damage</button>{{/if}}{{#if
+    reload}}<button class="reload-button" type="button" data-reload="{{reload}}">Reload</button>{{/if}}</div>

@@ -1,1 +1,1 @@
-The Kaiserschlacht Foundry system is licensed under the MIT license, making use of code from Asacolips Projects' boilerplate system under the MIT license, written for Foundry under the Limited License for Package Development.
+The Kaiserschlacht Foundry system is licensed under the MIT license, making use of code from Asacolips Projects' boilerplate system under the MIT license as well as Ghost91's rollup and gulp configs, written for Foundry under the Limited License for Package Development.

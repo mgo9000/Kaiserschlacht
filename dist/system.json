@@ -22,7 +22,7 @@
     "module/kaiserschlacht.mjs"
   ],
   "styles": [
-    "css/kaiserschlacht.css"
+    "styles/kaiserschlacht.css"
   ],
   "languages": [
     {
