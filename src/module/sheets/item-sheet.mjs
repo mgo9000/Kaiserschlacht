@@ -47,8 +47,7 @@ export class KSItemSheet extends ItemSheet {
   /** @override */
   getData() {
     // Retrieve base data structure.
-    const context = super.getData();
-    console.log(context);
+    let context = super.getData();
     // Use a safe clone of the item data for further operations.
     const itemData = context.data;
 
@@ -81,7 +80,7 @@ export class KSItemSheet extends ItemSheet {
 
     });
     // Roll handlers, click handlers, etc. would go here.
-    let weaponTagInput = html[0].querySelector('input[name=system.weaponTraits]');
+    let weaponTagInput = html.querySelector('input[name=system.weaponTraits]');
     console.log(weaponTagInput);
     weaponTagify = new Tagify(weaponTagInput, {
       whitelist: CONFIG.weaponTagWhitelist,
