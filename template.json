@@ -242,7 +242,7 @@
       "range": "",
       "weaponTraits": [],
       "reload": null,
-      "type": "",
+      "type": "Ranged",
       "equipped": false,
       "weight": 1,
       "quantity": 1
