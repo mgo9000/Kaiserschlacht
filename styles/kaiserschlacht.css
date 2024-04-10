@@ -428,11 +428,7 @@
   line-height: 8px;
   height: 8px;
   pointer-events: none;
-  transform: translate(-150%, -50%) scaleX(1.2) rotate(90deg);
   transition: 0.2s ease-in-out;
-}
-.tagify--select[aria-expanded=true]::after {
-  transform: translate(-150%, -50%) rotate(270deg) scaleY(1.2);
 }
 .tagify--select .tagify__tag {
   flex: 1;

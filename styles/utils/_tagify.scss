@@ -612,15 +612,15 @@
             line-height: math.div($size, 2);
             height: math.div($size, 2);
             pointer-events: none;
-            transform: translate(-150%, -50%) scaleX(1.2) rotate(90deg);
+            // transform: translate(-150%, -50%) scaleX(1.2) rotate(90deg);
             transition: .2s ease-in-out;
         }
 
-        &[aria-expanded=true] {
-            &::after {
-                transform: translate(-150%, -50%) rotate(270deg) scaleY(1.2);
-            }
-        }
+        // &[aria-expanded=true] {
+        //     &::after {
+        //         transform: translate(-150%, -50%) rotate(270deg) scaleY(1.2);
+        //     }
+        // }
 
         #{$self}__tag {
             flex: 1;
