@@ -58,7 +58,7 @@
   position: relative;
   box-sizing: border-box;
   transition: 0.1s;
-  max-height: 30px;
+  max-height: fit-content;
 }
 @keyframes tags--bump {
   30% {

@@ -48,10 +48,12 @@
 
         {{!-- <input type="text" name="system.type" value="{{system.type}}" data-dtype="String" /> --}}
 
-        <div><label class="resource-label">Traits</label>
+        <div>
+          <div><label class="resource-label">Traits</label></div>
           <input type="text" name="system.weaponTraits" value="{{json system.weaponTraits}}" data-dtype="JSON" />
         </div>
-        <div><label class="resource-label">Type</label>
+        <div>
+          <div><label class="resource-label">Type</label></div>
           <select name="system.type" data-dtype="string">
             {{#select system.type}}
             <option value="ranged">Ranged</option>
