@@ -78,7 +78,7 @@ export class KSItemSheet extends ItemSheet {
     let weaponTagInput = html[0].querySelector('input[name="system.weaponTraits"]');
     console.log(weaponTagInput);
     console.log(CONFIG.weaponTagWhitelist);
-    this.item.weaponTagify = new Tagify(weaponTagInput, {
+    const weaponTagify = new Tagify(weaponTagInput, {
       id: 'system.weaponTraits',
       whitelist: CONFIG.weaponTagWhitelist,
       enforceWhitelist: true,
@@ -88,6 +88,9 @@ export class KSItemSheet extends ItemSheet {
       }
 
     });
+    if (weaponTagInput.name) {
+      weaponTagify.DOM.scope.dataset.name = input.name;
+    }
     console.log(this.item.weaponTagify);
     // Active Effect management
     html.on('click', '.effect-control', (ev) =>

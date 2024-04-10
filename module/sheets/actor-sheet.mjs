@@ -234,7 +234,7 @@ export class KSActorSheet extends ActorSheet {
     let damageTagInput = html[0].querySelector('input[name="system.damageTags"]');
     console.log(damageTagInput);
     console.log(CONFIG.weaponTagWhitelist);
-    this.damageTagify = new Tagify(damageTagInput, {
+    const damageTagify = new Tagify(damageTagInput, {
       id: 'system.damageTags',
       whitelist: CONFIG.weaponTagWhitelist,
       enforceWhitelist: true,
@@ -244,6 +244,7 @@ export class KSActorSheet extends ActorSheet {
       }
 
     });
+    console.log(damageTagify);
   }
 
   /**
