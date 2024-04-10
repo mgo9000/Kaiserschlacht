@@ -142,7 +142,7 @@
   align-items: center;
   max-width: calc(var(--tag--max-width) - 10px);
   margin-inline: 5px 0;
-  margin-block: 1;
+  margin-block: 1px;
   position: relative;
   z-index: 1;
   outline: none;
@@ -191,7 +191,7 @@
   z-index: -1;
   pointer-events: none;
   transition: 120ms ease;
-  animation: tags--bump 0.3s ease-out 1;
+  animation: none;
   box-shadow: 0 0 0 var(--tag-inset-shadow-size) var(--tag-bg) inset;
 }
 .tagify__tag:hover:not([readonly]) div::before, .tagify__tag:focus div::before {
