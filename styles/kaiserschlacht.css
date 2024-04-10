@@ -22,8 +22,8 @@
 
 .tagify {
   --tags-disabled-bg: #F1F1F1;
-  --tags-border-color: #DDD;
-  --tags-hover-border-color: #CCC;
+  --tags-border-color: #7a7971;
+  --tags-hover-border-color: #7a7971;
   --tags-focus-border-color: #3595f6;
   --tag-border-radius: 3px;
   --tag-bg: #E5E5E5;
@@ -46,6 +46,7 @@
   --placeholder-color-focus: rgba(0, 0, 0, 0.25);
   --loader-size: .8em;
   --readonly-striped: 1;
+  background-color: rgba(0, 0, 0, 0.05);
   display: inline-flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -57,6 +58,7 @@
   position: relative;
   box-sizing: border-box;
   transition: 0.1s;
+  max-height: 30px;
 }
 @keyframes tags--bump {
   30% {
@@ -140,7 +142,7 @@
   align-items: center;
   max-width: calc(var(--tag--max-width) - 10px);
   margin-inline: 5px 0;
-  margin-block: 5px;
+  margin-block: 1;
   position: relative;
   z-index: 1;
   outline: none;
@@ -316,13 +318,12 @@
   flex-grow: 1;
   display: inline-block;
   min-width: 110px;
-  margin: 5px;
+  margin: 0px;
   padding: var(--tag-pad);
   line-height: normal;
   position: relative;
   white-space: pre-wrap;
   color: var(--input-color);
-  background-color: rgba(0, 0, 0, 0.05);
   box-sizing: inherit;
   /* Seems firefox newer versions don't need this any more
   @supports ( -moz-appearance:none ){

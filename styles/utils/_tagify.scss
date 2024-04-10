@@ -6,8 +6,8 @@
 .tagify {
     // SCSS "default" allows overriding variables BEFORE they are set in the below lines of code
     $self: &;
-    $tags-border-color : #DDD !default;
-    $tags-hover-border-color : #CCC !default;
+    $tags-border-color : #7a7971 !default;
+    $tags-hover-border-color : #7a7971 !default;
     $tags-focus-border-color : #3595f6 !default;
     $tagMargin : 5px !default;
     $tag-pad : .3em .5em !default;
@@ -130,6 +130,7 @@
         }
     }
 
+    background-color: rgba(0, 0, 0, 0.05);
     display : inline-flex;
     align-items : flex-start;
     flex-wrap : wrap;
@@ -141,6 +142,7 @@
     position : relative;
     box-sizing : border-box;
     transition : .1s;
+    max-height: 30px;
 
     &:hover:not(.tagify--focus):not(.tagify--invalid) {
         --tags-border-color: var(--tags-hover-border-color);
@@ -222,7 +224,7 @@
         align-items: center;
         max-width : calc(var(--tag--max-width) - #{$tagMargin * 2});
         margin-inline: $tagMargin 0;
-        margin-block: $tagMargin;
+        margin-block: 1;
         position: relative;
         z-index: 1;
         outline: none;
@@ -462,13 +464,13 @@
         flex-grow: 1;
         display: inline-block;
         min-width: $placeholder-width;
-        margin: $tagMargin;
+        margin: 0px;
         padding: var(--tag-pad);
         line-height: normal;
         position: relative;
         white-space: pre-wrap; // #160 Line break (\n) as delimeter
         color: var(--input-color);
-        background-color: rgba(0, 0, 0, 0.05);
+
 
         box-sizing: inherit;
 
