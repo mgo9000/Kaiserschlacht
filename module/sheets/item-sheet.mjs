@@ -79,7 +79,6 @@ export class KSItemSheet extends ItemSheet {
     console.log(weaponTagInput);
     console.log(CONFIG.weaponTagWhitelist);
     const weaponTagify = new Tagify(weaponTagInput, {
-      id: 'system.weaponTraits',
       whitelist: CONFIG.weaponTagWhitelist,
       enforceWhitelist: true,
       callbacks: {

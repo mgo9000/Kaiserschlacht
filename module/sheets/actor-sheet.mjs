@@ -235,7 +235,6 @@ export class KSActorSheet extends ActorSheet {
     console.log(damageTagInput);
     console.log(CONFIG.weaponTagWhitelist);
     const damageTagify = new Tagify(damageTagInput, {
-      id: 'system.damageTags',
       whitelist: CONFIG.weaponTagWhitelist,
       enforceWhitelist: true,
       callbacks: {
@@ -245,7 +244,7 @@ export class KSActorSheet extends ActorSheet {
 
     });
     console.log(damageTagify);
-    if (damageTagInput.name) {
+    if (damageTagInput.name != undefined) {
       damageTagify.DOM.scope.dataset.name = damageTagInput.name;
     }
   }
