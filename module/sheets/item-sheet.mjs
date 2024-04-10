@@ -26,6 +26,17 @@ export class KSItemSheet extends ItemSheet {
     });
   }
 
+  /**
+   * Since tagify leaves an empty field as "" not [], this must be remedied. 
+   * @override
+   */
+  async _onSubmit(event, { updateData = null, preventClose = false, preventRender = false } = {}) {
+    event.preventDefault();
+    for (const input of this.querySelectorall("tags ~ input")) {
+      if (input.value === "") input.value = "[]";
+    }
+    return super._onSubmit(event, { updateData, preventClose, preventRender });
+  }
   /** @override */
   get template() {
     const path = 'systems/kaiserschlacht/templates/item';
