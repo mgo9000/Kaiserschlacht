@@ -32,7 +32,7 @@ export class KSItemSheet extends ItemSheet {
    */
   async _onSubmit(event, { updateData = null, preventClose = false, preventRender = false } = {}) {
     event.preventDefault();
-    for (const input of this.querySelectorall("tags ~ input")) {
+    for (const input of this.form.querySelectorAll("tags ~ input")) {
       if (input.value === "") input.value = "[]";
     }
     return super._onSubmit(event, { updateData, preventClose, preventRender });
