@@ -33,7 +33,7 @@ Hooks.once('init', function () {
   // Add custom constants for configuration.
   CONFIG.KAISERSCHLACHT = KAISERSCHLACHT;
   CONFIG.weaponTagWhitelist = ["2 Target", "3 Target", "AP", "Awesome", "Blast 1", "Blast 2", "Blast 3", "Block", "Breaching", "Cobbled", "Combo", "Deployed",
-    "Double-Barrel", "Illuminating", "Lasting", "Parry", "Piercing", "Reach",
+    "Double-Barrel", "Fast", "Illuminating", "Lasting", "Parry", "Piercing", "Reach",
     "Signal", "Slam-Fire", "Slow", "Smokescreen", "Squad", "Stream", "Terror", "Unwieldy", "Utility"];
   /**
    * An array of status effects which can be applied to a TokenDocument.
