@@ -62,7 +62,7 @@ export class KSRoll extends Roll {
          targetNumber: isPrivate ? null : this.options.targetNumber,
          damage: isPrivate ? null : this.options.damage,
          reload: isPrivate ? null : this.options.reload,
-         damageTags: isPrivate ? null : this.options.damageTags,
+         damageTags: isPrivate ? null : JSON.stringify(this.options.damageTags),
          degreeOfSuccess: isPrivate ? null : await this.getDegreeOfSuccess(),
          user: game.user.id,
          tooltip: isPrivate ? "" : await this.getTooltip(),
