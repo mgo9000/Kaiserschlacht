@@ -231,7 +231,7 @@ export class KSActorSheet extends ActorSheet {
         li.addEventListener('dragstart', handler, false);
       });
     }
-    let damageTagInput = html[0].querySelector('input[name="system.damageTags"]');
+    const damageTagInput = html[0].querySelector('input[name="system.damageTags"]');
     console.log(damageTagInput);
     console.log(CONFIG.weaponTagWhitelist);
     const damageTagify = new Tagify(damageTagInput, {
@@ -245,6 +245,9 @@ export class KSActorSheet extends ActorSheet {
 
     });
     console.log(damageTagify);
+    if (damageTagInput.name) {
+      damageTagify.DOM.scope.dataset.name = damageTagInput.name;
+    }
   }
 
   /**
