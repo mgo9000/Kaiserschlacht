@@ -47,17 +47,18 @@
         <input type="text" name="system.range" value="{{system.range}}" data-dtype="String" />
         <label class="resource-label">Type</label>
         {{!-- <input type="text" name="system.type" value="{{system.type}}" data-dtype="String" /> --}}
-        <select name="system.type" data-dtype="string">
-          {{#select system.type}}
-          <option value="ranged">Ranged</option>
-          <option value="melee">Melee</option>
-          <option value="thrown">Thrown</option>
-          <option value="acrobatics">Acrobatics</option>
-          {{/select}}
-        </select>
-        <label class="resource-label">Traits</label>
-        <input type="text" name="system.weaponTraits" value="{{json system.weaponTraits}}" data-dtype="JSON" />
 
+        <div><label class="resource-label">Traits</label>
+          <input type="text" name="system.weaponTraits" value="{{json system.weaponTraits}}" data-dtype="JSON" />
+        </div>
+        <div><select name="system.type" data-dtype="string">
+            {{#select system.type}}
+            <option value="ranged">Ranged</option>
+            <option value="melee">Melee</option>
+            <option value="thrown">Thrown</option>
+            <option value="acrobatics">Acrobatics</option>
+            {{/select}}
+          </select></div>
 
         <div><label class="resource-label">Equipped</label>
           <a class='equip-toggle' name="system.equipped"><i
