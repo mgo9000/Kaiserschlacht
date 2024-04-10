@@ -169,7 +169,17 @@ export class KSActorSheet extends ActorSheet {
     context.weapons = weapons;
     context.armor = armor;
   }
-
+  /**
+    * Since tagify leaves an empty field as "" not [], this must be remedied. 
+    * @override
+    */
+  async _onSubmit(event, { updateData = null, preventClose = false, preventRender = false } = {}) {
+    event.preventDefault();
+    for (const input of this.form.querySelectorAll("tags ~ input")) {
+      if (input.value === "") input.value = "[]";
+    }
+    return super._onSubmit(event, { updateData, preventClose, preventRender });
+  }
   /* -------------------------------------------- */
 
   /** @override */
@@ -244,7 +254,7 @@ export class KSActorSheet extends ActorSheet {
 
     });
     console.log(damageTagify);
-    if (damageTagInput.name != undefined) {
+    if (damageTagInput) {
       damageTagify.DOM.scope.dataset.name = damageTagInput.name;
     }
   }

@@ -98,10 +98,6 @@ export class KSItemSheet extends ItemSheet {
       }
 
     });
-    if (weaponTagInput.name) {
-      weaponTagify.DOM.scope.dataset.name = weaponTagInput.name;
-    }
-    console.log(this.item.weaponTagify);
     // Active Effect management
     html.on('click', '.effect-control', (ev) =>
       onManageActiveEffect(ev, this.item)
