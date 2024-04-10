@@ -22,12 +22,13 @@ export class KSChatMessage extends ChatMessage {
     event.preventDefault();
     const a = event.currentTarget
     let dataset = a.dataset;
+    let damageTags = JSON.parse(dataset.damageTags) || null;
     console.log(dataset);
     console.log(dataset.damageTags);
     const targetTokens = canvas.tokens.controlled;
     if (targetTokens.length <= 0) ui.notifications.warn("You must select a token first.");
     for (let token of targetTokens) {
-      token.actor._applyDamage(dataset.damage, JSON.parse(dataset.damageTags));
+      token.actor._applyDamage(dataset.damage, damageTags);
     }
 
   }

@@ -84,7 +84,7 @@ export class KSItemSheet extends ItemSheet {
       enforceWhitelist: true,
       callbacks: {
         add: console.log("tag added"),  // callback when adding a tag
-        remove: console.log("tag removed")  // callback when removing a tag
+        remove: console.log("tag removed, current tags:" + this.item.system.weaponTraits)  // callback when removing a tag
       }
 
     });
