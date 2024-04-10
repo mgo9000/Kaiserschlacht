@@ -32,7 +32,7 @@ Hooks.once('init', function () {
   globalThis.kaiserschlacht = game.kaiserschlacht = Object.assign(game.system, globalThis.kaiserschlacht);
   // Add custom constants for configuration.
   CONFIG.KAISERSCHLACHT = KAISERSCHLACHT;
-  CONFIG.weaponTagWhitelist = ["AP", "Awesome", "Blast", "Block", "Breaching", "Cobbled", "Combo", "Deployed",
+  CONFIG.weaponTagWhitelist = ["2 Target", "3 Target", "AP", "Awesome", "Blast 1", "Blast 2", "Blast 3", "Block", "Breaching", "Cobbled", "Combo", "Deployed",
     "Double-Barrel", "Illuminating", "Lasting", "Parry", "Piercing", "Reach",
     "Signal", "Slam-Fire", "Slow", "Smokescreen", "Squad", "Stream", "Terror", "Unwieldy", "Utility"];
   /**

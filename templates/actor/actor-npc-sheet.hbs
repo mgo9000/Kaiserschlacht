@@ -51,23 +51,25 @@
     </div>
   </header>
   <header class="sheet-header">
-    <div class="resource flex-group-center">
-      <label for="system.damage" class="resource-label clickable apply-damage-button" data-damage="{{system.damage}}"
-        data-damage-tags="{{json system.damageTags}}">Damage</label>
-      <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
+    <div class="grid grid-3col">
+      <div class="resource flex-group-center">
+        <label for="system.damage" class="resource-label clickable apply-damage-button" data-damage="{{system.damage}}"
+          data-damage-tags="{{json system.damageTags}}">Damage</label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
+        </div>
       </div>
-    </div>
-    <div class="resource flex-group-center">
-      <label for="system.damageTags" class="resource-label">Traits</label>
-      <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="system.damageTags" value="{{json system.damageTags}}" data-dtype="JSON" />
+      <div class="resource flex-group-center">
+        <label for="system.damageTags" class="resource-label">Traits</label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.damageTags" value="{{json system.damageTags}}" data-dtype="JSON" />
+        </div>
       </div>
-    </div>
-    <div class="resource flex-group-center">
-      <label for="system.range" class="resource-label">Range</label>
-      <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="system.range" value="{{system.range}}" data-dtype="String" />
+      <div class="resource flex-group-center">
+        <label for="system.range" class="resource-label">Range</label>
+        <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.range" value="{{system.range}}" data-dtype="String" />
+        </div>
       </div>
     </div>
   </header>
