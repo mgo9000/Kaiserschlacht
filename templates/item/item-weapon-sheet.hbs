@@ -49,20 +49,21 @@
         {{!-- <input type="text" name="system.type" value="{{system.type}}" data-dtype="String" /> --}}
         <select name="system.type" data-dtype="string">
           {{#select system.type}}
-          <option value="Ranged">Ranged</option>
-          <option value="Melee">Melee</option>
-          <option value="Brawl">Brawl</option>
-          <option value="Thrown">Thrown</option>
-          <option value="Acrobatics">Acrobatics</option>
+          <option value="ranged">Ranged</option>
+          <option value="melee">Melee</option>
+          <option value="brawl">Brawl</option>
+          <option value="thrown">Thrown</option>
+          <option value="acrobatics">Acrobatics</option>
           {{/select}}
         </select>
         <label class="resource-label">Traits</label>
         <input type="text" name="system.weaponTraits" value="{{json system.weaponTraits}}" data-dtype="JSON" />
 
 
-        <label class="resource-label">Equipped</label>
-        <a class='equip-toggle' name="system.equipped"><i
-            class="{{#if system.equipped}}fa-solid fa-hand-fist{{else}}fa-regular fa-hand{{/if}}"></i></a>
+        <div><label class="resource-label">Equipped</label>
+          <a class='equip-toggle' name="system.equipped"><i
+              class="{{#if system.equipped}}fa-solid fa-hand-fist{{else}}fa-regular fa-hand{{/if}}"></i></a>
+        </div>
       </div>
     </div>
     {{!-- Effects Tab --}}
