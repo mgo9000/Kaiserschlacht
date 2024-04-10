@@ -322,6 +322,7 @@
   position: relative;
   white-space: pre-wrap;
   color: var(--input-color);
+  background-color: rgba(0, 0, 0, 0.05);
   box-sizing: inherit;
   /* Seems firefox newer versions don't need this any more
   @supports ( -moz-appearance:none ){

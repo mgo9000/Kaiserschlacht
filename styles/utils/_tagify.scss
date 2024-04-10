@@ -468,6 +468,8 @@
         position: relative;
         white-space: pre-wrap; // #160 Line break (\n) as delimeter
         color: var(--input-color);
+        background-color: rgba(0, 0, 0, 0.05);
+
         box-sizing: inherit;
 
         &:empty {
