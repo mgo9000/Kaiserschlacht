@@ -335,7 +335,7 @@ export class KSActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const dodgeValue = this.actor.system.finesse.value;
+    const dodgeValue = this.actor.system.abilities.finesse.value;
     console.log(dodgeValue);
     ActiveEffect.create({
       name: 'Block',
@@ -353,7 +353,7 @@ export class KSActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const dodgeValue = this.actor.system.finesse.value;
+    const dodgeValue = this.actor.system.abilities.finesse.value;
     console.log(dodgeValue);
     ActiveEffect.create({
       name: 'Block',
