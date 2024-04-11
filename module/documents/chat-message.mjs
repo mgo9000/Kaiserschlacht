@@ -70,7 +70,8 @@ export class KSChatMessage extends ChatMessage {
     actor.update({ system: { armor: originalArmor } });
     if (tempArmorEffect) {
       const effectCollection = actor.getEmbeddedCollection("effects");
-      effectCollection[tempArmorEffect].update({ changes: tempArmorOriginalChanges });
+      const actorEffect = effectCollection.find((effect) => effect._id == tempArmorEffect._id);
+      actorEffect.update({ changes: tempArmorOriginalChanges });
     }
     ui.notifications.info(`Damage to ${actor.name} reverted.`);
 
