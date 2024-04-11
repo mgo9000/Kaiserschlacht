@@ -171,7 +171,10 @@ export class KSActor extends Actor {
 
     const effectCollection = this.getEmbeddedCollection("effects");
     const tempArmorEffect = effectCollection.find((effect) => effect.changes.some(change => change.key === "system.tempArmor" && change.value > 0)) || null;
+    console.log(tempArmorEffect);
     const tempArmorOriginalChanges = tempArmorEffect?.changes;
+    const tempArmorOriginalChangesString = JSON.stringify(tempArmorOriginalChanges);
+    console.log(tempArmorOriginalChanges);
     const tempArmorEffectIndex = tempArmorEffect?.changes.findIndex(change => change.key === "system.tempArmor" && change.value > 0);
     const totalArmor = currentArmor + currentTempArmor;
     let adjustedArmor;
@@ -204,7 +207,7 @@ export class KSActor extends Actor {
       armor: currentArmor,
       tempArmor: currentTempArmor,
       tempArmorEffect: tempArmorEffect,
-      tempArmorOriginalChanges: tempArmorOriginalChanges,
+      tempArmorOriginalChanges: tempArmorOriginalChangesString,
       tempArmorEffectIndex: tempArmorEffectIndex,
       ap: armorPiercing,
       pierced: piercing,
