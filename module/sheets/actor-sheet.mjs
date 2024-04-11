@@ -244,18 +244,11 @@ export class KSActorSheet extends ActorSheet {
       });
     }
     const damageTagInput = html[0].querySelector('input[name="system.damageTags"]');
-    console.log(damageTagInput);
-    console.log(CONFIG.weaponTagWhitelist);
     const damageTagify = new Tagify(damageTagInput, {
       whitelist: CONFIG.weaponTagWhitelist,
       enforceWhitelist: true,
-      callbacks: {
-        add: console.log("tag added"),  // callback when adding a tag
-        remove: console.log("tag removed")  // callback when removing a tag
-      }
 
     });
-    console.log(damageTagify);
     if (damageTagInput) {
       damageTagify.DOM.scope.dataset.name = damageTagInput.name;
     }
@@ -346,7 +339,7 @@ export class KSActorSheet extends ActorSheet {
     ActiveEffect.create({
       name: 'Dodge',
       changes: { key: 'system.tempArmor', value: dodgeValue }
-    }, { parent: this });
+    }, { parent: this.actor });
   }
 
 
@@ -356,7 +349,7 @@ export class KSActorSheet extends ActorSheet {
     const dataset = element.dataset;
     const dodgeValue = dataset.dodgeValue;
     ActiveEffect.create({
-      name: 'Dodge',
+      name: 'Block',
       changes: { key: 'system.tempArmor', value: dodgeValue }
     }, { parent: this });
   }

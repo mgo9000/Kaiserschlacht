@@ -87,15 +87,9 @@ export class KSItemSheet extends ItemSheet {
     });
     // Roll handlers, click handlers, etc. would go here.
     const weaponTagInput = html[0].querySelector('input[name="system.weaponTraits"]');
-    console.log(weaponTagInput);
-    console.log(CONFIG.weaponTagWhitelist);
     const weaponTagify = new Tagify(weaponTagInput, {
       whitelist: CONFIG.weaponTagWhitelist,
       enforceWhitelist: true,
-      callbacks: {
-        add: console.log("tag added"),  // callback when adding a tag
-        remove: console.log("tag removed, current tags:" + JSON.stringify(this.item.system.weaponTraits))  // callback when removing a tag
-      }
 
     });
     // Active Effect management
