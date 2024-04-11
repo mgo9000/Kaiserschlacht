@@ -167,12 +167,23 @@ export class KSActor extends Actor {
     const armorPiercing = damageTags.some(damageTags => damageTags.value.toLowerCase() === "AP".toLowerCase());
     const piercing = damageTags.some(damageTags => damageTags.value.toLowerCase() === "Piercing".toLowerCase());
     const currentArmor = this.system.armor;
+    const currentTempArmor = this.system.tempArmor;
+    const totalArmor = currentArmor + currentTempArmor;
     let adjustedArmor;
     let APBeaten = false;
     if ((armorPiercing && damageValue >= currentArmor)) {
       APBeaten = true;
-      adjustedArmor = Math.clamped(currentArmor - 1, 0, 9999);
-      this.update({ system: { armor: adjustedArmor } });
+      if (tempArmor > 0) {
+        adjustedArmor = Math.clamped(currentArmor - 1, 0, 9999);
+        this.update({ system: { armor: adjustedArmor } });
+      }
+      else {
+        adjustedArmor = Math.clamped(currentTempArmor - 1, 0, 9999);
+        const effectCollection = this.getEmbeddedCollection(effects);
+        console.log(effectCollection);
+        const tempArmorEffect = effectCollection.find((effect) => effect.changes.key === "system.tempArmor" && effect.changes.value > 0);
+        tempArmorEffect.update({ changes: { value: Math.clamped(tempArmorEffect.changes.value - 1, 0, 9999) } });
+      }
     }
     else {
       APBeaten = false;
@@ -186,7 +197,9 @@ export class KSActor extends Actor {
       totalDamage: adjustedDamage,
       originalHealth: currentHealth,
       armor: currentArmor,
-      ap: armorPiercing || piercing,
+      tempArmor: currentTempArmor,
+      ap: armorPiercing,
+      pierced: piercing,
       beaten: APBeaten,
       user: game.user.id,
       uuid: this.uuid

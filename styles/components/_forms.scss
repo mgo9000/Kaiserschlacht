@@ -26,12 +26,27 @@
     padding: 0px;
     margin: 5px 0;
     border-bottom: 0;
+
     input {
       width: 100%;
       height: 100%;
       margin: 0;
     }
   }
+}
+
+.dodge-button {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.block-button {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 4px;
 }
 
 .sheet-tabs {

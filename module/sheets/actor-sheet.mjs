@@ -230,6 +230,8 @@ export class KSActorSheet extends ActorSheet {
 
     // Rollable abilities.
     html.on('click', '.rollable', this._onRoll.bind(this));
+    html.on('click', '.dodge-button', this._onDodge.bind(this));
+    html.on('click', '.block-button', this._onBlock.bind(this));
     // Damage application from the button.
     html.on('click', '.apply-damage-button', this._onClickApplyDamage.bind(this));
     // Drag events for macros.
@@ -335,6 +337,18 @@ export class KSActorSheet extends ActorSheet {
       return roll;
     }
   }
+
+  async _onDodge(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const dodgeValue = dataset.dodgeValue;
+    ActiveEffect.create({
+      name: 'Dodge',
+      changes: { key: 'system.tempArmor', value: dodgeValue }
+    }, { parent: this });
+  }
+
   _onClickApplyDamage(event) {
     event.preventDefault();
     const a = event.currentTarget

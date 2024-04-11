@@ -34,7 +34,8 @@
         <div class="resource flex-group-center">
           <label for="system.attributes.skillPoints.value" class="resource-label">Armor</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.armor" value="{{system.armor}}" data-dtype="Number" />
+            <input type="text" name="system.armor" value="{{system.armor}}" data-dtype="Number" /> {{#if
+            system.tempArmor}} + {{system.tempArmor}} {{/if}}
           </div>
         </div>
         {{#each system.classStats as |classStat key|}}{{#with visible}}
@@ -81,6 +82,8 @@
       <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}</section>
       <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
       <hr>
+      <div class="dodge-block flexrow"><a class="dodge-button"
+          data-dodge-value="system.abilities.finesse.value">Dodge</a><a class="block-button">Block</a></div>
       <aside>
         <div class="stats grid grid-2col">
           {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
