@@ -60,8 +60,18 @@ export class KSChatMessage extends ChatMessage {
     let actor = await fromUuid(uuid);
     const originalHealth = dataset.originalHealth;
     const originalArmor = dataset.originalArmor;
+    const tempArmorEffect = dataset.tempArmorEffect;
+    const tempArmorEffectIndex = dataset.tempArmorEffectIndex;
+    console.log(tempArmorEffect);
+
+    const tempArmorOriginalChanges = dataset.tempArmorOriginalChanges;
+    console.log(tempArmorOriginalChanges)
     actor.update({ system: { health: { value: originalHealth } } });
     actor.update({ system: { armor: originalArmor } });
+    if (tempArmorEffect) {
+      const effectCollection = actor.getEmbeddedCollection("effects");
+      effectCollection[tempArmorEffect].update({ changes: tempArmorOriginalChanges });
+    }
     ui.notifications.info(`Damage to ${actor.name} reverted.`);
 
     a.remove();

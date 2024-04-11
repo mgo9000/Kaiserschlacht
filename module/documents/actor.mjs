@@ -168,6 +168,11 @@ export class KSActor extends Actor {
     const piercing = damageTags.some(damageTags => damageTags.value.toLowerCase() === "Piercing".toLowerCase());
     const currentArmor = this.system.armor;
     const currentTempArmor = this.system.tempArmor;
+
+    const effectCollection = this.getEmbeddedCollection("effects");
+    const tempArmorEffect = effectCollection.find((effect) => effect.changes.some(change => change.key === "system.tempArmor" && change.value > 0)) || null;
+    const tempArmorOriginalChanges = tempArmorEffect?.changes;
+    const tempArmorEffectIndex = tempArmorEffect?.changes.findIndex(change => change.key === "system.tempArmor" && change.value > 0);
     const totalArmor = currentArmor + currentTempArmor;
     let adjustedArmor;
     let APBeaten = false;
@@ -178,14 +183,11 @@ export class KSActor extends Actor {
         this.update({ system: { armor: adjustedArmor } });
       }
       else {
-
-        const effectCollection = this.getEmbeddedCollection("effects");
-        const tempArmorEffect = effectCollection.find((effect) => effect.changes.some(change => change.key === "system.tempArmor" && change.value > 0));
         console.log(tempArmorEffect);
-        let tempArmorChanges = tempArmorEffect.changes;
-        const tempArmorEffectIndex = tempArmorEffect?.changes.findIndex(change => change.key === "system.tempArmor" && change.value > 0);
-        tempArmorChanges[tempArmorEffectIndex].value = Math.clamped(tempArmorChanges[tempArmorEffectIndex].value - 1, 0, 9999);
-        tempArmorEffect.update({ changes: tempArmorChanges });
+
+        let tempArmorNewChanges = tempArmorOriginalChanges;
+        tempArmorNewChanges[tempArmorEffectIndex].value = Math.clamped(tempArmorNewChanges[tempArmorEffectIndex].value - 1, 0, 9999);
+        tempArmorEffect.update({ changes: tempArmorNewChanges });
       }
     }
     else {
@@ -201,6 +203,9 @@ export class KSActor extends Actor {
       originalHealth: currentHealth,
       armor: currentArmor,
       tempArmor: currentTempArmor,
+      tempArmorEffect: tempArmorEffect,
+      tempArmorOriginalChanges: tempArmorOriginalChanges,
+      tempArmorEffectIndex: tempArmorEffectIndex,
       ap: armorPiercing,
       pierced: piercing,
       beaten: APBeaten,
