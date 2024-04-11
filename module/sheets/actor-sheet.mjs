@@ -336,7 +336,7 @@ export class KSActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     const dodgeValue = dataset.dodgeValue;
-    this.createEmbeddedDocuments("ActiveEffect", [{
+    this.actor.createEmbeddedDocuments("ActiveEffect", [{
       name: 'Dodge',
       "changes.key": 'system.tempArmor', "changes.value": dodgeValue
     }
