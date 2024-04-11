@@ -335,7 +335,7 @@ export class KSActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const dodgeValue = dataset.dodgeValue;
+    const dodgeValue = this.actor[dataset.dodgeValue];
     ActiveEffect.create({
       name: 'Dodge',
       changes: [{ key: 'system.tempArmor', value: dodgeValue }
@@ -349,9 +349,11 @@ export class KSActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const dodgeValue = dataset.dodgeValue;
+    const dodgeValue = this.actor[dataset.dodgeValue]
     ActiveEffect.create({
       name: 'Block',
+      icon: "icons/svg/wing.svg",
+      duration: { duration: 1, rounds: 1 },
       changes: [{ key: 'system.tempArmor', value: dodgeValue }
       ]
     }, { parent: this.actor });
