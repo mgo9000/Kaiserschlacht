@@ -4,7 +4,6 @@
 import { KSActor } from './documents/actor.mjs';
 import { KSItem } from './documents/item.mjs';
 import { KSChatMessage } from './documents/chat-message.mjs';
-import { KSActiveEffect } from '.documents/active-effect.mjs';
 // Import sheet classes.
 import { KSActorSheet } from './sheets/actor-sheet.mjs';
 import { KSItemSheet } from './sheets/item-sheet.mjs';
@@ -12,14 +11,12 @@ import { KSItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { KSRoll } from './helpers/roll.mjs';
 import { KAISERSCHLACHT } from './helpers/config.mjs';
-import KSActiveEffect from './documents/active-effect.mjs';
 globalThis.kaiserschlacht = {
   KSActor,
   KSItem,
   rollItemMacro,
   createItemMacro,
   KSChatMessage,
-  KSActiveEffect,
   KSRoll,
   config: KAISERSCHLACHT
 };
@@ -112,7 +109,6 @@ Hooks.once('init', function () {
   // Define custom Document classes
   CONFIG.Actor.documentClass = KSActor;
   CONFIG.Item.documentClass = KSItem;
-  CONFIG.ActiveEffect.documentClass = KSActiveEffect;
   CONFIG.ChatMessage.documentClass = KSChatMessage;
   // CONFIG.ui.hotbar = KSHotbar;
   // Define and push custom dice types

@@ -171,7 +171,7 @@ export class KSActor extends Actor {
     const totalArmor = currentArmor + currentTempArmor;
     let adjustedArmor;
     let APBeaten = false;
-    if ((armorPiercing && damageValue >= currentArmor)) {
+    if ((armorPiercing && damageValue >= totalArmor)) {
       APBeaten = true;
       if (tempArmor > 0) {
         adjustedArmor = Math.clamped(currentArmor - 1, 0, 9999);
