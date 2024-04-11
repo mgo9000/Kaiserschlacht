@@ -813,16 +813,34 @@
   margin: 0;
 }
 .kaiserschlacht .dodge-button {
-  background-color: rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  border: 1px solid;
-  border-radius: 4px;
+  width: calc(100% - 2px);
+  min-width: 20px;
+  height: var(--form-field-height);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1px 3px;
+  margin: 0;
+  color: var(--color-text-dark-primary);
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+  line-height: inherit;
+  border: 1px solid var(--color-border-light-tertiary);
+  border-radius: 3px;
 }
 .kaiserschlacht .block-button {
-  background-color: rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  border: 1px solid;
-  border-radius: 4px;
+  width: calc(100% - 2px);
+  min-width: 20px;
+  height: var(--form-field-height);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1px 3px;
+  margin: 0;
+  color: var(--color-text-dark-primary);
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+  line-height: inherit;
+  border: 1px solid var(--color-border-light-tertiary);
+  border-radius: 3px;
 }
 .kaiserschlacht .sheet-tabs {
   flex: 0;
