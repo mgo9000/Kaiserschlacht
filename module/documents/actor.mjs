@@ -180,10 +180,12 @@ export class KSActor extends Actor {
       else {
 
         const effectCollection = this.getEmbeddedCollection("effects");
-        console.log(effectCollection);
         const tempArmorEffect = effectCollection.find((effect) => effect.changes.some(change => change.key === "system.tempArmor" && change.value > 0));
-        const tempArmorEffectIndex = tempArmorEffect?.changes.findIndex(change => change.key === "system.tempArmor" && change.value > 0)
-        tempArmorEffect?.update({ "changes[tempArmorEffectIndex]": { value: Math.clamped(tempArmorEffect.changes.value - 1, 0, 9999) } });
+        console.log(tempArmorEffect);
+        let tempArmorChanges = tempArmorEffect.changes;
+        const tempArmorEffectIndex = tempArmorEffect?.changes.findIndex(change => change.key === "system.tempArmor" && change.value > 0);
+        tempArmorChanges[tempArmorEffectIndex].value = Math.clamped(tempArmorChanges[tempArmorEffectIndex].value - 1, 0, 9999);
+        tempArmorEffect.update({ changes: tempArmorChanges });
       }
     }
     else {
