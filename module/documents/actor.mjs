@@ -173,7 +173,7 @@ export class KSActor extends Actor {
     let APBeaten = false;
     if ((armorPiercing && damageValue >= totalArmor)) {
       APBeaten = true;
-      if (tempArmor > 0) {
+      if (currentTempArmor > 0) {
         adjustedArmor = Math.clamped(currentArmor - 1, 0, 9999);
         this.update({ system: { armor: adjustedArmor } });
       }
@@ -181,7 +181,7 @@ export class KSActor extends Actor {
         adjustedArmor = Math.clamped(currentTempArmor - 1, 0, 9999);
         const effectCollection = this.getEmbeddedCollection(effects);
         console.log(effectCollection);
-        const tempArmorEffect = effectCollection.find((effect) => effect.changes.key === "system.tempArmor" && effect.changes.value > 0);
+        const tempArmorEffect = effectCollection.find((effect) => effect.changes.some(change => change.key === "system.tempArmor" && change.value > 0));
         tempArmorEffect.update({ changes: { value: Math.clamped(tempArmorEffect.changes.value - 1, 0, 9999) } });
       }
     }
