@@ -355,7 +355,6 @@ export class KSActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     const blockValue = await blockDialog();
-    console.log(dodgeValue);
     ActiveEffect.create({
       name: 'Block',
       icon: "icons/svg/wing.svg",
