@@ -812,6 +812,18 @@
   height: 100%;
   margin: 0;
 }
+.kaiserschlacht .dodge-button {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 4px;
+}
+.kaiserschlacht .block-button {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 4px;
+}
 .kaiserschlacht .sheet-tabs {
   flex: 0;
 }
