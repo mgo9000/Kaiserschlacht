@@ -338,7 +338,7 @@ export class KSActorSheet extends ActorSheet {
     const dodgeValue = this.actor.system.abilities.finesse.value;
     console.log(dodgeValue);
     ActiveEffect.create({
-      name: 'Block',
+      name: 'Dodge',
       icon: "icons/svg/wing.svg",
       duration: { duration: 1, rounds: 1 },
       changes: [{ key: 'system.tempArmor', value: dodgeValue }
