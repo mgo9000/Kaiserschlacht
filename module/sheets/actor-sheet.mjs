@@ -349,6 +349,17 @@ export class KSActorSheet extends ActorSheet {
     }, { parent: this });
   }
 
+
+  async _onBlock(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const dodgeValue = dataset.dodgeValue;
+    ActiveEffect.create({
+      name: 'Dodge',
+      changes: { key: 'system.tempArmor', value: dodgeValue }
+    }, { parent: this });
+  }
   _onClickApplyDamage(event) {
     event.preventDefault();
     const a = event.currentTarget
