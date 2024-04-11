@@ -60,11 +60,11 @@ export class KSChatMessage extends ChatMessage {
     let actor = await fromUuid(uuid);
     const originalHealth = dataset.originalHealth;
     const originalArmor = dataset.originalArmor;
-    const tempArmorEffect = dataset.tempArmorEffect;
+    const tempArmorEffect = JSON.parse(dataset.tempArmorEffect);
     const tempArmorEffectIndex = dataset.tempArmorEffectIndex;
     console.log(tempArmorEffect);
 
-    const tempArmorOriginalChanges = dataset.tempArmorOriginalChanges;
+    const tempArmorOriginalChanges = JSON.parse(dataset.tempArmorOriginalChanges);
     console.log(tempArmorOriginalChanges)
     actor.update({ system: { health: { value: originalHealth } } });
     actor.update({ system: { armor: originalArmor } });
