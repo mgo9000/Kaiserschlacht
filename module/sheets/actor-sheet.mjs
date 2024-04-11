@@ -336,7 +336,7 @@ export class KSActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     const dodgeValue = dataset.dodgeValue;
-    ActiveEffect.create({
+    const dodgeEffect = ActiveEffect.create({
       name: 'Dodge',
       changes: { key: 'system.tempArmor', value: dodgeValue }
     }, { parent: this.actor });
@@ -351,7 +351,7 @@ export class KSActorSheet extends ActorSheet {
     ActiveEffect.create({
       name: 'Block',
       changes: { key: 'system.tempArmor', value: dodgeValue }
-    }, { parent: this });
+    }, { parent: this.actor });
   }
   _onClickApplyDamage(event) {
     event.preventDefault();
