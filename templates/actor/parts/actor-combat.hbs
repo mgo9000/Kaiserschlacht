@@ -1,6 +1,6 @@
-<div class="grid grid-7col">
+<div class="grid grid-6col">
 
-    <div class="saves flexcol grid-span-2">
+    <div class="saves flexcol grid-span-1">
         <div class="dodge-block flexrow flexshrink"><a class="dodge-button"
                 data-dodge-value="system.abilities.finesse.value">Dodge</a><a class="block-button">Block</a></div>
 
@@ -13,8 +13,8 @@
                     data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
                     data-label="{{ability.label}}">{{ability.label}}</label>
                 <a class="stat-display" data-stat-type="abilities" data-stat-key="{{key}}"
-                    data-stat="{{json ability}}">{{ability.value}} +
-                    {{#if ability.bonus}}{{ability.bonus}}{{/if}}</a>
+                    data-stat="{{json ability}}">{{ability.value}}
+                    {{#if ability.bonus}} + {{ability.bonus}}{{/if}}</a>
             </div>
             {{/each}}
 

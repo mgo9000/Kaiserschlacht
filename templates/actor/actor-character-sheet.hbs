@@ -80,7 +80,7 @@
 
     {{!-- Skills Tab --}}
     <div class="tab actions" data-group="primary" data-tab="actions">
-      <div class="stats grid grid-3col">
+      <div class="stats grid grid-5col">
         {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
         use both the "grid" and "grid-Ncol" class where "N" can be any number
         from 1 to 12 and will create that number of columns. --}}
@@ -92,12 +92,13 @@
               data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
               data-label="{{ability.label}}">{{ability.label}}</label>
             <a class="stat-display" data-stat-type="abilities" data-stat-key="{{key}}"
-              data-stat="{{json ability}}">{{ability.value}} +
-              {{#if ability.bonus}}{{ability.bonus}}{{/if}}</a>
+              data-stat="{{json ability}}">{{ability.value}}
+              {{#if ability.bonus}} + {{ability.bonus}}{{/if}}</a>
           </div>
           {{/each}}
 
         </div>
+        <div></div>
         <div class="skills flexcol grid-span-2">
 
           {{#each system.skills as |skill key|}}
@@ -105,8 +106,8 @@
             <label for="system.skills.{{key}}.value" class="resource-label rollable flexlarge align-left"
               data-roll="@skills.{{key}}.mod" data-roll-type="diff" data-label="{{skill.label}}">{{skill.label}}</label>
             <a class="stat-display" data-stat-type="skills" data-stat-key="{{key}}"
-              data-stat="{{json skill}}">{{skill.value}} +
-              {{#if skill.bonus}}{{skill.bonus}}{{/if}}</a>
+              data-stat="{{json skill}}">{{skill.value}}
+              {{#if skill.bonus}} + {{skill.bonus}}{{/if}}</a>
           </div>
           {{/each}}
 
