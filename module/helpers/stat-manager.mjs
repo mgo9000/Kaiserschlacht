@@ -25,7 +25,7 @@ export class StatManager extends FormApplication {
             stat: this.stat,
             statKey: this.statKey,
             actor: this.actor,
-            title: "Stat Configuration"
+            title: `${this.stat.label} Configuration`
         };
     }
 

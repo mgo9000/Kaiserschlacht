@@ -80,7 +80,7 @@
 
     {{!-- Skills Tab --}}
     <div class="tab actions" data-group="primary" data-tab="actions">
-      <div class="stats grid grid-2col">
+      <div class="stats grid grid-3col">
         {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
         use both the "grid" and "grid-Ncol" class where "N" can be any number
         from 1 to 12 and will create that number of columns. --}}
@@ -101,7 +101,7 @@
 
         </div>
 
-        <div class="skills flexcol ">
+        <div class="skills flexcol grid-span-2">
 
           {{#each system.skills as |skill key|}}
           <div class="skill flexrow flex-group-center">
