@@ -19,7 +19,7 @@ globalThis.kaiserschlacht = {
   KSItem,
   rollItemMacro,
   createItemMacro,
-  canvas,
+  documents,
   KSChatMessage,
   KSRoll,
   config: KAISERSCHLACHT
