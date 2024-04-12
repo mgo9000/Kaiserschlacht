@@ -858,7 +858,8 @@
   border-radius: 3px;
 }
 .kaiserschlacht .stat-display {
-  width: calc(100% - 2px);
+  width: calc(25% - 2px);
+  max-width: calc(25% - 2px);
   min-width: 20px;
   height: var(--form-field-height);
   background: rgba(0, 0, 0, 0.05);

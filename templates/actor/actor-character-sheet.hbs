@@ -88,9 +88,11 @@
 
           {{#each system.abilities as |ability key|}}
           <div class="ability flexrow flex-group-center">
-            <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+            <label for="system.abilities.{{key}}.value" class="resource-label rollable"
               data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
               data-label="{{ability.label}}">{{ability.label}}</label>
+          </div>
+          <div class="flexrow flex-group-center">
             <a class="stat-display" data-stat-type="abilities" data-stat-key="{{key}}"
               data-stat="{{json ability}}">{{ability.value}}
               {{#if ability.bonus}} + {{ability.bonus}}{{/if}}</a>
