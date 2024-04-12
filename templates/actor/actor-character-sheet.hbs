@@ -85,46 +85,32 @@
         use both the "grid" and "grid-Ncol" class where "N" can be any number
         from 1 to 12 and will create that number of columns. --}}
         <div class="abilities flexcol">
-          <div class="ability flexrow flexshrink flex-group-center">
-            <aside class="flexlarge align-left"></aside>
-            <label class="resource-label">Base</label>
-            <span></span>
-            <label class="resource-label">Bonus</label>
-            <span></span>
-          </div>
+
           {{#each system.abilities as |ability key|}}
           <div class="ability flexrow flex-group-center">
             <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
               data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
               data-label="{{ability.label}}">{{ability.label}}</label>
-            <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
-            <span></span>
-            <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}" data-dtype="Number" />
-            <span></span>
+            <a class="stat-display" data-stat-type="abilities" data-stat-key="{{key}}"
+              data-stat="{{json ability}}">{{ability.value}} +
+              {{#if ability.bonus}}{{ability.bonus}}{{/if}}</a>
           </div>
           {{/each}}
 
         </div>
         <div class="skills flexcol grid-span-2">
-          <div class="skill flexrow flexshrink flex-group-center">
-            <aside class="flexlarge align-left"></aside>
-            <label class="resource-label">Base</label>
-            <span></span>
-            <label class="resource-label">Bonus</label>
-            <span></span>
-          </div>
+
           {{#each system.skills as |skill key|}}
           <div class="skill flexrow flex-group-center">
-            <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+            <label for="system.skills.{{key}}.value" class="resource-label rollable flexlarge align-left"
               data-roll="@skills.{{key}}.mod" data-roll-type="diff" data-label="{{skill.label}}">{{skill.label}}</label>
-            <input type="text" name="system.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" />
-            <span></span>
-            <input type="text" name="system.skills.{{key}}.bonus" value="{{skill.bonus}}" data-dtype="Number" />
-            <span></span>
+            <a class="stat-display" data-stat-type="skills" data-stat-key="{{key}}"
+              data-stat="{{json skill}}">{{skill.value}} +
+              {{#if skill.bonus}}{{skill.bonus}}{{/if}}</a>
           </div>
           {{/each}}
+
         </div>
-        </aside>
       </div>
     </div>
     {{!-- Combat Tab --}}

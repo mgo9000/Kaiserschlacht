@@ -34,8 +34,8 @@ export class StatManager extends FormApplication {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             template: "systems/kaiserschlacht/templates/helpers/stat-manager.hbs",
-            width: 400,
-            height: 300,
+            width: 420,
+            height: 130,
             resizable: true,
             title: "Stat Configuration"
         });
