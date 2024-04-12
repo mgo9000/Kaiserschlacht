@@ -16,7 +16,7 @@ export class StatManager extends FormApplication {
          */
         this.actor = actor;
         this.statType = options.statType;
-
+        this.stat = options.stat;
 
     }
 
@@ -25,7 +25,7 @@ export class StatManager extends FormApplication {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             template: "systems/kaiserschlacht/templates/helpers/stat-manager.hbs",
-            width: 200,
+            width: 400,
             height: "auto"
         });
     }
