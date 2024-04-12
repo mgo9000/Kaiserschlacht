@@ -176,8 +176,10 @@ export class KSActorSheet extends ActorSheet {
     */
   async _onSubmit(event, { updateData = null, preventClose = false, preventRender = false } = {}) {
     event.preventDefault();
-    for (const input of this.form.querySelectorAll("tags ~ input")) {
-      if (input.value === "") input.value = "[]";
+    if (this.actor.type === "npc") {
+      for (const input of this.form.querySelectorAll("tags ~ input")) {
+        if (input.value === "") input.value = "[]";
+      }
     }
     return super._onSubmit(event, { updateData, preventClose, preventRender });
   }
@@ -247,14 +249,16 @@ export class KSActorSheet extends ActorSheet {
         li.addEventListener('dragstart', handler, false);
       });
     }
-    const damageTagInput = html[0].querySelector('input[name="system.damageTags"]');
-    const damageTagify = new Tagify(damageTagInput, {
-      whitelist: CONFIG.weaponTagWhitelist,
-      enforceWhitelist: true,
+    if (this.actor.type === "npc") {
+      const damageTagInput = html[0].querySelector('input[name="system.damageTags"]');
+      const damageTagify = new Tagify(damageTagInput, {
+        whitelist: CONFIG.weaponTagWhitelist,
+        enforceWhitelist: true,
 
-    });
-    if (damageTagInput) {
-      damageTagify.DOM.scope.dataset.name = damageTagInput.name;
+      });
+      if (damageTagInput) {
+        damageTagify.DOM.scope.dataset.name = damageTagInput.name;
+      }
     }
   }
 
@@ -354,7 +358,9 @@ export class KSActorSheet extends ActorSheet {
       icon: "icons/svg/falling.svg",
       changes: [{ key: 'system.tempArmor', value: 1 }
       ],
-      statuses: [{ value: prone }]
+      statuses: [{
+        value: "prone"
+      }]
     }, { parent: this.actor })
   }
 
