@@ -19,11 +19,9 @@
                 <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
                     data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
                     data-label="{{ability.label}}">{{ability.label}}</label>
-                <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"
-                    readonly />
+                <a class="stat-display">{{ability.value}}</a>
                 <span></span>
-                <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}" data-dtype="Number"
-                    readonly />
+                <a class="stat-display">{{ability.bonus}}</a>
                 <span></span>
             </div>
             {{/each}}
