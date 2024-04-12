@@ -17,13 +17,11 @@ export class StatManager extends FormApplication {
     }
     /** @inheritdoc */
     getData() {
-        const data = this.document.toObject(false);
         return {
             cssClass: "editable",
             statType: this.statType,
             stat: this.stat,
             actor: this.actor,
-            data: data,
             title: "Stat Configuration"
         };
     }
