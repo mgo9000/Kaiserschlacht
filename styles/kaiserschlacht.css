@@ -583,6 +583,11 @@
   cursor: pointer;
 }
 
+.saves-col {
+  height: 250px;
+  max-height: 250px;
+}
+
 .grid,
 .grid-2col {
   display: grid;
@@ -868,6 +873,7 @@
   color: var(--color-text-dark-primary);
   font-family: inherit;
   font-size: inherit;
+  font-weight: bold;
   text-align: center;
   line-height: inherit;
   border: 1px solid var(--color-border-light-tertiary);
