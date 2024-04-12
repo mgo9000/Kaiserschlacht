@@ -64,11 +64,11 @@ Hooks.once('init', function () {
       id: "prone",
       name: "EFFECT.StatusProne",
       icon: "icons/svg/falling.svg",
-      statuses: {
-        changes: [{ key: 'system.tempArmor', value: 1 }
-        ]
 
-      }
+      changes: [{ key: 'system.tempArmor', value: 1 }
+      ]
+
+
     },
     {
       id: "restrain",
