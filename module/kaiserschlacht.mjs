@@ -4,9 +4,11 @@
 import { KSActor } from './documents/actor.mjs';
 import { KSItem } from './documents/item.mjs';
 import { KSChatMessage } from './documents/chat-message.mjs';
+import { KSToken } from './canvas/token.mjs';
 // Import sheet classes.
 import { KSActorSheet } from './sheets/actor-sheet.mjs';
 import { KSItemSheet } from './sheets/item-sheet.mjs';
+
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { KSRoll } from './helpers/roll.mjs';
@@ -16,6 +18,7 @@ globalThis.kaiserschlacht = {
   KSItem,
   rollItemMacro,
   createItemMacro,
+  KSToken,
   KSChatMessage,
   KSRoll,
   config: KAISERSCHLACHT
@@ -115,6 +118,7 @@ Hooks.once('init', function () {
   CONFIG.Actor.documentClass = KSActor;
   CONFIG.Item.documentClass = KSItem;
   CONFIG.ChatMessage.documentClass = KSChatMessage;
+  CONFIG.Token.objectClass = KSToken;
   // CONFIG.ui.hotbar = KSHotbar;
   // Define and push custom dice types
   CONFIG.Dice.KSRoll = KSRoll;
