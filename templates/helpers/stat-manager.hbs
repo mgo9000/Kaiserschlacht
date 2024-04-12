@@ -1,14 +1,13 @@
-<form class="app window-app kaiserschlacht sheet actor" autocomplete="off">
+<form autocomplete="off">
     <div class="ability flexrow flexshrink flex-group-center">
-        <aside class="flexlarge align-left"></aside>
+        <aside class=""></aside>
         <label class="resource-label"><strong>Base</strong></label>
         <span></span>
         <label class="resource-label"><strong>Bonus</strong></label>
         <span></span>
     </div>
     <div class="ability flexrow flex-group-center">
-        <label for="system.{{statType}}.{{statKey}}.value"
-            class="resource-label flexlarge align-left">{{stat.label}}</label>
+        <label for="system.{{statType}}.{{statKey}}.value" class="resource-label">{{stat.label}}</label>
         <input type="text" name="system.{{statType}}.{{statKey}}.value" value="{{stat.value}}" data-dtype="Number" />
         <span></span>
         <input type="text" name="system.{{statType}}.{{statKey}}.bonus" value="{{stat.bonus}}" data-dtype="Number" />
