@@ -2,9 +2,9 @@
 /* -------------------------------------------- */
 /**
  * Extend the basic ActorSheet with some very simple modifications   
- * @extends {Token}
+ * @extends {TokenDocument}
  */
-export class KSToken extends Token {
+export default class KSTokenDocument extends TokenDocument {
     /**
      * A helper function to toggle a status effect which includes an Active Effect template
      * @param {{id: string, label: string, icon: string, changes: array}} effectData The Active Effect data
