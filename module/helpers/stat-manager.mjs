@@ -4,6 +4,7 @@
  * @param {KSActor} actor        
  * @param {object} [options={}]
  * @param {string} [options.statType=null]
+ * @param {string} [options.statKey=null]  
  * @param {string} [options.stat=null]  
  */
 export class StatManager extends FormApplication {
@@ -12,6 +13,7 @@ export class StatManager extends FormApplication {
 
         this.actor = actor;
         this.statType = options.statType;
+        this.statKey = options.statKey;
         this.stat = options.stat;
 
     }
@@ -21,6 +23,7 @@ export class StatManager extends FormApplication {
             cssClass: "editable",
             statType: this.statType,
             stat: this.stat,
+            statKey: this.statKey,
             actor: this.actor,
             title: "Stat Configuration"
         };
@@ -32,7 +35,7 @@ export class StatManager extends FormApplication {
         return foundry.utils.mergeObject(super.defaultOptions, {
             template: "systems/kaiserschlacht/templates/helpers/stat-manager.hbs",
             width: 400,
-            height: "auto"
+            height: 300
         });
     }
 }

@@ -12,7 +12,8 @@
                 <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
                     data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
                     data-label="{{ability.label}}">{{ability.label}}</label>
-                <a class="stat-display" data-stat-type="ability" data-stat="{{key}}">{{ability.value}} +
+                <a class="stat-display" data-stat-type="ability" data-statKey="{{key}}"
+                    dataStat="{{json ability}}">{{ability.value}} +
                     {{ability.bonus}}</a>
             </div>
             {{/each}}
