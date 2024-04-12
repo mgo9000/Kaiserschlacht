@@ -38,4 +38,11 @@ export class StatManager extends FormApplication {
             height: 300
         });
     }
+    /* -------------------------------------------- */
+
+    /** @inheritdoc */
+    async _updateObject(event, formData) {
+        console.log(formData);
+        //return this.object.update(formData);
+    }
 }
