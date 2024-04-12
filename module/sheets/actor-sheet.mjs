@@ -1,4 +1,3 @@
-// import Tagify from "@yaireo/tagify";
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
@@ -351,10 +350,11 @@ export class KSActorSheet extends ActorSheet {
     }, { parent: this.actor });
     ActiveEffect.create({
       id: "prone",
-      name: "EFFECT.StatusProne",
+      name: game.i18n.localize("EFFECT.StatusProne"),
       icon: "icons/svg/falling.svg",
       changes: [{ key: 'system.tempArmor', value: 1 }
-      ]
+      ],
+      statuses: [{ value: prone }]
     }, { parent: this.actor })
   }
 
