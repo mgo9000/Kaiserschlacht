@@ -14,30 +14,18 @@
                 <label class="resource-label">Bonus</label>
                 <span></span>
             </div>
-            {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-center"
-                    data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
-                    data-label="{{ability.label}}">{{ability.label}}</label>
-                <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}"
+                <label for="system.abilities.physique.value" class="resource-label rollable flexlarge align-center"
+                    data-roll="@abilities.physique.mod" data-roll-type="diff"
+                    data-label="physique.label">{{physique.label}}=</label>
+                <input type="text" name="system.abilities.physique.value" value="{{physique.value}}"
                     data-dtype="Number" />
                 <span></span>
-                <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}"
+                <input type="text" name="system.abilities.physique.bonus" value="{{physique.bonus}}"
                     data-dtype="Number" />
                 <span></span>
             </div>
-            {{/each}}
-            {{#each system.skills as |skill key|}}
-            <div class="skill flexrow flex-group-center">
-                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                    data-roll="@skills.{{key}}.mod" data-roll-type="diff"
-                    data-label="{{skill.label}}">{{skill.label}}</label>
-                <input type="text" name="system.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" />
-                <span></span>
-                <input type="text" name="system.skills.{{key}}.bonus" value="{{skill.bonus}}" data-dtype="Number" />
-                <span></span>
-            </div>
-            {{/each}}
+
         </div>
 
     </div>
