@@ -126,76 +126,75 @@
         </div>
         </aside>
       </div>
-      {{!-- Combat Tab --}}
-      <div class="tab combat" data-group="primary" data-tab="combat">
-        <div class="grid grid-5col">
-          <div class="items flexcol grid-span-4">
-            <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}</section>
-            <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
-            <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-items.hbs"}}</section>
-          </div>
-          <div class="saves flexcol">
-            <div class="dodge-block flexrow"><a class="dodge-button"
-                data-dodge-value="system.abilities.finesse.value">Dodge</a><a class="block-button">Block</a></div>
+    </div>
+    {{!-- Combat Tab --}}
+    <div class="tab combat" data-group="primary" data-tab="combat">
+      <div class="grid grid-5col">
+        <div class="items flexcol grid-span-4">
+          <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}</section>
+          <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
+          <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-items.hbs"}}</section>
+        </div>
+        <div class="saves flexcol">
+          <div class="dodge-block flexrow"><a class="dodge-button"
+              data-dodge-value="system.abilities.finesse.value">Dodge</a><a class="block-button">Block</a></div>
 
 
 
-            <div class="abilities flexcol">
-              <div class="ability flexrow flexshrink flex-group-center">
-                <aside class="flexlarge align-left"></aside>
-                <label class="resource-label">Base</label>
-                <span></span>
-                <label class="resource-label">Bonus</label>
-                <span></span>
-              </div>
-              {{#each system.abilities as |ability key|}}
-              <div class="ability flexrow flex-group-center">
-                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                  data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
-                  data-label="{{ability.label}}">{{ability.label}}</label>
-                <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}"
-                  data-dtype="Number" />
-                <span></span>
-                <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}"
-                  data-dtype="Number" />
-                <span></span>
-              </div>
-              {{/each}}
-
+          <div class="abilities flexcol">
+            <div class="ability flexrow flexshrink flex-group-center">
+              <aside class="flexlarge align-left"></aside>
+              <label class="resource-label">Base</label>
+              <span></span>
+              <label class="resource-label">Bonus</label>
+              <span></span>
             </div>
+            {{#each system.abilities as |ability key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
+                data-label="{{ability.label}}">{{ability.label}}</label>
+              <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
+              <span></span>
+              <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}" data-dtype="Number" />
+              <span></span>
+            </div>
+            {{/each}}
 
           </div>
 
         </div>
 
       </div>
-      {{!-- Biography Tab --}}
-      <div class="tab biography" data-group="primary" data-tab="description">
-        {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data
-        to
-        the rollData property. --}}
-        {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner
-        editable=editable}}
-      </div>
-      {{!-- Owned Items Tab --}}
-      <div class="tab items" data-group="primary" data-tab="items">
-        {{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}
-        {{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}
-        {{> "systems/kaiserschlacht/templates/actor/parts/actor-items.hbs"}}
-      </div>
-      {{!-- Feats Tab --}}
-      <div class="tab items" data-group="primary" data-tab="features">
-        {{> "systems/kaiserschlacht/templates/actor/parts/actor-features.hbs"}}
-      </div>
 
-      {{!-- Owned Spells Tab --}}
-      {{!<div class="tab spells" data-group="primary" data-tab="spells">
-        {{> "systems/kaiserschlacht/templates/actor/parts/actor-spells.hbs"}}
-        {{!</div>}}
-      {{!-- Active Effects Tab --}}
-      <div class="tab effects flexcol" data-group="primary" data-tab="effects">
-        {{> "systems/kaiserschlacht/templates/actor/parts/actor-effects.hbs"}}
-      </div>
+    </div>
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data
+      to
+      the rollData property. --}}
+      {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner
+      editable=editable}}
+    </div>
+    {{!-- Owned Items Tab --}}
+    <div class="tab items" data-group="primary" data-tab="items">
+      {{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}
+      {{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}
+      {{> "systems/kaiserschlacht/templates/actor/parts/actor-items.hbs"}}
+    </div>
+    {{!-- Feats Tab --}}
+    <div class="tab items" data-group="primary" data-tab="features">
+      {{> "systems/kaiserschlacht/templates/actor/parts/actor-features.hbs"}}
+    </div>
+
+    {{!-- Owned Spells Tab --}}
+    {{!<div class="tab spells" data-group="primary" data-tab="spells">
+      {{> "systems/kaiserschlacht/templates/actor/parts/actor-spells.hbs"}}
+      {{!</div>}}
+    {{!-- Active Effects Tab --}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+      {{> "systems/kaiserschlacht/templates/actor/parts/actor-effects.hbs"}}
+    </div>
 
   </section>
 </form>
