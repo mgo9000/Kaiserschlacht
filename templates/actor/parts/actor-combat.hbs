@@ -1,28 +1,19 @@
 <div class="grid grid-7col">
 
     <div class="saves flexcol grid-span-2">
-        <div class="dodge-block flexrow"><a class="dodge-button"
+        <div class="dodge-block flexrow flexshrink"><a class="dodge-button"
                 data-dodge-value="system.abilities.finesse.value">Dodge</a><a class="block-button">Block</a></div>
 
 
 
         <div class="abilities flexcol">
-            <div class="ability flexrow flexshrink flex-group-center">
-                <aside class="flexlarge align-left"></aside>
-                <label class="resource-label">Base</label>
-                <span></span>
-                <label class="resource-label">Bonus</label>
-                <span></span>
-            </div>
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
                 <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
                     data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
                     data-label="{{ability.label}}">{{ability.label}}</label>
-                <a class="stat-display">{{ability.value}}</a>
-                <span></span>
-                <a class="stat-display">{{ability.bonus}}</a>
-                <span></span>
+                <a class="stat-display" data-stat-type="ability" data-stat="{{ability}}">{{ability.value}} +
+                    {{ability.bonus}}</a>
             </div>
             {{/each}}
 

@@ -6,6 +6,7 @@ import {
 import { diffDialog } from '../helpers/dice-dialog.mjs';
 import { KSRoll } from '../helpers/roll.mjs';
 import { blockDialog } from '../helpers/block-dialog.mjs'
+import { StatManager } from '../helpers/stat-manager.mjs';
 /**
  * Extend the basic ActorSheet with some very simple modifications   
  * @extends {ActorSheet}
@@ -229,10 +230,13 @@ export class KSActorSheet extends ActorSheet {
       onManageActiveEffect(ev, document);
     });
 
-    // Rollable abilities.
+    // Rollable abilities
     html.on('click', '.rollable', this._onRoll.bind(this));
+    // Dodge/block buttons
     html.on('click', '.dodge-button', this._onDodge.bind(this));
     html.on('click', '.block-button', this._onBlock.bind(this));
+    // Stat management
+    html.on('click', '.stat-display', this._onStatManage.bind(this));
     // Damage application from the button.
     html.on('click', '.apply-damage-button', this._onClickApplyDamage.bind(this));
     // Drag events for macros.
@@ -377,6 +381,21 @@ export class KSActorSheet extends ActorSheet {
     for (let token of targetTokens) {
       token.actor._applyDamage(dataset.damage, JSON.parse(dataset.damageTags));
     }
+
+  }
+
+  /**
+  * Handle clickable rolls.
+  * @param {Event} event   The originating click event
+  * @private
+  */
+  async _onStatManage(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const elementStatType = dataset.statType;
+    const elementStat = dataset.stat;
+    new StatManager(this.actor, { statType: elementStatType, stat: elementStat }).render(true);
 
   }
 }
