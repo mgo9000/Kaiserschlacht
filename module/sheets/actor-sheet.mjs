@@ -15,8 +15,8 @@ export class KSActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['kaiserschlacht', 'sheet', 'actor'],
-      width: 600,
-      height: 680,
+      width: 770,
+      height: 560,
       tabs: [
         {
           navSelector: '.sheet-tabs',
@@ -336,16 +336,22 @@ export class KSActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    const dodgeValue = this.actor.system.abilities.finesse.value;
+    const dodgeValue = this.actor.system.abilities.finesse.value + this.actor.system.abilities.finesse.bonus;
     console.log(dodgeValue);
     ActiveEffect.create({
       name: 'Dodge',
       icon: "icons/svg/wing.svg",
       duration: { duration: 1, rounds: 1 },
-      changes: [{ key: 'system.tempArmor', value: dodgeValue }
+      changes: [{ key: 'system.tempArmor', value: (dodgeValue * 2) }
       ]
     }, { parent: this.actor });
-
+    ActiveEffect.create({
+      id: "prone",
+      name: "EFFECT.StatusProne",
+      icon: "icons/svg/falling.svg",
+      changes: [{ key: 'system.tempArmor', value: 1 }
+      ]
+    }, { parent: this.actor })
   }
 
 

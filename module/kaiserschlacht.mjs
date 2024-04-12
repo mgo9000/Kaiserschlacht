@@ -59,7 +59,7 @@ Hooks.once('init', function () {
     {
       id: "prone",
       name: "EFFECT.StatusProne",
-      icon: "icons/svg/falling.svg"
+      icon: "icons/svg/falling.svg",
     },
     {
       id: "restrain",

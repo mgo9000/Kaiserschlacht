@@ -171,10 +171,10 @@ export class KSActor extends Actor {
 
     const effectCollection = this.getEmbeddedCollection("effects");
     const tempArmorEffect = effectCollection.find((effect) => effect.changes.some(change => change.key === "system.tempArmor" && change.value > 0)) || null;
-    console.log(tempArmorEffect);
+
     const tempArmorOriginalChanges = tempArmorEffect?.changes;
+    //storing the changes array as a string so that it can be retained without being mutated; also means it does not need to be stringified on the card itself
     const tempArmorOriginalChangesString = JSON.stringify(tempArmorOriginalChanges);
-    console.log(tempArmorOriginalChanges);
     const tempArmorEffectIndex = tempArmorEffect?.changes.findIndex(change => change.key === "system.tempArmor" && change.value > 0);
     const totalArmor = currentArmor + currentTempArmor;
     let adjustedArmor;
@@ -186,7 +186,7 @@ export class KSActor extends Actor {
         this.update({ system: { armor: adjustedArmor } });
       }
       else {
-        console.log(tempArmorEffect);
+
 
         let tempArmorNewChanges = tempArmorOriginalChanges;
         tempArmorNewChanges[tempArmorEffectIndex].value = Math.clamped(tempArmorNewChanges[tempArmorEffectIndex].value - 1, 0, 9999);
