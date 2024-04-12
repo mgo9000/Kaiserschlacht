@@ -27,7 +27,17 @@
                 <span></span>
             </div>
             {{/each}}
-
+            {{#each system.skills as |skill key|}}
+            <div class="skill flexrow flex-group-center">
+                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                    data-roll="@skills.{{key}}.mod" data-roll-type="diff"
+                    data-label="{{skill.label}}">{{skill.label}}</label>
+                <input type="text" name="system.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" />
+                <span></span>
+                <input type="text" name="system.skills.{{key}}.bonus" value="{{skill.bonus}}" data-dtype="Number" />
+                <span></span>
+            </div>
+            {{/each}}
         </div>
 
     </div>
