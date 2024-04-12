@@ -397,7 +397,7 @@ export class KSActorSheet extends ActorSheet {
     const elementStat = dataset.stat;
     console.log(elementStat);
     console.log(elementStatType);
-    new StatManager(this.actor, { statType: elementStatType, stat: elementStat }).render(true);
-
+    let SM = new StatManager(this.actor, { statType: elementStatType, stat: elementStat }).render(true);
+    console.log(SM);
   }
 }
