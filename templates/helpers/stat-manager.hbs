@@ -1,9 +1,9 @@
-<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+<form class="app window-app kaiserschlacht sheet actor" autocomplete="off">
     <div class="ability flexrow flexshrink flex-group-center">
         <aside class="flexlarge align-left"></aside>
-        <label class="resource-label">Base</label>
+        <label class="resource-label"><strong>Base</strong></label>
         <span></span>
-        <label class="resource-label">Bonus</label>
+        <label class="resource-label"><strong>Bonus</strong></label>
         <span></span>
     </div>
     <div class="ability flexrow flex-group-center">
@@ -16,5 +16,7 @@
 
 
     </div>
-    <input class="submit-button flexshrink" type="submit" value="Submit" />
+    <button type="submit">
+        <i class="far fa-save"></i> Update {{stat.label}}
+    </button>
 </form>
