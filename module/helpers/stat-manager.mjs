@@ -6,7 +6,7 @@
  * @param {string} [options.statType=null]
  * @param {string} [options.stat=null]  
  */
-export class StatManager extends DocumentSheet {
+export class StatManager extends FormApplication {
     constructor(actor, options = {}) {
         super(options);
 
@@ -20,13 +20,11 @@ export class StatManager extends DocumentSheet {
         const data = this.document.toObject(false);
         return {
             cssClass: "editable",
-            editable: true,
             statType: this.statType,
             stat: this.stat,
-            document: this.actor,
+            actor: this.actor,
             data: data,
-            options: this.options,
-            title: this.title
+            title: "Stat Configuration"
         };
     }
 
