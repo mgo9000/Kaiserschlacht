@@ -8,23 +8,25 @@
 
         <div class="abilities flexcol">
             <div class="ability flexrow flexshrink flex-group-center">
-                <aside class="flexlarge align-center"></aside>
+                <aside class="flexlarge align-left"></aside>
                 <label class="resource-label">Base</label>
                 <span></span>
                 <label class="resource-label">Bonus</label>
                 <span></span>
             </div>
+            {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-                <label for="system.abilities.physique.value" class="resource-label rollable flexlarge align-center"
-                    data-roll="@abilities.physique.mod" data-roll-type="diff"
-                    data-label="physique.label">{{physique.label}}=</label>
-                <input type="text" name="system.abilities.physique.value" value="{{physique.value}}"
-                    data-dtype="Number" />
+                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                    data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
+                    data-label="{{ability.label}}">{{ability.label}}</label>
+                <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"
+                    readonly />
                 <span></span>
-                <input type="text" name="system.abilities.physique.bonus" value="{{physique.bonus}}"
-                    data-dtype="Number" />
+                <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}" data-dtype="Number"
+                    readonly />
                 <span></span>
             </div>
+            {{/each}}
 
         </div>
 
