@@ -352,7 +352,7 @@ export class KSActorSheet extends ActorSheet {
       changes: [{ key: 'system.tempArmor', value: (dodgeValue * 2) }
       ]
     }, { parent: this.actor });
-    const actorTokens = this.actor.getActiveTokens();
+    const actorTokens = this.actor.getActiveTokens(true, true);
     //applies prone status as well
     actorTokens.forEach((token) => token.toggleActiveEffect(CONFIG.statusEffects.find(e => e.id === "prone")));
   }
