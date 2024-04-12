@@ -14,7 +14,7 @@
                     data-label="{{ability.label}}">{{ability.label}}</label>
                 <a class="stat-display" data-stat-type="abilities" data-stat-key="{{key}}"
                     data-stat="{{json ability}}">{{ability.value}} +
-                    {{ability.bonus}}</a>
+                    {{#if ability.bonus}}{{ability.bonus}}{{/if}}</a>
             </div>
             {{/each}}
 
