@@ -1,17 +1,20 @@
-<div class="grid grid-6col">
+<div class="grid grid-3col">
 
-    <div class="saves-col flexcol grid-span-1">
-        <div class="dodge-block flexrow flexshrink"><a class="dodge-button"
-                data-dodge-value="system.abilities.finesse.value">Dodge</a><a class="block-button">Block</a></div>
+    <div class="flexcol grid-span-1" style="
+    height: 312px;
+">
 
 
 
         <div class="abilities flexcol">
+
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                <label for="system.abilities.{{key}}.value" class="resource-label rollable"
                     data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
                     data-label="{{ability.label}}">{{ability.label}}</label>
+            </div>
+            <div class="flexrow flex-group-center">
                 <a class="stat-display" data-stat-type="abilities" data-stat-key="{{key}}"
                     data-stat="{{json ability}}">{{ability.value}}
                     {{#if ability.bonus}} + {{ability.bonus}}{{/if}}</a>
@@ -20,8 +23,12 @@
 
         </div>
 
+
     </div>
-    <div class="items flexcol grid-span-5">
+    <div class="items flexcol grid-span-2">
+        <div class="dodge-block flexrow grid grid-5col"><a class="dodge-button grid-column-start: 2"
+                data-dodge-value="system.abilities.finesse.value">Dodge</a><a
+                class="block-button grid-column-start: 4">Block</a></div>
         <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}</section>
         <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
         <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-items.hbs"}}</section>
