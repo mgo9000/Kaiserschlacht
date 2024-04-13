@@ -60,16 +60,17 @@ export class KSChatMessage extends ChatMessage {
     let actor = await fromUuid(uuid);
     const originalHealth = dataset.originalHealth;
     const originalArmor = dataset.originalArmor;
-    const tempArmorEffect = JSON.parse(dataset?.tempArmorEffect || null);
-    const tempArmorEffectIndex = dataset?.tempArmorEffectIndex;
-    const tempArmorOriginalChanges = JSON.parse(dataset?.tempArmorOriginalChanges) || null;
     actor.update({ system: { health: { value: originalHealth } } });
     actor.update({ system: { armor: originalArmor } });
-    if (tempArmorEffect) {
+    if (dataset.tempArmorEffect && dataset.tempArmorEffectIndex && dataset.tempArmorOriginalChanges) {
+      const tempArmorEffect = JSON.parse(dataset.tempArmorEffect);
+      const tempArmorEffectIndex = dataset.tempArmorEffectIndex;
+      const tempArmorOriginalChanges = JSON.parse(dataset.tempArmorOriginalChanges);
       const effectCollection = actor.getEmbeddedCollection("effects");
-      const actorEffect = effectCollection.find((effect) => effect._id == tempArmorEffect._id) || null;
-      actorEffect?.update({ changes: tempArmorOriginalChanges });
+      const actorEffect = effectCollection.find((effect) => effect._id == tempArmorEffect._id);
+      actorEffect.update({ changes: tempArmorOriginalChanges });
     }
+
     ui.notifications.info(`Damage to ${actor.name} reverted.`);
 
     a.remove();
