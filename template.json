@@ -24,7 +24,7 @@
         "base"
       ],
       "targetNumber": 0,
-      "initiative": 1,
+      "initiative": 2,
       "armor": 0,
       "tempArmor": 0,
       "attributes": {
@@ -195,7 +195,7 @@
       "range": 0,
       "meleeDie": "",
       "rangedDie": "",
-      "initiative": 2
+      "initiative": 1
     }
   },
   "Item": {
