@@ -62,7 +62,7 @@ export class KSChatMessage extends ChatMessage {
     const originalArmor = dataset.originalArmor;
     actor.update({ system: { health: { value: originalHealth } } });
     actor.update({ system: { armor: originalArmor } });
-    if (dataset.tempArmorEffect && dataset.tempArmorEffectIndex && dataset.tempArmorOriginalChanges) {
+    if (dataset.tempArmorEffect && dataset.tempArmorOriginalChanges) {
       const tempArmorEffect = JSON.parse(dataset.tempArmorEffect);
       const tempArmorEffectIndex = dataset.tempArmorEffectIndex;
       const tempArmorOriginalChanges = JSON.parse(dataset.tempArmorOriginalChanges);
