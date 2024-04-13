@@ -3,11 +3,12 @@
         <div class="damage-flavor">{{flavor}}</div>
         {{/if}}
         {{#if armor}}
-        <div><span class="dice-tn-label">Armor:</span> <strong>{{armor}} </strong></div>
+        <div><span class="dice-tn-label">Armor:</span> <strong>{{armor}} {{#if tempArmor}}+
+                        {{tempArmor}}{{/if}}</strong></div>
         {{/if}}
         <div class="damage-result"><strong>{{recipient}} </strong>received <strong>{{totalDamage}}</strong> damage.
         </div>
-        <div>{{#if armor}}{{#if ap}}{{recipient}}'s armor was {{#if beaten}}<span
+        <div>{{#if totalArmor}}{{#if ap}}{{recipient}}'s armor was {{#if beaten}}<span
                         class="dice-target-miss"><strong>damaged.</strong></span>{{else}}<span
                         class="dice-target-hit"><strong>not
                                 damaged.</strong></span>
