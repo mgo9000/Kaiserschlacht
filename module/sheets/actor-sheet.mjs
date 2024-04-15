@@ -235,7 +235,9 @@ export class KSActorSheet extends ActorSheet {
     html.on('click', '.rollable', this._onRoll.bind(this));
     // Dodge/block buttons
     html.on('click', '.dodge-button', this._onDodge.bind(this));
-    html.on('click', '.block-button', this._onBlock.bind(this));
+    html.on('click', '.cover-button', this._onCover.bind(this));
+   html.on('click', '.block-button', this._onBlock.bind(this));
+   
     // Stat management
     html.on('click', '.stat-display', this._onStatManage.bind(this));
     // Damage application from the button.
@@ -348,13 +350,27 @@ export class KSActorSheet extends ActorSheet {
     ActiveEffect.create({
       name: 'Dodge',
       icon: "icons/svg/wing.svg",
-      duration: { duration: 1, rounds: 1 },
+      duration: { duration: 1, turns: 1 },
       changes: [{ key: 'system.tempArmor', value: (dodgeValue * 2) }
       ]
     }, { parent: this.actor });
     const actorTokens = this.actor.getActiveTokens(true, true);
     //applies prone status as well
     actorTokens.forEach((token) => token.toggleActiveEffect(CONFIG.statusEffects.find(e => e.id === "prone")));
+  }
+
+
+  async _onCover(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    ActiveEffect.create({
+      name: 'Cover',
+      icon: "icons/svg/tower.svg",
+      duration: { duration: 1, rounds: 1 },
+      changes: [{ key: 'system.tempArmor', value: 1 }
+      ]
+    }, { parent: this.actor });
   }
 
 
@@ -366,7 +382,7 @@ export class KSActorSheet extends ActorSheet {
     const blockValue = await blockDialog();
     ActiveEffect.create({
       name: 'Block',
-      icon: "icons/svg/wing.svg",
+      icon: "icons/svg/shield.svg",
       duration: { duration: 1, rounds: 1 },
       changes: [{ key: 'system.tempArmor', value: blockValue }
       ]

@@ -817,7 +817,7 @@
   height: 100%;
   margin: 0;
 }
-.kaiserschlacht .dodge-button {
+.kaiserschlacht .action-button {
   width: calc(100% - 2px);
   min-width: 20px;
   height: var(--form-field-height);
@@ -826,23 +826,6 @@
   margin: 0;
   color: var(--color-text-dark-primary);
   font-family: inherit;
-  font-size: inherit;
-  text-align: center;
-  font-weight: bold;
-  line-height: inherit;
-  border: 1px solid var(--color-border-light-tertiary);
-  border-radius: 3px;
-}
-.kaiserschlacht .block-button {
-  width: calc(100% - 2px);
-  min-width: 20px;
-  height: var(--form-field-height);
-  background: rgba(0, 0, 0, 0.05);
-  padding: 1px 3px;
-  margin: 0;
-  color: var(--color-text-dark-primary);
-  font-family: inherit;
-  font-weight: bold;
   font-size: inherit;
   text-align: center;
   line-height: inherit;
