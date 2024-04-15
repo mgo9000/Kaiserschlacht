@@ -10,7 +10,7 @@
 
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-                <label for="system.abilities.{{key}}.value" class="resource-label rollable"
+                <span class="resource-label rollable"
                     data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
                     data-label="{{ability.label}}">{{ability.label}}</label>
             </div>
@@ -28,7 +28,7 @@
     <div class="items flexcol grid-span-2">
         <div class="dodge-block flexshrink grid grid-7col"><a class="dodge-button action-button grid-start-2"
                 data-dodge-value="system.abilities.finesse.value">Dodge</a><a
-                class="block-button action-button grid-start-4">Block</a></div><a class="cover-button action-button grid-start-6">Take Cover</a>
+                class="block-button action-button grid-start-4">Block</a><a class="cover-button action-button grid-start-6">Cover</a></div>
         <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}</section>
         <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
         <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-items.hbs"}}</section>
