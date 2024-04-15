@@ -364,13 +364,8 @@ export class KSActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    ActiveEffect.create({
-      name: 'Cover',
-      icon: "icons/svg/tower.svg",
-      duration: { duration: 1, rounds: 1 },
-      changes: [{ key: 'system.tempArmor', value: 1 }
-      ]
-    }, { parent: this.actor });
+    const actorTokens = this.actor.getActiveTokens(true, true);
+    actorTokens.forEach((token) => token.toggleActiveEffect(CONFIG.statusEffects.find(e => e.id === "cover")));
   }
 
 

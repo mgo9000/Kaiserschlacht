@@ -61,6 +61,13 @@ Hooks.once('init', function () {
       icon: "icons/svg/daze.svg"
     },
     {
+    id: "cover",
+    name: "Cover",
+    icon: "icons/svg/tower.svg",
+    duration: { duration: 1, rounds: 1 },
+    changes: [{ key: 'system.tempArmor', value: 1 }
+  ]},
+    {
       id: "prone",
       name: "EFFECT.StatusProne",
       icon: "icons/svg/falling.svg",
