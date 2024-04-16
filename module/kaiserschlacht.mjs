@@ -207,6 +207,7 @@ Hooks.once("ready", function () {
     }
   });
   Hooks.on("preUpdateActiveEffect", (effect, changes, options, userId) => {
+    console.log("preUpdate hook called");
     console.log(effect);
     console.log(changes);
     // if (document.duration.remaining != null || undefined) {
