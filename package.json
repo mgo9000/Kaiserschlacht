@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "build": "sass styles/kaiserschlacht.scss styles/kaiserschlacht.css --style=expanded --no-source-map",
+    "lint": "eslint --ext .mjs --ignore-path .gitignore ./",
     "watch": "sass styles/kaiserschlacht.scss styles/kaiserschlacht.css --style=expanded --source-map --watch"
   },
   "browserslist": [
