@@ -153,6 +153,7 @@ Hooks.once("init", function () {
   CONFIG.Actor.documentClass = KSActor;
   CONFIG.Item.documentClass = KSItem;
   CONFIG.ChatMessage.documentClass = KSChatMessage;
+  CONFIG.ActiveEffect.documentClass = documents.KSActiveEffect;
   CONFIG.Token.documentClass = documents.KSTokenDocument;
   // CONFIG.ui.hotbar = KSHotbar;
   // Define and push custom dice types
