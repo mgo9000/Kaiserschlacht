@@ -217,6 +217,27 @@ Hooks.once("ready", function () {
     //   return true;
     // }
   });
+  Hooks.on("updateDuration", () => {
+    console.log("updateDuration hook called");
+    console.log(effect);
+    console.log(changes);
+    // if (document.duration.remaining != null || undefined) {
+    //   document.manageDuration(arguments);
+    //   return false;
+    // } else {
+    //   return true;
+    // }
+  });
+  Hooks.on("ActiveEffect.updateDuration", () => {
+    console.log("activeeffect.updateDuration hook called");
+
+    // if (document.duration.remaining != null || undefined) {
+    //   document.manageDuration(arguments);
+    //   return false;
+    // } else {
+    //   return true;
+    // }
+  });
 });
 
 //dice so nice special color for difficulty dice
