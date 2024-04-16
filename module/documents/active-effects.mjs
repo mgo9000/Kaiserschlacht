@@ -19,12 +19,11 @@ export default class KSActiveEffect extends ActiveEffect {
    * @returns {ActiveEffectDuration}
    */
   updateDuration() {
-    console.log(this.duration);
-    const { remaining, label, ...durationData } = this._prepareDuration();
-    console.log(remaining);
-    console.log(label);
-    console.log(durationData);
-    Hooks.callAll("updateDuration");
-    return super.updateDuration();
+    const canProceed = Hooks.call("updateDuration", this);
+    if (!canProceed) {
+      return;
+    } else {
+      return super.updateDuration();
+    }
   }
 }

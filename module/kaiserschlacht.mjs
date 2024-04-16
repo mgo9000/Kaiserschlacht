@@ -207,37 +207,15 @@ Hooks.once("ready", function () {
       return false;
     }
   });
-  Hooks.on("preUpdateActiveEffect", (effect, changes, options, userId) => {
-    console.log("preUpdate hook called");
-    console.log(effect);
-    console.log(changes);
-    // if (document.duration.remaining != null || undefined) {
-    //   document.manageDuration(arguments);
-    //   return false;
-    // } else {
-    //   return true;
-    // }
-  });
-  Hooks.on("updateDuration", () => {
-    console.log("updateDuration hook called");
-    console.log(effect);
-    console.log(changes);
-    // if (document.duration.remaining != null || undefined) {
-    //   document.manageDuration(arguments);
-    //   return false;
-    // } else {
-    //   return true;
-    // }
-  });
-  Hooks.on("ActiveEffect.updateDuration", () => {
-    console.log("activeeffect.updateDuration hook called");
 
-    // if (document.duration.remaining != null || undefined) {
-    //   document.manageDuration(arguments);
-    //   return false;
-    // } else {
-    //   return true;
-    // }
+  Hooks.on("updateDuration", (effect) => {
+    const { remaining, label, ...durationData } = effect._prepareDuration();
+    if (remaining === 0) {
+      effect.delete();
+      return false;
+    } else {
+      return true;
+    }
   });
 });
 
