@@ -206,10 +206,9 @@ Hooks.once("ready", function () {
       return false;
     }
   });
-  Hooks.on("preUpdateActiveEffect", (document, changes, options, userId) => {
-    console.log(document);
+  Hooks.on("preUpdateActiveEffect", (effect, changes, options, userId) => {
+    console.log(effect);
     console.log(changes);
-    return true;
     // if (document.duration.remaining != null || undefined) {
     //   document.manageDuration(arguments);
     //   return false;
