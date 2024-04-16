@@ -13,20 +13,14 @@
   "readme": "README.md",
   "bugs": "https://github.com/mokonsky/Kaiserschlacht/issues",
   "changelog": "CHANGELOG.md",
-  "version": "0.3.52",
+  "version": "0.3.53",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
   },
-  "esmodules": [
-    "module/kaiserschlacht.mjs"
-  ],
-  "scripts": [
-    "lib/tagify.min.js"
-  ],
-  "styles": [
-    "styles/kaiserschlacht.css"
-  ],
+  "esmodules": ["module/kaiserschlacht.mjs"],
+  "scripts": ["lib/tagify.min.js"],
+  "styles": ["styles/kaiserschlacht.css"],
   "languages": [
     {
       "lang": "en",
