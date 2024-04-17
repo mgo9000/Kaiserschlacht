@@ -5,7 +5,8 @@
 export default class KSCombat extends Combat {
   removeExpiredEffects() {
     this.combatants.forEach((combatant) => {
-      effectCollection = combatant.actor?.getEmbeddedCollection("effects");
+      const effectCollection =
+        combatant.actor?.getEmbeddedCollection("effects");
       effectCollection.forEach((effect) => {
         if (effect.duration.remaining <= 0) {
           effect.delete();
