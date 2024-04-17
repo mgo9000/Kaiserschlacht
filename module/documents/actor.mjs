@@ -248,8 +248,6 @@ export class KSActor extends Actor {
         effect.delete();
       }
     });
-    foundry.utils.mergeObject(effectCollection, effectClone, {
-      overwrite: true,
-    });
+    this.update({ effects: effectClone });
   }
 }
