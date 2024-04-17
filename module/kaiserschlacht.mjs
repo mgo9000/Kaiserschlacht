@@ -212,9 +212,6 @@ Hooks.once("ready", function () {
     const { remaining, label, ...durationData } = effect._prepareDuration();
     if (remaining === 0) {
       effect.delete();
-      return false;
-    } else {
-      return true;
     }
   });
 });
