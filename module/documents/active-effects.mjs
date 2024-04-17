@@ -14,6 +14,6 @@ export default class KSActiveEffect extends ActiveEffect {
         this.target[onRemove];
       }
     }
-    super._onDelete();
+    super._onDelete(options, userId);
   }
 }
