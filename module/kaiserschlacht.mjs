@@ -96,6 +96,7 @@ Hooks.once("init", function () {
       icon: "icons/svg/tower.svg",
       duration: { duration: 1, rounds: 1 },
       changes: [{ key: "system.tempArmor", value: 2 }],
+      flags: { startOfNext: true },
     },
     {
       id: "prone",
@@ -208,16 +209,17 @@ Hooks.once("ready", function () {
       return false;
     }
   });
-
-  Hooks.on("updateDuration", (effect) => {});
-  Hooks.on("updateCombat", (combat, updateData, updateOptions, advanceTime) => {
-    for (let combatant of combat.combatants) {
-      if (combatant.actor) {
-        combatant.actor.removeExpiredEffects();
+  Hooks.on(
+    "preUpdateCombat",
+    (combat, updateData, updateOptions, advanceTime) => {
+      for (let combatant of combat.combatants) {
+        if (combatant.actor) {
+          combatant.actor.removeExpiredEffects();
+        }
       }
+      return true;
     }
-    return true;
-  });
+  );
 
   //dice so nice special color for difficulty dice
   Hooks.once("diceSoNiceReady", (dice3d) => {
