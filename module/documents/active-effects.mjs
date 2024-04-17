@@ -10,9 +10,11 @@ export default class KSActiveEffect extends ActiveEffect {
   async _preCreate(data, options, user) {
     console.log(this);
     if (this.flags.startOfNext) {
+      await super._preCreate(data, options, user);
       console.log("applying start of next turn duration adjustment");
       const cbt = game.combat;
       const d = this.duration;
+      console.log(d);
       if (cbt) {
         const c = {
           round: cbt.round ?? 0,
@@ -20,7 +22,7 @@ export default class KSActiveEffect extends ActiveEffect {
           nTurns: cbt.turns.length || 1,
         };
         console.log(c);
-        const newDTurns = c.nTurns - d.startTurn;
+        const newDTurns = c.nTurns - c.turn;
         const current = this._getCombatTime(c.round, c.turn);
         const duration = this._getCombatTime(0, newDTurns);
         console.log(duration);
@@ -40,7 +42,6 @@ export default class KSActiveEffect extends ActiveEffect {
         });
       }
     }
-    await super._preCreate(data, options, user);
   }
 
   /**
