@@ -8,10 +8,12 @@ export default class KSCombat extends Combat {
       console.log(this);
       const effectCollection =
         combatant.actor?.getEmbeddedCollection("effects");
-      effectCollection.forEach((effect) => {
+      const effectClone = foundry.utils.deepClone(effectCollection);
+      effectClone?.forEach((effect) => {
         if (effect.duration.remaining <= 0) {
           effect.delete();
         }
+        combatant.actor?.update({ effects: effectClone });
       });
     });
   }
