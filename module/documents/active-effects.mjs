@@ -11,7 +11,7 @@ export default class KSActiveEffect extends ActiveEffect {
     console.log(this);
     if (this.modifiesActor) {
       if (this.flags.onRemove) {
-        actor = this.target;
+        const actor = this.target;
         const onRemoveFunc = onRemove;
         const onRemoveArgs = this.flags.onRemoveArgs;
         switch (onRemoveFunc) {
