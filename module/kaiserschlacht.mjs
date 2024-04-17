@@ -209,9 +209,7 @@ Hooks.once("ready", function () {
     }
   });
 
-  Hooks.on("updateDuration", (effect) => {
-    console.log(effect);
-  });
+  Hooks.on("updateDuration", (effect) => {});
   Hooks.on(
     "combatTurn",
     (combat, updateData, updateOptions, advanceTime, direction) => {
