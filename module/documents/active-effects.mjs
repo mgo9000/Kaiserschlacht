@@ -4,22 +4,14 @@
  */
 export default class KSActiveEffect extends ActiveEffect {
   /**
-   * Manages the duration of a given effect, signaling to remove it if expired.
-   */
-  async manageDuration(document, changes, options, userId) {
-    const effect = document;
-    if (document.duration.remaining <= 0) {
-    }
-  }
-
-  /**
-   * Update derived Active Effect duration data.
-   * Configure the remaining and label properties to be getters which lazily recompute only when necessary.
    * @override
-   * @returns {ActiveEffectDuration}
    */
-  updateDuration() {
-    Hooks.callAll("updateDuration", this);
-    return super.updateDuration();
+  _onDelete(options, userId) {
+    if (this.modifiesActor()) {
+      if (this.onRemove) {
+        this.target[onRemove];
+      }
+    }
+    super._onDelete();
   }
 }

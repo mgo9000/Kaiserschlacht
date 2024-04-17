@@ -348,13 +348,24 @@ export class KSActorSheet extends ActorSheet {
         icon: "icons/svg/wing.svg",
         duration: { duration: 1, turns: 1 },
         changes: [{ key: "system.tempArmor", value: dodgeValue * 2 }],
+        onRemove: "_onProne",
       },
       { parent: this.actor }
     );
     const actorTokens = this.actor.getActiveTokens(true, true);
     //applies prone status as well once automated
   }
-
+  async _onProne(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const actorTokens = this.actor.getActiveTokens(true, true);
+    actorTokens.forEach((token) =>
+      token.toggleActiveEffect(
+        CONFIG.statusEffects.find((e) => e.id === "prone")
+      )
+    );
+  }
   async _onCover(event) {
     event.preventDefault();
     const element = event.currentTarget;
