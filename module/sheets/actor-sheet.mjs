@@ -350,7 +350,7 @@ export class KSActorSheet extends ActorSheet {
         changes: [{ key: "system.tempArmor", value: dodgeValue * 2 }],
         flags: {
           onRemove: "toggleTokenEffect",
-          onRemoveArgs: [{ id: "prone" }],
+          onRemoveArgs: { id: "prone" },
         },
       },
       { parent: this.actor }
