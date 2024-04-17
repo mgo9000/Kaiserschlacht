@@ -10,7 +10,6 @@ export default class KSActiveEffect extends ActiveEffect {
   async _preCreate(data, options, user) {
     console.log(this);
     if (this.flags.startOfNext) {
-      await super._preCreate(data, options, user);
       console.log("applying start of next turn duration adjustment");
       const cbt = game.combat;
       const d = this.duration;
@@ -40,9 +39,9 @@ export default class KSActiveEffect extends ActiveEffect {
             duration: duration,
           },
         });
-        console.log(this);
       }
     }
+    await super._preCreate(data, options, user);
   }
 
   /**
