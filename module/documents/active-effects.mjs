@@ -19,7 +19,7 @@ export default class KSActiveEffect extends ActiveEffect {
             const actorTokens = actor.getActiveTokens(true, true);
             actorTokens.forEach((token) =>
               token.toggleActiveEffect(
-                CONFIG.statusEffects.find((e) => e.onRemoveArgs.id)
+                CONFIG.statusEffects.find((e) => e.id === onRemoveArgs.id)
               )
             );
             break;
