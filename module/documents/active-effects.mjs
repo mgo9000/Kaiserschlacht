@@ -12,7 +12,7 @@ export default class KSActiveEffect extends ActiveEffect {
     if (this.modifiesActor) {
       if (this.flags.onRemove) {
         const actor = this.target;
-        const onRemoveFunc = onRemove;
+        const onRemoveFunc = this.flags.onRemove;
         const onRemoveArgs = this.flags.onRemoveArgs;
         switch (onRemoveFunc) {
           case "toggleTokenStatus":
