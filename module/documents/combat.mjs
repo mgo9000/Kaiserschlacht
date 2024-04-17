@@ -4,7 +4,8 @@
  */
 export default class KSCombat extends Combat {
   removeExpiredEffects() {
-    this.combatants.forEach((combatant) => {
+    let combatants = this.getEmbeddedCollection("combatants");
+    combatants.forEach((combatant) => {
       console.log(this);
       let effectCollection = combatant.actor?.getEmbeddedCollection("effects");
       let effectClone = foundry.utils.deepClone(effectCollection);
