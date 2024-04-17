@@ -217,7 +217,7 @@ Hooks.once("ready", function () {
       console.log(combat);
       console.log(updateData);
       console.log(updateOptions);
-      console.log(directions);
+      console.log(direction);
       console.log(advanceTime);
       return true;
     }
