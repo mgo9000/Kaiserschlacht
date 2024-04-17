@@ -236,4 +236,20 @@ export class KSActor extends Actor {
 
     ChatMessage.create(chatData);
   }
+
+  /**
+   * Remove any expired effects when prompted
+   */
+  removeExpiredEffects() {
+    let effectCollection = this.effects;
+    let effectClone = foundry.utils.deepClone(effectCollection);
+    effectClone.forEach((effect) => {
+      if (effect.duration.remaining <= 0) {
+        effect.delete();
+      }
+    });
+    foundry.utils.mergeObject(effectCollection, effectClone, {
+      overwrite: true,
+    });
+  }
 }

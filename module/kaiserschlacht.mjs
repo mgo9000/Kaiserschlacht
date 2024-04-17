@@ -210,13 +210,14 @@ Hooks.once("ready", function () {
   });
 
   Hooks.on("updateDuration", (effect) => {});
-  Hooks.on(
-    "combatTurn",
-    (combat, updateData, updateOptions, advanceTime, direction) => {
-      combat.removeExpiredEffects();
-      return true;
+  Hooks.on("updateCombat", (combat, updateData, updateOptions, advanceTime) => {
+    for (let combatant of combat.combatants) {
+      if (combatant.actor) {
+        combatant.actor.removeExpiredEffects();
+      }
     }
-  );
+    return true;
+  });
 
   //dice so nice special color for difficulty dice
   Hooks.once("diceSoNiceReady", (dice3d) => {
