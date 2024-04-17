@@ -243,11 +243,12 @@ export class KSActor extends Actor {
   removeExpiredEffects() {
     let effectCollection = this.effects;
     let effectClone = foundry.utils.deepClone(effectCollection);
+    let expiredEffectIDs = [];
     effectClone.forEach((effect) => {
       if (effect.duration.remaining <= 0) {
-        effect.delete();
+        expiredEffectIDs.push(effect._id);
       }
     });
-    this.update({ effects: effectClone });
+    this.deleteEmbeddedDocuments("ActiveEffect", expiredEffectIDs);
   }
 }
