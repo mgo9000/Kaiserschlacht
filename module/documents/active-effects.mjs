@@ -40,6 +40,7 @@ export default class KSActiveEffect extends ActiveEffect {
             duration: duration,
           },
         });
+        console.log(this);
       }
     }
   }
