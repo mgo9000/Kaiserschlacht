@@ -210,8 +210,8 @@ Hooks.once("ready", function () {
     }
   });
   Hooks.on(
-    "preUpdateCombat",
-    (combat, updateData, updateOptions, advanceTime) => {
+    "updateCombat",
+    async (combat, updateData, updateOptions, advanceTime) => {
       for (let combatant of combat.combatants) {
         if (combatant.actor) {
           combatant.actor.removeExpiredEffects();

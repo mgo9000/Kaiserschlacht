@@ -8,7 +8,6 @@ export default class KSActiveEffect extends ActiveEffect {
    * @override
    */
   async _preCreate(data, options, user) {
-    await super._preCreate(data, options, user);
     console.log(this);
     if (this.flags.startOfNext) {
       console.log("applying start of next turn duration adjustment");
@@ -41,6 +40,7 @@ export default class KSActiveEffect extends ActiveEffect {
         });
       }
     }
+    await super._preCreate(data, options, user);
   }
 
   /**
