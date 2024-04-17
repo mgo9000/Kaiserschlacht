@@ -15,7 +15,7 @@ export default class KSActiveEffect extends ActiveEffect {
         const onRemoveFunc = onRemove;
         const onRemoveArgs = this.flags.onRemoveArgs;
         switch (onRemoveFunc) {
-          case toggleTokenStatus:
+          case "toggleTokenStatus":
             const actorTokens = actor.getActiveTokens(true, true);
             actorTokens.forEach((token) =>
               token.toggleActiveEffect(
