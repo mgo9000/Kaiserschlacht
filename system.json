@@ -13,7 +13,7 @@
   "readme": "README.md",
   "bugs": "https://github.com/mokonsky/Kaiserschlacht/issues",
   "changelog": "CHANGELOG.md",
-  "version": "0.3.62",
+  "version": "0.3.63",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"

@@ -4,9 +4,9 @@
  * @param {object} [options={}]                 Options which modify or describe the Roll
  * @param {object} [options.targetedToken]   The token which is provided as a target.
  * @param {number} [options.targetNumber]   the target number of a check, if provided
- * @param {number} [options.damage=null]   the damage, if provided
- * * @param {number} [options.reload=null]   the reload target number, if provided
- * @param {object} [options.damageTags=null]   the tags for the damage to be applied, if provided
+ * @param {number} [options.damage]   the damage, if provided
+ * * @param {number} [options.reload]   the reload target number, if provided
+ * @param {object} [options.damageTags]   the tags for the damage to be applied, if provided
  */
 export class KSRoll extends Roll {
   constructor(formula, data, options) {
@@ -26,7 +26,7 @@ export class KSRoll extends Roll {
    */
   configureTargetNumber() {
     this.options.targetNumber =
-      game.user.targets.first()?.document.actor.system.targetNumber ?? null;
+      game.user.targets.first()?.document.actor.system.targetNumber;
   }
 
   /** @inheritdoc */
@@ -36,9 +36,7 @@ export class KSRoll extends Roll {
   async getDegreeOfSuccess() {
     if (!this._evaluated) await this.evaluate({ async: true });
     console.log(this.options.targetNumber);
-    if (this.options.targetNumber === null) {
-      return null;
-    } else {
+    if (this.options.targetNumber != undefined) {
       const degreeOfSuccess =
         this.total >= this.options.targetNumber ? true : false;
       console.log(degreeOfSuccess);
@@ -64,12 +62,12 @@ export class KSRoll extends Roll {
     if (!this._evaluated) await this.evaluate({ async: true });
     const chatData = {
       formula: isPrivate ? "???" : this._formula,
-      flavor: isPrivate ? null : flavor,
-      targetNumber: isPrivate ? null : this.options.targetNumber,
-      damage: isPrivate ? null : this.options.damage,
-      reload: isPrivate ? null : this.options.reload,
-      damageTags: isPrivate ? null : JSON.stringify(this.options.damageTags),
-      degreeOfSuccess: isPrivate ? null : await this.getDegreeOfSuccess(),
+      flavor: isPrivate ? "" : flavor,
+      targetNumber: isPrivate ? "" : this.options.targetNumber,
+      damage: isPrivate ? "" : this.options.damage,
+      reload: isPrivate ? "" : this.options.reload,
+      damageTags: isPrivate ? "" : JSON.stringify(this.options.damageTags),
+      degreeOfSuccess: isPrivate ? "" : await this.getDegreeOfSuccess(),
       user: game.user.id,
       tooltip: isPrivate ? "" : await this.getTooltip(),
       total: isPrivate ? "?" : Math.round(this.total * 100) / 100,

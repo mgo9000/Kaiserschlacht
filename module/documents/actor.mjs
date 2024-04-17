@@ -16,7 +16,6 @@ export class KSActor extends Actor {
   prepareBaseData() {
     // Data modifications in this step occur before processing embedded
     // documents or derived data.
-
   }
 
   /**
@@ -43,11 +42,10 @@ export class KSActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    if (actorData.type !== 'character') return;
+    if (actorData.type !== "character") return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(systemData.abilities)) {
@@ -55,36 +53,29 @@ export class KSActor extends Actor {
       let dicepool = ["1d4", "1d4", "1d6", "1d8", "1d8+1d4", "1d8+1d6", "2d8"];
       if (ability.value + ability.bonus > 6) {
         ability.mod = dicepool[6];
-      }
-      else if (ability.value < 0) {
+      } else if (ability.value < 0) {
         ability.mod = dicepool[0];
-      }
-      else {
+      } else {
         ability.mod = dicepool[ability.value + ability.bonus] ?? "Error";
       }
-
     }
     for (let [key, skill] of Object.entries(systemData.skills)) {
       let dicepool = ["1d4", "1d4", "1d6", "1d8", "1d8+1d4", "1d8+1d6", "2d8"];
       if (skill.value + skill.bonus > 6) {
         skill.mod = dicepool[6];
-      }
-      else if (skill.value + skill.bonus < 0) {
+      } else if (skill.value + skill.bonus < 0) {
         skill.mod = dicepool[0];
-      }
-      else {
+      } else {
         skill.mod = dicepool[skill.value + skill.bonus] ?? "Error";
       }
     }
-
   }
-
 
   /**
    * Prepare NPC type specific data.
    */
   _prepareNpcData(actorData) {
-    if (actorData.type !== 'npc') return;
+    if (actorData.type !== "npc") return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
@@ -109,7 +100,7 @@ export class KSActor extends Actor {
    * Prepare character roll data.
    */
   _getCharacterRollData(data) {
-    if (this.type !== 'character') return;
+    if (this.type !== "character") return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@physique.mod + 4`.
@@ -138,12 +129,12 @@ export class KSActor extends Actor {
    * Prepare NPC roll data.
    */
   _getNpcRollData(data) {
-    if (this.type !== 'npc') return;
+    if (this.type !== "npc") return;
 
     // Process additional NPC data here.
   }
 
-  //Default token params overwritten 
+  //Default token params overwritten
 
   /** @override */
   async _preCreate(data, options, user) {
@@ -151,52 +142,71 @@ export class KSActor extends Actor {
 
     // Configure prototype token initial settings
     const prototypeToken = {};
-    // Object.assign(prototypeToken, {bar2:{attribute: null}});
-    if (this.type === "character") Object.assign(prototypeToken, {
-      sight: { enabled: true }, actorLink: true, disposition: 1
-    });
+    if (this.type === "character")
+      Object.assign(prototypeToken, {
+        sight: { enabled: true },
+        actorLink: true,
+        disposition: 1,
+      });
     this.updateSource({ prototypeToken });
   }
 
   // Apply damage
-  async _applyDamage(damage, damageTags = null) {
+  async _applyDamage(damage, damageTags) {
     console.log(damageTags);
-    const damageTemplate = "systems/kaiserschlacht/templates/chat/damage-card.hbs";
+    const damageTemplate =
+      "systems/kaiserschlacht/templates/chat/damage-card.hbs";
     const damageValue = damage;
     const currentHealth = this.system.health.value;
-    const armorPiercing = damageTags.some(damageTags => damageTags.value.toLowerCase() === "AP".toLowerCase());
-    const piercing = damageTags.some(damageTags => damageTags.value.toLowerCase() === "Piercing".toLowerCase());
+    const armorPiercing = damageTags?.some(
+      (damageTags) => damageTags.value.toLowerCase() === "AP".toLowerCase()
+    );
+    const piercing = damageTags?.some(
+      (damageTags) =>
+        damageTags.value.toLowerCase() === "Piercing".toLowerCase()
+    );
     const currentArmor = this.system.armor;
     const currentTempArmor = this.system.tempArmor;
 
     const effectCollection = this.getEmbeddedCollection("effects");
-    const tempArmorEffect = effectCollection.find((effect) => effect.changes.some(change => change.key === "system.tempArmor" && change.value > 0)) || null;
+    const tempArmorEffect = effectCollection?.find((effect) =>
+      effect.changes.some(
+        (change) => change.key === "system.tempArmor" && change.value > 0
+      )
+    );
 
     const tempArmorOriginalChanges = tempArmorEffect?.changes;
     //storing the changes array as a string so that it can be retained without being mutated; also means it does not need to be stringified on the card itself
-    const tempArmorOriginalChangesString = JSON.stringify(tempArmorOriginalChanges);
-    const tempArmorEffectIndex = tempArmorEffect?.changes.findIndex(change => change.key === "system.tempArmor" && change.value > 0);
+    const tempArmorOriginalChangesString = JSON.stringify(
+      tempArmorOriginalChanges
+    );
+    const tempArmorEffectIndex = tempArmorEffect?.changes.findIndex(
+      (change) => change.key === "system.tempArmor" && change.value > 0
+    );
     const totalArmor = currentArmor + currentTempArmor;
     let adjustedArmor;
     let APBeaten = false;
-    if ((armorPiercing && damageValue >= totalArmor)) {
+    if (armorPiercing && damageValue >= totalArmor) {
       APBeaten = true;
       if (currentTempArmor <= 0) {
         adjustedArmor = Math.clamped(currentArmor - 1, 0, 9999);
         this.update({ system: { armor: adjustedArmor } });
-      }
-      else {
-
-
+      } else {
         let tempArmorNewChanges = tempArmorOriginalChanges;
-        tempArmorNewChanges[tempArmorEffectIndex].value = Math.clamped(tempArmorNewChanges[tempArmorEffectIndex].value - 1, 0, 9999);
+        tempArmorNewChanges[tempArmorEffectIndex].value = Math.clamped(
+          tempArmorNewChanges[tempArmorEffectIndex].value - 1,
+          0,
+          9999
+        );
         tempArmorEffect.update({ changes: tempArmorNewChanges });
       }
-    }
-    else {
+    } else {
       APBeaten = false;
     }
-    let adjustedDamage = piercing === true ? Math.clamped(damageValue, 0, 9999) : Math.clamped(damageValue - totalArmor, 0, 9999);
+    let adjustedDamage =
+      piercing === true
+        ? Math.clamped(damageValue, 0, 9999)
+        : Math.clamped(damageValue - totalArmor, 0, 9999);
     let adjustedHealth = Math.clamped(currentHealth - adjustedDamage, 0, 9999);
     this.update({ system: { health: { value: adjustedHealth } } });
     const templateData = {
@@ -206,15 +216,15 @@ export class KSActor extends Actor {
       originalHealth: currentHealth,
       armor: currentArmor,
       tempArmor: currentTempArmor,
-      totalArmor: (currentArmor + currentTempArmor),
-      tempArmorEffect: tempArmorEffect || null,
-      tempArmorOriginalChanges: tempArmorOriginalChangesString || null,
-      tempArmorEffectIndex: tempArmorEffectIndex || null,
+      totalArmor: currentArmor + currentTempArmor,
+      tempArmorEffect: tempArmorEffect,
+      tempArmorOriginalChanges: tempArmorOriginalChangesString,
+      tempArmorEffectIndex: tempArmorEffectIndex,
       ap: armorPiercing,
       pierced: piercing,
       beaten: APBeaten,
       user: game.user.id,
-      uuid: this.uuid
+      uuid: this.uuid,
     };
     const html = await renderTemplate(damageTemplate, templateData);
 
@@ -226,5 +236,4 @@ export class KSActor extends Actor {
 
     ChatMessage.create(chatData);
   }
-
-}  
+}

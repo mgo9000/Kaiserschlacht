@@ -167,7 +167,7 @@ export class KSActorSheet extends ActorSheet {
    */
   async _onSubmit(
     event,
-    { updateData = null, preventClose = false, preventRender = false } = {}
+    { updateData, preventClose = false, preventRender = false } = {}
   ) {
     event.preventDefault();
     if (this.actor.type === "npc") {

@@ -1,9 +1,6 @@
 {
   "Actor": {
-    "types": [
-      "character",
-      "npc"
-    ],
+    "types": ["character", "npc"],
     "templates": {
       "base": {
         "health": {
@@ -20,9 +17,7 @@
       }
     },
     "character": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "targetNumber": 0,
       "initiative": 2,
       "armor": 0,
@@ -181,9 +176,7 @@
       }
     },
     "npc": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "cr": 0,
       "targetNumber": 0,
       "type": "",
@@ -199,47 +192,29 @@
     }
   },
   "Item": {
-    "types": [
-      "item",
-      "feature",
-      "spell",
-      "weapon",
-      "armor"
-    ],
+    "types": ["item", "feature", "spell", "weapon", "armor"],
     "templates": {
       "base": {
         "description": ""
       }
     },
     "item": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "quantity": 1,
       "weight": 0,
-      "traits": [
-        ""
-      ],
+      "traits": [""],
       "formula": "1d6"
     },
     "feature": {
-      "templates": [
-        "base"
-      ],
-      "traits": [
-        ""
-      ]
+      "templates": ["base"],
+      "traits": [""]
     },
     "spell": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "spellLevel": 1
     },
     "weapon": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "damage": "",
       "range": "",
       "weaponTraits": [],
@@ -250,13 +225,9 @@
       "quantity": 1
     },
     "armor": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "armorBonus": 0,
-      "armorTraits": [
-        ""
-      ],
+      "armorTraits": [""],
       "type": "",
       "armorPenalty": 0,
       "equipped": false,

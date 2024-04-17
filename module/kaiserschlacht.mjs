@@ -154,6 +154,7 @@ Hooks.once("init", function () {
   CONFIG.Item.documentClass = KSItem;
   CONFIG.ChatMessage.documentClass = KSChatMessage;
   CONFIG.ActiveEffect.documentClass = documents.KSActiveEffect;
+  CONFIG.Combat.documentClass = documents.KSCombat;
   CONFIG.Token.documentClass = documents.KSTokenDocument;
   // CONFIG.ui.hotbar = KSHotbar;
   // Define and push custom dice types
@@ -214,11 +215,7 @@ Hooks.once("ready", function () {
   Hooks.on(
     "combatTurn",
     (combat, updateData, updateOptions, advanceTime, direction) => {
-      console.log(combat);
-      console.log(updateData);
-      console.log(updateOptions);
-      console.log(direction);
-      console.log(advanceTime);
+      combat.removeExpiredEffects();
       return true;
     }
   );
