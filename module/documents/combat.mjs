@@ -13,7 +13,9 @@ export default class KSCombat extends Combat {
         if (effect.duration.remaining <= 0) {
           effect.delete();
         }
-        combatant.actor?.update({ effects: effectClone });
+        foundry.utils.mergeObject(effectCollection, effectClone, {
+          overwrite: true,
+        });
       });
     });
   }
