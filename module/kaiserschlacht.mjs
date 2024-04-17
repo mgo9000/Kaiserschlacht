@@ -209,24 +209,32 @@ Hooks.once("ready", function () {
   });
 
   Hooks.on("updateDuration", (effect) => {
-    const { remaining, label, ...durationData } = effect._prepareDuration();
-    if (remaining === 0) {
-      effect.delete();
-    }
+    console.log(effect);
   });
-});
+  Hooks.on(
+    "combatTurn",
+    (combat, updateData, updateOptions, advanceTime, direction) => {
+      console.log(combat);
+      console.log(updateData);
+      console.log(updateOptions);
+      console.log(directions);
+      console.log(advanceTime);
+      return true;
+    }
+  );
 
-//dice so nice special color for difficulty dice
-Hooks.once("diceSoNiceReady", (dice3d) => {
-  dice3d.addColorset({
-    name: "diff",
-    description: "Difficulty dice.",
-    category: "Colors",
-    foreground: "#ffe436",
-    background: "#000000",
-    outline: "black",
-    texture: "none",
-    material: "plastic",
+  //dice so nice special color for difficulty dice
+  Hooks.once("diceSoNiceReady", (dice3d) => {
+    dice3d.addColorset({
+      name: "diff",
+      description: "Difficulty dice.",
+      category: "Colors",
+      foreground: "#ffe436",
+      background: "#000000",
+      outline: "black",
+      texture: "none",
+      material: "plastic",
+    });
   });
 });
 
