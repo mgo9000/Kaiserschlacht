@@ -7,7 +7,9 @@ export default class KSActiveEffect extends ActiveEffect {
    * @override
    */
   _onDelete(options, userId) {
-    if (this.modifiesActor()) {
+    console.log(arguments);
+    console.log(this);
+    if (this.modifiesActor) {
       if (this.onRemove) {
         this.target[onRemove];
       }
