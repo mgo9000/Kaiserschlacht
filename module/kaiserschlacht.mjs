@@ -94,7 +94,6 @@ Hooks.once("init", function () {
       id: "cover",
       name: "Cover",
       icon: "icons/svg/tower.svg",
-      duration: { duration: 1, rounds: 1 },
       changes: [{ key: "system.tempArmor", value: 2 }],
       flags: { startOfNext: true },
     },
