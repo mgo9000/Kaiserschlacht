@@ -379,7 +379,7 @@ export class KSActorSheet extends ActorSheet {
         name: "Block",
         icon: "icons/svg/shield.svg",
         changes: [{ key: "system.tempArmor", value: blockValue }],
-        flags: { startOfNext: true },
+        duration: { duration: 1, turns: CONFIG.startOfNext() },
       },
       { parent: this.actor }
     );

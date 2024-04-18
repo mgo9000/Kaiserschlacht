@@ -38,6 +38,19 @@ Hooks.once("init", function () {
   );
   // Add custom constants for configuration.
   CONFIG.KAISERSCHLACHT = KAISERSCHLACHT;
+  CONFIG.startOfNext = function () {
+    const cbt = game.combat;
+    if (cbt) {
+      const c = {
+        round: cbt.round ?? 0,
+        turn: cbt.turn ?? 0,
+        nTurns: cbt.turns.length || 1,
+      };
+      console.log(c);
+      const newDTurns = c.nTurns - c.turn;
+      return newDTurns;
+    }
+  };
   CONFIG.weaponTagWhitelist = [
     "2 Target",
     "3 Target",
@@ -219,13 +232,13 @@ Hooks.once("ready", function () {
       return true;
     }
   );
-  Hooks.on("applyActiveEffect", (actor, change, current, delta, changes) => {
-    console.log(change);
-    console.log(current);
-    console.log(delta);
-    console.log(changes);
-    return true;
-  });
+  // Hooks.on("applyActiveEffect", (actor, change, current, delta, changes) => {
+  //   console.log(change);
+  //   console.log(current);
+  //   console.log(delta);
+  //   console.log(changes);
+  //   return true;
+  // });
   //dice so nice special color for difficulty dice
   Hooks.once("diceSoNiceReady", (dice3d) => {
     dice3d.addColorset({
