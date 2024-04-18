@@ -16,7 +16,7 @@ export default class KSActiveEffect extends ActiveEffect {
         console.log("applying start of next turn duration adjustment");
         console.log;
         const cbt = game.combat;
-        const d = effect.duration;
+        const d = this.duration;
         console.log(d);
         if (cbt) {
           const c = {
@@ -26,15 +26,15 @@ export default class KSActiveEffect extends ActiveEffect {
           };
           console.log(c);
           const newDTurns = c.nTurns - c.turn;
-          const current = effect._getCombatTime(c.round, c.turn);
-          const duration = effect._getCombatTime(0, newDTurns);
+          const current = this._getCombatTime(c.round, c.turn);
+          const duration = this._getCombatTime(0, newDTurns);
           console.log(duration);
-          const start = effect._getCombatTime(
+          const start = this._getCombatTime(
             d.startRound,
             d.startTurn,
             c.nTurns
           );
-          const durationLabel = effect._getDurationLabel(0, newDTurns);
+          const durationLabel = this._getDurationLabel(0, newDTurns);
           console.log(durationLabel);
           const remaining = Math.max(
             (start + duration - current).toNearest(0.01),
