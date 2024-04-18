@@ -14,12 +14,15 @@ import { KSItemSheet } from "./sheets/item-sheet.mjs";
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { KSRoll } from "./helpers/roll.mjs";
 import { KAISERSCHLACHT } from "./helpers/config.mjs";
+import * as helpers from "./helpers._module.mjs";
 globalThis.kaiserschlacht = {
   KSActor,
   KSItem,
   rollItemMacro,
+  startOfNext,
   createItemMacro,
   documents,
+  helpers,
   KSChatMessage,
   KSRoll,
   config: KAISERSCHLACHT,
@@ -38,7 +41,7 @@ Hooks.once("init", function () {
   );
   // Add custom constants for configuration.
   CONFIG.KAISERSCHLACHT = KAISERSCHLACHT;
-  CONFIG.startOfNext = function () {
+  startOfNext = async function () {
     const cbt = game.combat;
     if (cbt) {
       const c = {
@@ -47,7 +50,7 @@ Hooks.once("init", function () {
         nTurns: cbt.turns.length || 1,
       };
       console.log(c);
-      const newDTurns = c.nTurns - c.turn;
+      const newDTurns = c.nTurns - (c.turn + 1);
       return newDTurns;
     }
   };
@@ -108,7 +111,7 @@ Hooks.once("init", function () {
       name: "Cover",
       icon: "icons/svg/tower.svg",
       changes: [{ key: "system.tempArmor", value: 2 }],
-      flags: { startOfNext: true },
+      duration: { duration: 1, turns: startOfNext() },
     },
     {
       id: "prone",
@@ -222,7 +225,7 @@ Hooks.once("ready", function () {
     }
   });
   Hooks.on(
-    "updateCombat",
+    "preUpdateCombat",
     async (combat, updateData, updateOptions, advanceTime) => {
       for (let combatant of combat.combatants) {
         if (combatant.actor) {

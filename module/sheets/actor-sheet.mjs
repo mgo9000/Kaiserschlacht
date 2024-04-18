@@ -6,6 +6,7 @@ import { diffDialog } from "../helpers/dice-dialog.mjs";
 import { KSRoll } from "../helpers/roll.mjs";
 import { blockDialog } from "../helpers/block-dialog.mjs";
 import { StatManager } from "../helpers/stat-manager.mjs";
+import startOfNext from "../helpers/start-of-next.mjs";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -379,7 +380,7 @@ export class KSActorSheet extends ActorSheet {
         name: "Block",
         icon: "icons/svg/shield.svg",
         changes: [{ key: "system.tempArmor", value: blockValue }],
-        duration: { duration: 1, turns: CONFIG.startOfNext() },
+        duration: { duration: 1, turns: startOfNext() },
       },
       { parent: this.actor }
     );

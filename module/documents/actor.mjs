@@ -246,7 +246,7 @@ export class KSActor extends Actor {
     let expiredEffectIDs = [];
     effectClone.forEach((effect) => {
       if (
-        effect.duration.remaining <= 0 &&
+        effect.duration.remaining <= 0.01 &&
         effect.duration.remaining !== null
       ) {
         expiredEffectIDs.push(effect._id);
