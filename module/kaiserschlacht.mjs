@@ -222,9 +222,9 @@ Hooks.once("ready", function () {
   Hooks.on("preCreateActiveEffect", async (effect, data, options, userId) => {
     if (effect.flags.startOfNext) {
       console.log("applying start of next turn duration adjustment");
+      console.log(effect);
       const cbt = game.combat;
-      const d = this.duration;
-      let updates = {};
+      const d = effect.duration;
       console.log(d);
       if (cbt) {
         const c = {
@@ -234,17 +234,21 @@ Hooks.once("ready", function () {
         };
         console.log(c);
         const newDTurns = c.nTurns - c.turn;
-        const current = this._getCombatTime(c.round, c.turn);
-        const duration = this._getCombatTime(0, newDTurns);
+        const current = effect._getCombatTime(c.round, c.turn);
+        const duration = effect._getCombatTime(0, newDTurns);
         console.log(duration);
-        const start = this._getCombatTime(d.startRound, d.startTurn, c.nTurns);
-        const durationLabel = this._getDurationLabel(0, newDTurns);
+        const start = effect._getCombatTime(
+          d.startRound,
+          d.startTurn,
+          c.nTurns
+        );
+        const durationLabel = effect._getDurationLabel(0, newDTurns);
         console.log(durationLabel);
         const remaining = Math.max(
           (start + duration - current).toNearest(0.01),
           0
         );
-        updates = {
+        const updates = {
           duration: {
             type: "turns",
             remaining: remaining,
