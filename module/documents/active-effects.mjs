@@ -8,8 +8,7 @@ export default class KSActiveEffect extends ActiveEffect {
    * @override
    */
   async _preCreate(data, options, user) {
-    console.log(this);
-    let updatedData = data;
+    await super._preCreate(data, options, user);
     if (this.flags.startOfNext) {
       console.log("applying start of next turn duration adjustment");
       const cbt = game.combat;
@@ -25,6 +24,7 @@ export default class KSActiveEffect extends ActiveEffect {
         const newDTurns = c.nTurns - c.turn;
         const current = this._getCombatTime(c.round, c.turn);
         const duration = this._getCombatTime(0, newDTurns);
+        console.log(duration);
         const start = this._getCombatTime(d.startRound, d.startTurn, c.nTurns);
         const durationLabel = this._getDurationLabel(0, newDTurns);
         console.log(durationLabel);
@@ -32,14 +32,17 @@ export default class KSActiveEffect extends ActiveEffect {
           (start + duration - current).toNearest(0.01),
           0
         );
-        updatedData.duration.duration = duration;
-        updatedData.duration.label = durationLabel;
-        updatedData.duration.remaining = remaining;
-        updatedData.duration.type = "turns";
+        const updates = {
+          duration: {
+            type: "turns",
+            remaining: remaining,
+            label: durationLabel,
+            duration: duration,
+          },
+        };
+        this.updateSource(updates);
       }
     }
-
-    await super._preCreate(data, options, user);
   }
 
   /**
