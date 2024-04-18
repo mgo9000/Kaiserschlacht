@@ -3,6 +3,59 @@
  * @extends {ActiveEffect}
  */
 export default class KSActiveEffect extends ActiveEffect {
+  /** @override */
+  async _preCreate(data, options, user) {
+    await BaseActiveEffect._preCreate(data, options, user);
+
+    // Set initial duration data for Actor-owned effects
+    if (this.parent instanceof Actor) {
+      let updates = this.constructor.getInitialDuration();
+
+      for (const k of Object.keys(updates.duration)) {
+        if (Number.isNumeric(data.duration?.[k])) delete updates.duration[k]; // Prefer user-defined duration data
+      }
+      if (data.flags.startOfNext) {
+        console.log("applying start of next turn duration adjustment");
+        console.log;
+        const cbt = game.combat;
+        const d = effect.duration;
+        console.log(d);
+        if (cbt) {
+          const c = {
+            round: cbt.round ?? 0,
+            turn: cbt.turn ?? 0,
+            nTurns: cbt.turns.length || 1,
+          };
+          console.log(c);
+          const newDTurns = c.nTurns - c.turn;
+          const current = effect._getCombatTime(c.round, c.turn);
+          const duration = effect._getCombatTime(0, newDTurns);
+          console.log(duration);
+          const start = effect._getCombatTime(
+            d.startRound,
+            d.startTurn,
+            c.nTurns
+          );
+          const durationLabel = effect._getDurationLabel(0, newDTurns);
+          console.log(durationLabel);
+          const remaining = Math.max(
+            (start + duration - current).toNearest(0.01),
+            0
+          );
+          updates = {
+            duration: {
+              type: "turns",
+              remaining: remaining,
+              label: durationLabel,
+              duration: duration,
+            },
+          };
+        }
+        updates.transfer = false;
+        this.updateSource(updates);
+      }
+    }
+  }
   /**
    * @override
    */
