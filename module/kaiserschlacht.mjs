@@ -19,7 +19,6 @@ globalThis.kaiserschlacht = {
   KSActor,
   KSItem,
   rollItemMacro,
-  startOfNext,
   createItemMacro,
   documents,
   helpers,
@@ -111,7 +110,7 @@ Hooks.once("init", function () {
       name: "Cover",
       icon: "icons/svg/tower.svg",
       changes: [{ key: "system.tempArmor", value: 2 }],
-      duration: { duration: 1, turns: startOfNext() },
+      duration: { duration: 1, turns: helpers.startOfNext() },
     },
     {
       id: "prone",
