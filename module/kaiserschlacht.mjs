@@ -224,6 +224,7 @@ Hooks.once("ready", function () {
     console.log(current);
     console.log(delta);
     console.log(changes);
+    return true;
   });
   //dice so nice special color for difficulty dice
   Hooks.once("diceSoNiceReady", (dice3d) => {
