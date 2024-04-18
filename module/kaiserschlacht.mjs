@@ -220,6 +220,7 @@ Hooks.once("ready", function () {
     }
   );
   Hooks.on("preCreateActiveEffect", (effect, data, options, userId) => {
+    console.log(data);
     if (effect.flags.startOfNext) {
       console.log("applying start of next turn duration adjustment");
       const cbt = game.combat;
@@ -247,7 +248,7 @@ Hooks.once("ready", function () {
           (start + duration - current).toNearest(0.01),
           0
         );
-        effect.updateSource({
+        return effect.updateSource({
           duration: {
             type: "turns",
             remaining: remaining,
