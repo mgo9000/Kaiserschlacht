@@ -27,6 +27,7 @@ export default class KSActiveEffect extends ActiveEffect {
         console.log(duration);
         const start = this._getCombatTime(d.startRound, d.startTurn, c.nTurns);
         const durationLabel = this._getDurationLabel(0, newDTurns);
+        console.log(durationLabel);
         const remaining = Math.max(
           (start + duration - current).toNearest(0.01),
           0
