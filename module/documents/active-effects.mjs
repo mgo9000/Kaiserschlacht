@@ -8,11 +8,11 @@ export default class KSActiveEffect extends ActiveEffect {
    * @override
    */
   async _preCreate(data, options, user) {
-    await super._preCreate(data, options, user);
     if (this.flags.startOfNext) {
       console.log("applying start of next turn duration adjustment");
       const cbt = game.combat;
       const d = this.duration;
+      let updates = {};
       console.log(d);
       if (cbt) {
         const c = {
@@ -32,7 +32,7 @@ export default class KSActiveEffect extends ActiveEffect {
           (start + duration - current).toNearest(0.01),
           0
         );
-        const updates = {
+        updates = {
           duration: {
             type: "turns",
             remaining: remaining,
@@ -40,7 +40,12 @@ export default class KSActiveEffect extends ActiveEffect {
             duration: duration,
           },
         };
-        this.updateSource(updates);
+        const newData = foundry.utils.mergeObject(data, updates, {
+          overwrite: true,
+        });
+        await super._preCreate(newData, options, user);
+      } else {
+        await super._preCreate(data, options, user);
       }
     }
   }

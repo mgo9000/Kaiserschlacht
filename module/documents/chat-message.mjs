@@ -7,7 +7,6 @@ export class KSChatMessage extends ChatMessage {
   /** @inheritDoc */
   async getHTML(...args) {
     const html = await super.getHTML();
-    console.log(html);
     this._configureButtons(html[0]);
     return html;
   }
@@ -33,8 +32,6 @@ export class KSChatMessage extends ChatMessage {
     const a = event.currentTarget;
     let dataset = a.dataset;
     let damageTags = JSON.parse(dataset.damageTags);
-    console.log(dataset);
-    console.log(dataset.damageTags);
     const targetTokens = canvas.tokens.controlled;
     if (targetTokens.length <= 0)
       ui.notifications.warn("You must select a token first.");
