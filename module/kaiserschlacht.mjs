@@ -261,7 +261,7 @@ Hooks.once("ready", function () {
           overwrite: true,
         });
         console.log(newData);
-        await ActiveEffect._preCreate(newData, options, user);
+        await ActiveEffect._preCreate(newData, options, userId);
         return false;
       }
     } else {
