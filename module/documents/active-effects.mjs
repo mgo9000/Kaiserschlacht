@@ -40,9 +40,11 @@ export default class KSActiveEffect extends ActiveEffect {
             duration: duration,
           },
         };
+        console.log(updates);
         const newData = foundry.utils.mergeObject(data, updates, {
           overwrite: true,
         });
+        console.log(newData);
         await super._preCreate(newData, options, user);
       } else {
         await super._preCreate(data, options, user);
