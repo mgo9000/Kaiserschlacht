@@ -1,3 +1,4 @@
+import * as helpers from "../helpers/_module.mjs";
 /**
  * Extend the base ActiveEffect class to implement system-specific logic.
  * @extends {ActiveEffect}

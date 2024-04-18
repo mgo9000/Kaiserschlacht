@@ -347,7 +347,12 @@ export class KSActorSheet extends ActorSheet {
       {
         name: "Dodge",
         icon: "icons/svg/wing.svg",
-        duration: { duration: 1, turns: 1 },
+        duration: {
+          turns: helpers.startOfNext()[0],
+          duration: helpers.startOfNext()[1],
+          remaining: helpers.startOfNext()[2],
+          label: helpers.startOfNext()[3],
+        },
         changes: [{ key: "system.tempArmor", value: dodgeValue * 2 }],
         flags: {
           onRemove: "toggleTokenStatus",
