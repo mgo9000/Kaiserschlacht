@@ -6,7 +6,7 @@ import { diffDialog } from "../helpers/dice-dialog.mjs";
 import { KSRoll } from "../helpers/roll.mjs";
 import { blockDialog } from "../helpers/block-dialog.mjs";
 import { StatManager } from "../helpers/stat-manager.mjs";
-import * as helpers from "./helpers/_module.mjs";
+import * as helpers from "../helpers/_module.mjs";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
