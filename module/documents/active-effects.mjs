@@ -5,7 +5,7 @@
 export default class KSActiveEffect extends ActiveEffect {
   /** @override */
   async _preCreate(data, options, user) {
-    await BaseActiveEffect._preCreate(data, options, user);
+    await foundry.documents.BaseActiveEffect._preCreate(data, options, user);
 
     // Set initial duration data for Actor-owned effects
     if (this.parent instanceof Actor) {
