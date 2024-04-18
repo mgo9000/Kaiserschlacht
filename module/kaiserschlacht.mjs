@@ -219,7 +219,12 @@ Hooks.once("ready", function () {
       return true;
     }
   );
-
+  Hooks.on("applyActiveEffect", (actor, change, current, delta, changes) => {
+    console.log(change);
+    console.log(current);
+    console.log(delta);
+    console.log(changes);
+  });
   //dice so nice special color for difficulty dice
   Hooks.once("diceSoNiceReady", (dice3d) => {
     dice3d.addColorset({
