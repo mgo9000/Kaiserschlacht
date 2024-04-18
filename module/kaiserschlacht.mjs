@@ -14,7 +14,7 @@ import { KSItemSheet } from "./sheets/item-sheet.mjs";
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { KSRoll } from "./helpers/roll.mjs";
 import { KAISERSCHLACHT } from "./helpers/config.mjs";
-import * as helpers from "./helpers._module.mjs";
+import * as helpers from "./helpers/_module.mjs";
 globalThis.kaiserschlacht = {
   KSActor,
   KSItem,
