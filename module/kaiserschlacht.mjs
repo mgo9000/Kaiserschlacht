@@ -94,6 +94,7 @@ Hooks.once("init", function () {
       id: "cover",
       name: "Cover",
       icon: "icons/svg/tower.svg",
+      duration: { duration: 1, rounds: 1 },
       changes: [{ key: "system.tempArmor", value: 2 }],
       flags: { startOfNext: true },
     },
@@ -219,47 +220,6 @@ Hooks.once("ready", function () {
       return true;
     }
   );
-  Hooks.on("preCreateActiveEffect", (effect, data, options, userId) => {
-    console.log(data);
-    if (effect.flags.startOfNext) {
-      console.log("applying start of next turn duration adjustment");
-      const cbt = game.combat;
-      const d = effect.duration;
-      console.log(d);
-      if (cbt) {
-        const c = {
-          round: cbt.round ?? 0,
-          turn: cbt.turn ?? 0,
-          nTurns: cbt.turns.length || 1,
-        };
-        console.log(c);
-        const newDTurns = c.nTurns - c.turn;
-        const current = effect._getCombatTime(c.round, c.turn);
-        const duration = effect._getCombatTime(0, newDTurns);
-        console.log(duration);
-        const start = effect._getCombatTime(
-          d.startRound,
-          d.startTurn,
-          c.nTurns
-        );
-        const durationLabel = effect._getDurationLabel(0, newDTurns);
-        console.log(durationLabel);
-        const remaining = Math.max(
-          (start + duration - current).toNearest(0.01),
-          0
-        );
-        return effect.updateSource({
-          duration: {
-            type: "turns",
-            remaining: remaining,
-            label: durationLabel,
-            duration: duration,
-          },
-        });
-      }
-    }
-    return true;
-  });
 
   //dice so nice special color for difficulty dice
   Hooks.once("diceSoNiceReady", (dice3d) => {
