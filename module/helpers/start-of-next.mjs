@@ -7,7 +7,7 @@ export default function startOfNext() {
       nTurns: cbt.turns.length || 1,
     };
     console.log(c);
-    const newDTurns = c.nTurns - (c.turn - 1);
+    const newDTurns = c.nTurns - (c.turn + 1);
     const newDTime = Math.max(newDTurns / 100, 0);
     const newRemaining = Math.max(newDTurns / 100, 0);
     const newLabel = `${newDTurns} ${game.i18n.localize(
@@ -21,10 +21,14 @@ export default function startOfNext() {
       remaining: newRemaining,
       label: newLabel,
     };
-  } else
+  } else {
+    const roundLabel = `1 ${game.i18n.localize("COMBAT.Round")}`;
+    console.log(roundLabel);
     return {
       duration: 1,
       rounds: 1,
-      label: `1 ${game.i18n.localize("COMBAT.Round")}`,
+      label: roundLabel,
+      type: "rounds",
     };
+  }
 }

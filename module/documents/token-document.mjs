@@ -35,6 +35,9 @@ export default class KSTokenDocument extends TokenDocument {
       delete createData.id;
       cls.migrateDataSafe(createData);
       cls.cleanData(createData);
+      if (createData.flags.startOfNext == true) {
+        createData.duration = helpers.startOfNext();
+      }
       createData.name = game.i18n.localize(createData.name);
       if (overlay) createData["flags.core.overlay"] = true;
       await cls.create(createData, { parent: this.actor });
