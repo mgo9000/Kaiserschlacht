@@ -29,4 +29,5 @@ export default class KSActiveEffect extends ActiveEffect {
     }
     super._onDelete(options, userId);
   }
+
 }

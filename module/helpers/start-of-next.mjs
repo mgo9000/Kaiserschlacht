@@ -1,4 +1,3 @@
-import KSActiveEffect from "../documents/active-effects.mjs";
 export default function startOfNext() {
   const cbt = game.combat;
   if (cbt) {
@@ -9,11 +8,23 @@ export default function startOfNext() {
     };
     console.log(c);
     const newDTurns = c.nTurns - (c.turn - 1);
-    const newDTime = KSActiveEffect._getCombatTime(0, newDTurns);
-    const newRemaining = KSActiveEffect._getCombatTime(0, newDTurns);
-    const newLabel = KSActiveEffect._getDurationLabel(0, newDTurns);
+    const newDTime = Math.max(newDTurns / 100, 0);
+    const newRemaining = Math.max(newDTurns / 100, 0);
+    const newLabel = `${newDTurns} ${game.i18n.localize(
+      newDTurns === 1 ? "COMBAT.Turn" : "COMBAT.Turns"
+    )}`;
 
     console.log(newDTurns);
-    return [newDTurns, newDTime, newRemaining, newLabel];
-  }
+    return {
+      turns: newDTurns,
+      duration: newDTime,
+      remaining: newRemaining,
+      label: newLabel,
+    };
+  } else
+    return {
+      duration: 1,
+      rounds: 1,
+      label: `1 ${game.i18n.localize("COMBAT.Round")}`,
+    };
 }

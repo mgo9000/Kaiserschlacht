@@ -98,12 +98,7 @@ Hooks.once("init", function () {
       name: "Cover",
       icon: "icons/svg/tower.svg",
       changes: [{ key: "system.tempArmor", value: 2 }],
-      duration: {
-        turns: helpers.startOfNext[0],
-        duration: helpers.startOfNext[1],
-        remaining: helpers.startOfNext[2],
-        label: helpers.startOfNext[3],
-      },
+      duration: helpers.startOfNext(),
     },
     {
       id: "prone",
