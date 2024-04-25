@@ -2,6 +2,7 @@
 // import { KSHotbar } from './applications/hotbar.mjs';
 //import submodules
 import * as documents from "./documents/_module.mjs";
+import * as apps from "./apps/_module.mjs";
 // Import document classes.
 import { KSActor } from "./documents/actor.mjs";
 import { KSItem } from "./documents/item.mjs";
@@ -22,6 +23,7 @@ globalThis.kaiserschlacht = {
   createItemMacro,
   documents,
   helpers,
+  apps,
   KSChatMessage,
   KSRoll,
   config: KAISERSCHLACHT,
@@ -161,6 +163,8 @@ Hooks.once("init", function () {
   CONFIG.Combat.documentClass = documents.KSCombat;
   CONFIG.Token.documentClass = documents.KSTokenDocument;
   // CONFIG.ui.hotbar = KSHotbar;
+  CONFIG.ui.combat = apps.KSCombatTracker;
+
   // Define and push custom dice types
   CONFIG.Dice.KSRoll = KSRoll;
   CONFIG.Dice.rolls.push(KSRoll);
@@ -223,6 +227,12 @@ Hooks.once("ready", function () {
       return true;
     }
   );
+  Hooks.on("preCreateCombatant", (combatant, data, options, userId) => {
+    console.log(combatant);
+    const newInitiative = combatant.actor.system.initiative;
+    console.log(newInitiative);
+    combatant.updateSource({ initiative: newInitiative });
+  });
   // Hooks.on("applyActiveEffect", (actor, change, current, delta, changes) => {
   //   console.log(change);
   //   console.log(current);

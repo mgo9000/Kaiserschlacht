@@ -588,6 +588,15 @@
   max-height: 250px;
 }
 
+.gm-user-draggable {
+  cursor: grab;
+}
+
+.combat-sidebar li.combatant .token-initiative .initiative {
+  font-weight: normal;
+  text-shadow: 1px 1px 4px var(--color-shadow-dark);
+}
+
 .grid,
 .grid-2col {
   display: grid;

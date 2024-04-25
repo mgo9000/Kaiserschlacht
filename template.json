@@ -19,7 +19,7 @@
     "character": {
       "templates": ["base"],
       "targetNumber": 0,
-      "initiative": 2,
+      "initiative": 99,
       "armor": 0,
       "tempArmor": 0,
       "attributes": {

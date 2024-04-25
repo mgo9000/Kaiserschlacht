@@ -301,20 +301,23 @@ export class KSActorSheet extends ActorSheet {
     let label = dataset.label ? `${dataset.label}` : "";
 
     // Handle item rolls.
-    if (dataset.rollType) {
-      if (dataset.rollType == "item") {
+    switch (dataset.rollType) {
+      case item: {
         const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
-      } else if (dataset.rollType == "attack") {
+      }
+      case attack: {
         const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.attackRoll();
-      } else if (dataset.rollType == "reload") {
+      }
+      case reload: {
         const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
-      } else if (dataset.rollType == "diff") {
+      }
+      case diff: {
         const amendedFormula = await diffDialog(dataset.roll);
         let roll = new KSRoll(amendedFormula, this.actor.getRollData(), {});
         roll.toMessage({
@@ -324,17 +327,17 @@ export class KSActorSheet extends ActorSheet {
         });
         return roll;
       }
-    } else if (dataset.roll) {
-      let roll = new KSRoll(dataset.roll, this.actor.getRollData());
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
-        rollMode: game.settings.get("core", "rollMode"),
-      });
-      return roll;
+      default: {
+        let roll = new KSRoll(dataset.roll, this.actor.getRollData());
+        roll.toMessage({
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          flavor: label,
+          rollMode: game.settings.get("core", "rollMode"),
+        });
+        return roll;
+      }
     }
   }
-
   async _onDodge(event) {
     event.preventDefault();
     const element = event.currentTarget;

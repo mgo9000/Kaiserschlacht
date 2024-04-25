@@ -130,6 +130,16 @@
       "Temporary": "Temporary Effects",
       "Passive": "Passive Effects",
       "Inactive": "Inactive Effects"
+    },
+    "Actor": {
+      "character": {
+        "long": "Character",
+        "abbr": "PC"
+      },
+      "npc": {
+        "long": "NPC",
+        "abbr": "NPC"
+      }
     }
   },
   "TYPES": {

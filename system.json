@@ -13,13 +13,13 @@
   "readme": "README.md",
   "bugs": "https://github.com/mokonsky/Kaiserschlacht/issues",
   "changelog": "CHANGELOG.md",
-  "version": "0.4.20",
+  "version": "0.4.21",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
   },
   "esmodules": ["module/kaiserschlacht.mjs"],
-  "scripts": ["lib/tagify.min.js"],
+  "scripts": ["lib/tagify.min.js", "lib/sortable.core.esm.js"],
   "styles": ["styles/kaiserschlacht.css"],
   "languages": [
     {
