@@ -1,9 +1,5 @@
-import {
-  KSRoll,
-} from '../helpers/roll.mjs';
-import {
-  diffDialog,
-} from '../helpers/dice-dialog.mjs';
+import { KSRoll } from "../helpers/roll.mjs";
+import { diffDialog } from "../helpers/dice-dialog.mjs";
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -17,13 +13,11 @@ export class KSItem extends Item {
     // preparation methods overridden (such as prepareBaseData()).
     super.prepareData();
     if (this.system.equipped === false) {
-      this.collections.effects.forEach(e => e.update({ transfer: false }));
-
+      this.collections.effects.forEach((e) => e.update({ transfer: false }));
     }
-
   }
   /**
-   * Returns a given item's attack roll.
+   * Returns a given item's attack roll formula.
    * @type {string}
    */
   get attackFormula() {
@@ -73,7 +67,7 @@ export class KSItem extends Item {
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     console.log(this.actor);
-    const rollMode = game.settings.get('core', 'rollMode');
+    const rollMode = game.settings.get("core", "rollMode");
     const label = `${item.name}`;
 
     // If there's no roll data, send a chat message.
@@ -83,7 +77,9 @@ export class KSItem extends Item {
         const rollData = await this.getRollData();
 
         // Invoke the roll and submit it to chat.
-        const roll = new KSRoll("1d6", rollData, { targetNumber: rollData.reload });
+        const roll = new KSRoll("1d6", rollData, {
+          targetNumber: rollData.reload,
+        });
         // If you need to store the value first, uncomment the next line.
         // const result = await roll.evaluate();
         roll.toMessage({
@@ -92,13 +88,12 @@ export class KSItem extends Item {
           flavor: "Reload",
         });
         return roll;
-      }
-      else
+      } else
         ChatMessage.create({
           speaker: speaker,
           rollMode: rollMode,
           flavor: label,
-          content: item.system.description ?? '',
+          content: item.system.description ?? "",
         });
     }
     // Otherwise, create a roll and send a chat message from it.
@@ -131,7 +126,7 @@ export class KSItem extends Item {
 
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    const rollMode = game.settings.get('core', 'rollMode');
+    const rollMode = game.settings.get("core", "rollMode");
     const label = `${item.name}`;
 
     // If there's no roll data, send a chat message.
@@ -140,7 +135,7 @@ export class KSItem extends Item {
         speaker: speaker,
         rollMode: rollMode,
         flavor: label,
-        content: item.system.description ?? '',
+        content: item.system.description ?? "",
       });
     }
     // Otherwise, create a roll and send a chat message from it.
@@ -150,7 +145,11 @@ export class KSItem extends Item {
       let formula = this.attackFormula;
       const amendedFormula = await diffDialog(formula);
       // Invoke the roll and submit it to chat.
-      const roll = new KSRoll(amendedFormula, rollData.actor, { reload: this.system.reload || null, damage: this.system.damage || 0, damageTags: this.system.traits || null });
+      const roll = new KSRoll(amendedFormula, rollData.actor, {
+        reload: this.system.reload,
+        damage: this.system.damage || 0,
+        damageTags: this.system.weaponTraits,
+      });
       // If you need to store the value first, uncomment the next line.
       // const result = await roll.evaluate();
       roll.toMessage({
@@ -161,15 +160,14 @@ export class KSItem extends Item {
       return roll;
     }
   }
-  equipToggle() { //toggles equip value and whether the items are deleted or not
+  equipToggle() {
+    //toggles equip value and whether the items are deleted or not
     if (this.system.equipped) {
       this.update({ system: { equipped: false } });
-      this.collections.effects.forEach(e => e.update({ transfer: false }));
-    }
-    else {
+      this.collections.effects.forEach((e) => e.update({ transfer: false }));
+    } else {
       this.update({ system: { equipped: true } });
-      this.collections.effects.forEach(e => e.update({ transfer: true }));
+      this.collections.effects.forEach((e) => e.update({ transfer: true }));
     }
-
   }
 }

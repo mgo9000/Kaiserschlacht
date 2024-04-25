@@ -39,19 +39,35 @@
       {{!-- As you add new fields, add them in here! --}}
       <div class="resource">
         <label class="resource-label" data-damage="{{system.damage}}"
-          data-damage-tags="{{system.traits}}">Damage</label>
+          data-damage-tags="{{system.weaponTraits}}">Damage</label>
         <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
         <label class="resource-label">Reload</label>
         <input type="text" name="system.reload" value="{{system.reload}}" data-dtype="Number" />
         <label class="resource-label">Range</label>
         <input type="text" name="system.range" value="{{system.range}}" data-dtype="String" />
-        <label class="resource-label">Traits</label>
-        <input type="text" name="system.traits" value="{{system.traits}}" data-dtype="String" />
-        <label class="resource-label">Type</label>
-        <input type="text" name="system.type" value="{{system.type}}" data-dtype="String" />
-        <label class="resource-label">Equipped</label>
-        <a class='equip-toggle' name="system.equipped"><i
-            class="{{#if system.equipped}}fa-solid fa-hand-fist{{else}}fa-regular fa-hand{{/if}}"></i></a>
+
+        {{!-- <input type="text" name="system.type" value="{{system.type}}" data-dtype="String" /> --}}
+
+        <div>
+          <div><label class="resource-label">Traits</label></div>
+          <input type="text" name="system.weaponTraits" value="{{json system.weaponTraits}}" data-dtype="JSON" />
+        </div>
+        <div>
+          <div><label class="resource-label">Type</label></div>
+          <select name="system.type" data-dtype="string">
+            {{#select system.type}}
+            <option value="ranged">Ranged</option>
+            <option value="melee">Melee</option>
+            <option value="thrown">Thrown</option>
+            <option value="acrobatics">Acrobatics</option>
+            {{/select}}
+          </select>
+        </div>
+
+        <div><label class="resource-label">Equipped</label>
+          <a class='equip-toggle' name="system.equipped"><i
+              class="{{#if system.equipped}}fa-solid fa-hand-fist{{else}}fa-regular fa-hand{{/if}}"></i></a>
+        </div>
       </div>
     </div>
     {{!-- Effects Tab --}}

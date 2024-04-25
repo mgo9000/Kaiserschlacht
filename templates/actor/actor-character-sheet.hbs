@@ -34,7 +34,8 @@
         <div class="resource flex-group-center">
           <label for="system.attributes.skillPoints.value" class="resource-label">Armor</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.armor" value="{{system.armor}}" data-dtype="Number" />
+            <input type="text" name="system.armor" value="{{system.armor}}" data-dtype="Number" /> {{#if
+            system.tempArmor}} + {{system.tempArmor}} {{/if}}
           </div>
         </div>
         {{#each system.classStats as |classStat key|}}{{#with visible}}
@@ -65,7 +66,8 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
-    <a class="item" data-tab="actions">Actions</a>
+    <a class="item" data-tab="actions">Stats</a>
+    <a class="item" data-tab="combat">Combat</a>
     <a class="item" data-tab="description">Biography</a>
     <a class="item" data-tab="features">Feats</a>
     <a class="item" data-tab="items">Gear</a>
@@ -76,65 +78,56 @@
   {{!-- Sheet Body --}}
   <section class="sheet-body">
 
-    {{!-- Actions Tab --}}
+    {{!-- Skills Tab --}}
     <div class="tab actions" data-group="primary" data-tab="actions">
-      <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-weapons.hbs"}}</section>
-      <section>{{> "systems/kaiserschlacht/templates/actor/parts/actor-armor.hbs"}}</section>
-      <hr>
-      <aside>
-        <div class="stats grid grid-2col">
-          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-          use both the "grid" and "grid-Ncol" class where "N" can be any number
-          from 1 to 12 and will create that number of columns. --}}
-          <div class="abilities flexcol">
-            <div class="ability flexrow flexshrink flex-group-center">
-              <aside class="flexlarge align-left"></aside>
-              <label class="resource-label">Base</label>
-              <span></span>
-              <label class="resource-label">Bonus</label>
-              <span></span>
-            </div>
-            {{#each system.abilities as |ability key|}}
-            <div class="ability flexrow flex-group-center">
-              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
-                data-label="{{ability.label}}">{{ability.label}}</label>
-              <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
-              <span></span>
-              <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}" data-dtype="Number" />
-              <span></span>
-            </div>
-            {{/each}}
+      <div class="stats grid grid-3col">
+        {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+        use both the "grid" and "grid-Ncol" class where "N" can be any number
+        from 1 to 12 and will create that number of columns. --}}
+        <div class="abilities flexcol">
 
+          {{#each system.abilities as |ability key|}}
+          <div class="ability flexrow flex-group-center">
+            <span class="resource-label rollable"
+              data-roll="@abilities.{{key}}.mod" data-roll-type="diff"
+              data-label="{{ability.label}}">{{ability.label}}</span>
           </div>
-          <div class="skills flexcol">
-            <div class="skill flexrow flexshrink flex-group-center">
-              <aside class="flexlarge align-left"></aside>
-              <label class="resource-label">Base</label>
-              <span></span>
-              <label class="resource-label">Bonus</label>
-              <span></span>
-            </div>
-            {{#each system.skills as |skill key|}}
-            <div class="skill flexrow flex-group-center">
-              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                data-roll="@skills.{{key}}.mod" data-roll-type="diff"
-                data-label="{{skill.label}}">{{skill.label}}</label>
-              <input type="text" name="system.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number" />
-              <span></span>
-              <input type="text" name="system.skills.{{key}}.bonus" value="{{skill.bonus}}" data-dtype="Number" />
-              <span></span>
-            </div>
-            {{/each}}
+          <div class="flexrow flex-group-center">
+            <a class="stat-display" data-stat-type="abilities" data-stat-key="{{key}}"
+              data-stat="{{json ability}}">{{ability.value}}
+              {{#if ability.bonus}} + {{ability.bonus}}{{/if}}</a>
           </div>
-      </aside>
+          {{/each}}
+
+        </div>
+
+        <div class="skills flexcol grid-span-2">
+
+          {{#each system.skills as |skill key|}}
+          <div class="skill flexrow flex-group-center">
+            <span  class="resource-label rollable flexlarge align-left"
+              data-roll="@skills.{{key}}.mod" data-roll-type="diff" data-label="{{skill.label}}">{{skill.label}}</span>
+            <a class="stat-display" data-stat-type="skills" data-stat-key="{{key}}"
+              data-stat="{{json skill}}">{{skill.value}}
+              {{#if skill.bonus}} + {{skill.bonus}}{{/if}}</a>
+          </div>
+          {{/each}}
+
+        </div>
+      </div>
+    </div>
+    {{!-- Combat Tab --}}
+    <div class="tab combat" data-group="primary" data-tab="combat">
+      {{> "systems/kaiserschlacht/templates/actor/parts/actor-combat.hbs"}}
     </div>
 
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="description">
-      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to
+      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data
+      to
       the rollData property. --}}
-      {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner
+      editable=editable}}
     </div>
     {{!-- Owned Items Tab --}}
     <div class="tab items" data-group="primary" data-tab="items">
