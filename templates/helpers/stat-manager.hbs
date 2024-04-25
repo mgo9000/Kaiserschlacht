@@ -1,0 +1,22 @@
+<form class="flexcol" autocomplete="off">
+    <div class="ability flexrow flexshrink flex-group-center">
+        <aside class=""></aside>
+        <label class="resource-label"><strong>Base</strong></label>
+        <span></span>
+        <label class="resource-label"><strong>Bonus</strong></label>
+        <span></span>
+    </div>
+    <div class="ability flexrow flex-group-center">
+        <label for="system.{{statType}}.{{statKey}}.value"
+            class="resource-label"><strong>{{stat.label}}</strong></label>
+        <input type="text" name="system.{{statType}}.{{statKey}}.value" value="{{stat.value}}" data-dtype="Number" />
+        <span></span>
+        <input type="text" name="system.{{statType}}.{{statKey}}.bonus" value="{{stat.bonus}}" data-dtype="Number" />
+        <span></span>
+
+
+    </div>
+    <button type="submit">
+        <i class="far fa-save"></i> Update {{stat.label}}
+    </button>
+</form>
