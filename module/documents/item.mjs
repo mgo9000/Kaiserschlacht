@@ -120,9 +120,7 @@ export class KSItem extends Item {
    */
   async attackRoll() {
     const item = this;
-    console.log(item);
     await this.system;
-    console.log(this.system);
 
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
@@ -137,9 +135,7 @@ export class KSItem extends Item {
         flavor: label,
         content: item.system.description ?? "",
       });
-    }
-    // Otherwise, create a roll and send a chat message from it.
-    else {
+    } else {
       // Retrieve roll data.
       const rollData = await this.getRollData();
       let formula = this.attackFormula;
@@ -150,13 +146,12 @@ export class KSItem extends Item {
         damage: this.system.damage || 0,
         damageTags: this.system.weaponTraits,
       });
-      // If you need to store the value first, uncomment the next line.
-      // const result = await roll.evaluate();
       roll.toMessage({
         speaker: speaker,
         rollMode: rollMode,
         flavor: label,
       });
+
       return roll;
     }
   }

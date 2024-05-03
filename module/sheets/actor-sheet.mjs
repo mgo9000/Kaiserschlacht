@@ -302,22 +302,22 @@ export class KSActorSheet extends ActorSheet {
 
     // Handle item rolls.
     switch (dataset.rollType) {
-      case item: {
+      case "item": {
         const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
       }
-      case attack: {
+      case "attack": {
         const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.attackRoll();
       }
-      case reload: {
+      case "reload": {
         const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
       }
-      case diff: {
+      case "diff": {
         const amendedFormula = await diffDialog(dataset.roll);
         let roll = new KSRoll(amendedFormula, this.actor.getRollData(), {});
         roll.toMessage({

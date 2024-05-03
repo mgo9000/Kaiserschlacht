@@ -242,17 +242,21 @@ export class KSActor extends Actor {
    * Remove any expired effects when prompted
    */
   removeExpiredEffects() {
-    let effectCollection = this.effects;
-    let effectClone = foundry.utils.deepClone(effectCollection);
-    let expiredEffectIDs = [];
-    effectClone.forEach((effect) => {
-      if (
-        effect.duration.remaining <= 0.01 &&
-        effect.duration.remaining !== null
-      ) {
-        expiredEffectIDs.push(effect._id);
-      }
-    });
-    this.deleteEmbeddedDocuments("ActiveEffect", expiredEffectIDs);
+    if (game.settings.get("kaiserschlacht", "autoExpireEffexts")) {
+      let effectCollection = this.effects;
+      let effectClone = foundry.utils.deepClone(effectCollection);
+      let expiredEffectIDs = [];
+      effectClone.forEach((effect) => {
+        if (
+          effect.duration.remaining <= 0.01 &&
+          effect.duration.remaining !== null
+        ) {
+          expiredEffectIDs.push(effect._id);
+        }
+      });
+      this.deleteEmbeddedDocuments("ActiveEffect", expiredEffectIDs);
+    } else {
+      return;
+    }
   }
 }

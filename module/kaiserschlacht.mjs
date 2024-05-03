@@ -16,6 +16,7 @@ import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { KSRoll } from "./helpers/roll.mjs";
 import { KAISERSCHLACHT } from "./helpers/config.mjs";
 import * as helpers from "./helpers/_module.mjs";
+import { registerSettings } from "./settings.mjs";
 globalThis.kaiserschlacht = {
   KSActor,
   KSItem,
@@ -35,7 +36,7 @@ globalThis.kaiserschlacht = {
 Hooks.once("init", function () {
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
-
+  registerSettings();
   globalThis.kaiserschlacht = game.kaiserschlacht = Object.assign(
     game.system,
     globalThis.kaiserschlacht
