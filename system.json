@@ -1,7 +1,7 @@
 {
   "id": "kaiserschlacht",
   "title": "Kaiserschlacht",
-  "description": "The Kaiserschlacht system for FoundryVTT.",
+  "description": "Kaiserschlacht is a World War I horror RPG currently in the playtesting phase.",
   "authors": [
     {
       "name": "M. Okonsky",
@@ -13,7 +13,7 @@
   "readme": "README.md",
   "bugs": "https://github.com/mokonsky/Kaiserschlacht/issues",
   "changelog": "CHANGELOG.md",
-  "version": "0.4.23",
+  "version": "0.4.24",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
