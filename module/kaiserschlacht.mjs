@@ -98,8 +98,8 @@ Hooks.once("init", function () {
       icon: "icons/svg/skull.svg",
     },
     {
-      id: "unconscious",
-      name: "EFFECT.StatusUnconscious",
+      id: "fading",
+      name: "Fading",
       icon: "icons/svg/unconscious.svg",
     },
     {
@@ -116,11 +116,6 @@ Hooks.once("init", function () {
       icon: "icons/svg/falling.svg",
 
       changes: [{ key: "system.tempArmor", value: 1 }],
-    },
-    {
-      id: "invisible",
-      name: "EFFECT.StatusInvisible",
-      icon: "icons/svg/invisible.svg",
     },
   ];
   /**
