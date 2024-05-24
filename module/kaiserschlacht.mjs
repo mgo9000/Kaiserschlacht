@@ -49,22 +49,33 @@ Hooks.once("init", function () {
     "3 Target",
     "AP",
     "Awesome",
+    "Bayonet",
     "Blast 1",
     "Blast 2",
     "Blast 3",
     "Block",
-    "Breaching",
+    "Bonk",
+    "Breaching 1",
+    "Breaching 2",
+    "Breaching 3",
     "Cobbled",
     "Combo",
     "Deployed",
     "Double-Barrel",
     "Fast",
-    "Illuminating",
+    "Heavy",
+    "Illuminating 1",
+    "Illuminating 2",
+    "Illuminating 3",
     "Lasting",
     "Parry",
     "Piercing",
+    "Rapid-Fire",
     "Reach",
-    "Signal",
+    "Scoped",
+    "Signal 1",
+    "Signal 2",
+    "Signal 3",
     "Slam-Fire",
     "Slow",
     "Smokescreen",
@@ -92,11 +103,6 @@ Hooks.once("init", function () {
       icon: "icons/svg/unconscious.svg",
     },
     {
-      id: "stun",
-      name: "EFFECT.StatusStunned",
-      icon: "icons/svg/daze.svg",
-    },
-    {
       id: "cover",
       name: "Cover",
       icon: "icons/svg/tower.svg",
@@ -110,36 +116,6 @@ Hooks.once("init", function () {
       icon: "icons/svg/falling.svg",
 
       changes: [{ key: "system.tempArmor", value: 1 }],
-    },
-    {
-      id: "restrain",
-      name: "EFFECT.StatusRestrained",
-      icon: "icons/svg/net.svg",
-    },
-    {
-      id: "paralysis",
-      name: "EFFECT.StatusParalysis",
-      icon: "icons/svg/paralysis.svg",
-    },
-    {
-      id: "blind",
-      name: "EFFECT.StatusBlind",
-      icon: "icons/svg/blind.svg",
-    },
-    {
-      id: "fear",
-      name: "EFFECT.StatusFear",
-      icon: "icons/svg/terror.svg",
-    },
-    {
-      id: "bleeding",
-      name: "EFFECT.StatusBleeding",
-      icon: "icons/svg/blood.svg",
-    },
-    {
-      id: "disease",
-      name: "EFFECT.StatusDisease",
-      icon: "icons/svg/biohazard.svg",
     },
     {
       id: "invisible",
@@ -185,6 +161,13 @@ Hooks.once("init", function () {
     makeDefault: true,
     label: "KAISERSCHLACHT.SheetLabels.Item",
   });
+  if (document.querySelector("#ui-top")) {
+    const uiTop = document.querySelector("#ui-top");
+    const effectBarElement = document.createElement("template");
+    effectBarElement.setAttribute("id", "effect-bar");
+    uiTop.insertAdjacentElement("afterend", effectBarElement);
+  }
+  game.kaiserschlacht.effectBar = new apps.EffectBar();
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
@@ -194,7 +177,6 @@ Hooks.once("init", function () {
 /*  Handlebars Helpers                          */
 /* -------------------------------------------- */
 
-// If you need to add Handlebars helpers, here is a useful example:
 Handlebars.registerHelper("toLowerCase", function (str) {
   return str.toLowerCase();
 });
@@ -210,12 +192,18 @@ Handlebars.registerHelper("values", (data) => {
 
 Hooks.once("ready", function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-
+  //Effects Bar
+  game.kaiserschlacht.effectBar.render(true);
+  console.log(ui);
   Hooks.on("hotbarDrop", (bar, data, slot) => {
     if (["Item"].includes(data.type)) {
       createItemMacro(data, slot);
       return false;
     }
+  });
+  Hooks.on("controlToken", (object, controlled) => {
+    console.log("controlToken hook fired");
+    game.kaiserschlacht.effectBar.render();
   });
   Hooks.on(
     "preUpdateCombat",
