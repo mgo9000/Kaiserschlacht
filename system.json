@@ -28,7 +28,32 @@
       "path": "lang/en.json"
     }
   ],
-  "packs": [],
+  "packs": [
+    {
+      "name": "npcs",
+      "label": "NPCs",
+      "path": "packs/npcs",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "kaiserschlacht",
+      "flags": {}
+    },
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "path": "packs/weapons",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "kaiserschlacht",
+      "flags": {}
+    }
+  ],
   "packFolders": [],
   "socket": false,
   "manifest": "https://github.com/mokonsky/Kaiserschlacht/releases/latest/download/system.json",
