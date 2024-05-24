@@ -350,16 +350,16 @@ export class KSActorSheet extends ActorSheet {
       {
         name: "Dodge",
         icon: "icons/svg/wing.svg",
-        duration: {
-          turns: 1,
-        },
+        duration: helpers.startOfNext(),
         changes: [{ key: "system.tempArmor", value: dodgeValue * 2 }],
-        flags: {
-          onRemove: "toggleTokenStatus",
-          onRemoveArgs: { id: "prone" },
-        },
       },
       { parent: this.actor }
+    );
+    const actorTokens = this.actor.getActiveTokens(true, true);
+    actorTokens.forEach((token) =>
+      token.toggleActiveEffect(
+        CONFIG.statusEffects.find((e) => e.id === "prone")
+      )
     );
   }
 
