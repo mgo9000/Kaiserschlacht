@@ -108,7 +108,7 @@ Hooks.once("init", function () {
       icon: "icons/svg/tower.svg",
       changes: [{ key: "system.tempArmor", value: 2 }],
       duration: helpers.startOfNext(),
-      flags: { startOfNextTurn: true },
+      flags: { startOfNext: true },
     },
     {
       id: "prone",
