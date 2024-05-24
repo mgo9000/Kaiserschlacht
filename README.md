@@ -2,4 +2,4 @@ Kaiserschlacht is a horror RPG set in the last days of the first World War, and 
 
 Automated skill checks, damage application, status effect expiration, and more, are already implemented, and many more features are incoming.
 
-Forthcoming will be compendium content for the upcoming playtest, and some video explanations of the system's features.
+Coming soon: more compendium content, V12 support, proper automation for the Prone status effect, quickstart documentation.
