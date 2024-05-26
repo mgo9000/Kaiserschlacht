@@ -210,7 +210,7 @@ Hooks.once("ready", function () {
     }
   );
   Hooks.on("updateActor", (actor, changes, options, userId) => {
-    if (changes.system.health.value === 0) {
+    if (changes.system.health?.value === 0) {
       actor.dropFadingOrDead();
     }
   });
