@@ -1,7 +1,7 @@
 import * as helpers from "../helpers/_module.mjs";
 /* -------------------------------------------- */
 /**
- * Extend the basic ActorSheet with some very simple modifications
+ * Extend the basic Token Document with some very simple modifications
  * @extends {TokenDocument}
  */
 export default class KSTokenDocument extends TokenDocument {

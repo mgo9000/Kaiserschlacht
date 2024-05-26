@@ -29,5 +29,11 @@ export default class KSActiveEffect extends ActiveEffect {
     }
     super._onDelete(options, userId);
   }
-
+  async _preCreate(data, options, userId) {
+    await super._preCreate(data, options, userId);
+    console.log(arguments);
+    if (data.flags.startOfNext == true) {
+      return this.updateSource({ duration: helpers.startOfNext() });
+    }
+  }
 }

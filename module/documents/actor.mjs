@@ -153,6 +153,7 @@ export class KSActor extends Actor {
   }
 
   // Apply damage
+  //TODO: break up the function, check for range
   async _applyDamage(damage, damageTags) {
     console.log(damageTags);
     const damageTemplate =
@@ -238,6 +239,29 @@ export class KSActor extends Actor {
     ChatMessage.create(chatData);
   }
 
+  /**
+   * Determines whether they are a player or npc amd applies fading or dead, respectively
+   */
+  dropFadingOrDead() {
+    if (game.settings.get("kaiserschlacht", "autoDownAtZero")) {
+      console.log(this);
+      if (this.type === "character") {
+        const actorTokens = this.getActiveTokens(true, true);
+        actorTokens.forEach((token) =>
+          token.toggleActiveEffect(
+            CONFIG.statusEffects.find((e) => e.id === "fading")
+          )
+        );
+      } else {
+        const actorTokens = this.getActiveTokens(true, true);
+        actorTokens.forEach((token) =>
+          token.toggleActiveEffect(
+            CONFIG.statusEffects.find((e) => e.id === "dead")
+          )
+        );
+      }
+    }
+  }
   /**
    * Remove any expired effects when prompted
    */

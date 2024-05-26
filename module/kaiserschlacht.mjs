@@ -105,7 +105,7 @@ Hooks.once("init", function () {
       name: "Cover",
       icon: "icons/svg/tower.svg",
       changes: [{ key: "system.tempArmor", value: 2 }],
-      duration: helpers.startOfNext(),
+      duration: { rounds: 0 },
       flags: { startOfNext: true },
     },
     {
@@ -131,7 +131,7 @@ Hooks.once("init", function () {
   CONFIG.ChatMessage.documentClass = KSChatMessage;
   CONFIG.ActiveEffect.documentClass = documents.KSActiveEffect;
   CONFIG.Combat.documentClass = documents.KSCombat;
-  CONFIG.Token.documentClass = documents.KSTokenDocument;
+  // CONFIG.Token.documentClass = documents.KSTokenDocument;
   // CONFIG.ui.hotbar = KSHotbar;
   CONFIG.ui.combat = apps.KSCombatTracker;
 
@@ -209,6 +209,11 @@ Hooks.once("ready", function () {
       return true;
     }
   );
+  Hooks.on("updateActor", (actor, changes, options, userId) => {
+    if (changes.system.health.value === 0) {
+      actor.dropFadingOrDead();
+    }
+  });
   Hooks.on("preCreateCombatant", (combatant, data, options, userId) => {
     console.log(combatant);
     const newInitiative = combatant.actor.system.initiative;
