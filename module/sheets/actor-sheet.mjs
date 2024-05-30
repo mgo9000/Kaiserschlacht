@@ -340,8 +340,6 @@ export class KSActorSheet extends ActorSheet {
   }
   async _onDodge(event) {
     event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
     const dodgeValue =
       this.actor.system.abilities.finesse.value +
       this.actor.system.abilities.finesse.bonus;
@@ -365,8 +363,6 @@ export class KSActorSheet extends ActorSheet {
 
   async _onCover(event) {
     event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
     const actorTokens = this.actor.getActiveTokens(true, true);
     actorTokens.forEach((token) =>
       token.toggleActiveEffect(
@@ -377,8 +373,6 @@ export class KSActorSheet extends ActorSheet {
 
   async _onBlock(event) {
     event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
     const blockValue = await blockDialog();
     ActiveEffect.create(
       {
@@ -402,7 +396,7 @@ export class KSActorSheet extends ActorSheet {
   }
 
   /**
-   * Handle clickable rolls.
+   * provides dialog which lets you adjust stats 
    * @param {Event} event   The originating click event
    * @private
    */

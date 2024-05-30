@@ -259,6 +259,7 @@ export class KSActor extends Actor {
             CONFIG.statusEffects.find((e) => e.id === "dead")
           )
         );
+        this._createArmorLoot();
       }
     }
   }
@@ -283,4 +284,24 @@ export class KSActor extends Actor {
       return;
     }
   }
+  async _createArmorLoot() {
+    const armorValue = this.system.armor.value;
+    // Get the type of item to create.
+    const type = "armor"
+    // Initialize a default name.
+    const name = `${this.name} ${type.capitalize()}`;
+    // Prepare the item object.
+    const itemData = {
+      name: name,
+      type: type,
+      system: { armorBonus: armorValue },
+    };
+    // Remove the type from the dataset since it's in the itemData.type prop.
+    delete itemData.system["type"];
+
+    // Finally, create the item!
+    return await Item.create(itemData, { parent: this });
+
+  }
+
 }

@@ -33,7 +33,7 @@ globalThis.kaiserschlacht = {
 /*  Init Hook                                   */
 /* -------------------------------------------- */
 
-Hooks.once("init", function () {
+Hooks.once("init", function() {
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
   registerSettings();
@@ -170,7 +170,7 @@ Hooks.once("init", function () {
 /*  Handlebars Helpers                          */
 /* -------------------------------------------- */
 
-Handlebars.registerHelper("toLowerCase", function (str) {
+Handlebars.registerHelper("toLowerCase", function(str) {
   return str.toLowerCase();
 });
 Handlebars.registerHelper("json", (data) => {
@@ -183,11 +183,19 @@ Handlebars.registerHelper("values", (data) => {
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
 
-Hooks.once("ready", function () {
+Hooks.once("ready", function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   //Effects Bar
   game.kaiserschlacht.effectBar.render(true);
   console.log(ui);
+  Hooks.on("dropActorSheetData", (actor, sheet, data) => {
+    if (data.type == "Item"){
+      const item = fromUuidSync(data.uuid);
+      if (item.type != "feature"  && item.parent != actor){
+        deleteOriginalItem(item);
+      }
+    }
+  });
   Hooks.on("hotbarDrop", (bar, data, slot) => {
     if (["Item"].includes(data.type)) {
       createItemMacro(data, slot);
@@ -210,8 +218,10 @@ Hooks.once("ready", function () {
     }
   );
   Hooks.on("updateActor", (actor, changes, options, userId) => {
-    if (changes.system.health?.value === 0) {
-      actor.dropFadingOrDead();
+    if (game.user.isGM) {
+      if (changes.system.health?.value === 0) {
+        actor.dropFadingOrDead();
+      }
     }
   });
   Hooks.on("preCreateCombatant", (combatant, data, options, userId) => {
@@ -309,4 +319,9 @@ export function rollItemMacro(itemUuid) {
       item.roll();
     }
   });
+}
+export function deleteOriginalItem(item) {
+  if (!item.compendium && item.isOwned){
+    item.delete();
+  }
 }
