@@ -205,7 +205,20 @@ export class KSActorSheet extends ActorSheet {
 
     // Add Inventory Item
     html.on("click", ".item-create", this._onItemCreate.bind(this));
-
+    html.on("click", ".item-subtract", (ev) => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+      const q = item.system.quantity;
+      if (q >= 1) {
+        item.update({ system: { quantity: q - 1 } });
+      }
+    });
+    html.on("click", ".item-add", (ev) => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+      const q = item.system.quantity;
+      item.update({ system: { quantity: q + 1 } });
+    });
     // Delete Inventory Item
     html.on("click", ".item-delete", (ev) => {
       const li = $(ev.currentTarget).parents(".item");

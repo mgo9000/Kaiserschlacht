@@ -2,9 +2,8 @@
   <li class='item flexrow items-header'>
     <div class='item-name'>{{localize 'Armor'}}</div>
     <div class='item-prop'>{{localize 'Bonus'}}</div>
-    <div class='item-prop'>{{localize 'Speed'}}</div>
     <div class='item-prop'>{{localize 'Traits'}}</div>
-    <div class='item-prop'>{{localize 'Weight'}}</div>
+    <div class='item-prop'>{{localize 'Speed'}}</div>
     <div class='item-controls'>
       <a class='item-control item-create' title='{{localize "DOCUMENT.Create" type='armor'}}' data-type='armor'>
         <i class='fas fa-plus'></i>
@@ -23,9 +22,8 @@
       <h4>{{item.name}}</h4>
     </div>
     <div class='item-armor-bonus item-prop'>{{item.system.armorBonus}}</div>
-    <div class='item-armor-penalty item-prop'>{{item.system.armorPenalty}}</div>
     <div class='item-traits item-prop'>{{item.system.armorTraits}}</div>
-    <div class='item-traits item-prop'>{{item.system.weight}}</div>
+    <div class='item-armor-penalty item-prop'>{{item.system.armorPenalty}}</div>
     <div class='item-controls'>
       <a class='equip-toggle' name="system.equipped"><i
           class="{{#if system.equipped}}fa-solid fa-hand-fist{{else}}fa-regular fa-hand{{/if}}"></i></a>

@@ -14,18 +14,14 @@ export default class EffectBar extends Application {
     let context = super.getData();
 
     const controlledToken = canvas.tokens.controlled[0];
-    console.log(controlledToken);
-    console.log(canvas.tokens);
 
     context.statuses = controlledToken?.actor.getEmbeddedCollection("effects");
-    console.log(context.statuses);
 
     return context;
   }
   /** @override */
   render(force, options) {
     let app = super.render(force, options);
-    console.log(this);
     app.options.renderData = this.getData();
     return app;
   }
