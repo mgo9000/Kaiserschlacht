@@ -16,7 +16,8 @@
   "version": "0.4.28",
   "compatibility": {
     "minimum": 11,
-    "verified": "11.315"
+    "verified": "12.325",
+    "maximum": 12
   },
   "esmodules": ["module/kaiserschlacht.mjs"],
   "scripts": ["lib/tagify.min.js", "lib/sortable.core.esm.js"],
